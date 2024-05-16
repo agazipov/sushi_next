@@ -1,0 +1,250 @@
+[
+    {
+        "name": "Порция имбиря",
+        "price_for_mid": 30,
+        "img": "T9A2lUJGPHs.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Порция Васаби",
+        "price_for_mid": 30,
+        "img": "T9A2lUJGPHs.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Порция соевого соуса",
+        "price_for_mid": 30,
+        "img": "T9A2lUJGPHs.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Cоус ким чи 50гр",
+        "price_for_mid": 50,
+        "img": "noCSPJkdXBw.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Cоус ореховый 50гр",
+        "price_for_mid": 50,
+        "img": "nBOMdpbD1JQ.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Cоус спайси 50гр",
+        "price_for_mid": 50,
+        "img": "2H09HpIT83g.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Картофель фри с соусом 100/25гр",
+        "price_for_mid": 130,
+        "img": "1-tmeDlwBuM.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Кольца кальмаров в кляре с соусом 100/25гр",
+        "price_for_mid": 160,
+        "img": "a3uw6ZqnKl0.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Луковые кольца с соусом 120/25гр",
+        "price_for_mid": 140,
+        "img": "WTi5yDsRICA.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Наггетсы из мяса цыпленка с соусом 8шт/25гр",
+        "price_for_mid": 160,
+        "img": "1dec-sl9mwI.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Салат Чука",
+        "price_for_mid": 100,
+        "img": "Rv6HMRxyoxk.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Чука с креветкой",
+        "price_for_mid": 150,
+        "img": "Rv6HMRxyoxk.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Чука с угрем",
+        "price_for_mid": 180,
+        "img": "Rv6HMRxyoxk.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Лапша Фунчеза с овощами 200гр",
+        "price_for_mid": 120,
+        "img": "_DD6WpjTFno.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Лапша Удон с овощами 200гр",
+        "price_for_mid": 120,
+        "img": "_DD6WpjTFno.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Лапша Рамэн с овощами 200гр",
+        "price_for_mid": 120,
+        "img": "_DD6WpjTFno.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Рис Японский с овощами 200гр",
+        "price_for_mid": 120,
+        "img": "_DD6WpjTFno.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Рис Японский с овощами 200гр",
+        "price_for_mid": 120,
+        "img": "_DD6WpjTFno.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Фреш ролл с беконом 240гр",
+        "compound": "Мексиканская лепешка, помидор, свежий огурчик, лист салата, лук красный, моцарелла, бекон, соуса:рыба&рис, томатный",
+        "price_for_mid": 220,
+        "img": "njkSSWE_Nk4.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Фреш ролл с креветкой 240гр",
+        "compound": "Мексиканская лепешка, помидор, свежий огурчик, лист салата, моцарелла, креветка в кляре, соус 1000остр",
+        "price_for_mid": 240,
+        "img": "UE-CSIjrm7A.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Фреш ролл с рыбкой 240гр",
+        "compound": "Мексиканская лепешка, помидор, свежий огурчик, лист салата, моцарелла, рыбные палочки, соус чесночный",
+        "price_for_mid": 200,
+        "img": "PtQLcLJK1C0.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Чизкейк клубничный",
+        "price_for_mid": 180,
+        "img": "Yn6jcVCISMU.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Чизкейк Сникерс",
+        "price_for_mid": 180,
+        "img": "WNmgLqM4KAU.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Онигири темпура с лососем",
+        "price_for_mid": 290,
+        "img": "XMD_02BsiMo.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Онигири темпура с курицей",
+        "price_for_mid": 290,
+        "img": "9D3IWfHTkvk.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Запеченные Мидии",
+        "compound": "фирменная заправка, соус унаги, кунжут, лимон",
+        "price_for_mid": 260,
+        "price_for_large": 400,
+        "img": "Gz2e5wULuKw.webp",
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Фри бокс с беконом 260гр",
+        "compound": "бекон, соус сырный, соус томатный",
+        "price_for_mid": 280,
+        "img": "A6hZoU6_pDM.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    }
+]

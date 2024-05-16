@@ -1,0 +1,10 @@
+.root {
+    margin: 14px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    gap: 4px;
+}

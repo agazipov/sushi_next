@@ -1,0 +1,112 @@
+[
+    {
+        "name": "Вулкан",
+        "compound": "Творожный сыр, мясо краба, сырная шапочка, соус Спайси",
+        "price_for_large": 250,
+        "img": "EnVsRaFpWDY.webp",
+        "price_for_mid": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Изуми",
+        "compound": "Творожный сыр, креветка, свежий огурчик, лосось с/с, сырная шапочка, соус Унаги, кунжут",
+        "price_for_large": 290,
+        "img": "suoGTIWOQr0.webp",
+        "price_for_mid": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Невада",
+        "compound": "Творожный сыр, курочка, Шампиньоны, сырная шапочка, соус 1000 островов",
+        "price_for_large": 270,
+        "img": "vNmuh-Z8zb4.webp",
+        "price_for_mid": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Ямайка",
+        "compound": "Творожный сыр, курочка, ананас, кунжут, сырная шапочка",
+        "price_for_large": 310,
+        "img": "MuxKT2emlBM.webp",
+        "price_for_mid": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Шик",
+        "compound": "Творожный сыр, курочка, омлет Томаго, помидор, сырная шапочка, чесночный соус",
+        "price_for_large": 310,
+        "img": "S9f5vX6VzTg.webp",
+        "price_for_mid": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Фьюжн",
+        "compound": "Творожный сыр, угорь, курочка, лук фри, соус 1000 островов",
+        "price_for_large": 310,
+        "img": "oICJfloS814.webp",
+        "price_for_mid": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Тояма",
+        "compound": "Творожный сыр, угорь, лист салата, икра Тобико, сырная шапочка, соус Унаги",
+        "price_for_large": 320,
+        "img": "FhC6DyiSIYQ.webp",
+        "price_for_mid": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Фиеста",
+        "compound": "Творожный сыр, креветка, свежий огурчик, икра Тобико, шапочка с мидиями",
+        "price_for_large": 330,
+        "img": "NLZaDDjWud4.webp",
+        "price_for_mid": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Филадельфия Хот",
+        "compound": "Творожный сыр, лосось с/с, соус Унаги, зелёный лук",
+        "price_for_large": 350,
+        "img": "Hdttk9G975c.webp",
+        "price_for_mid": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Криспи",
+        "compound": "Творожный сыр, креветка, лист салата, икра Тобико, шапочка с ветчиной",
+        "price_for_large": 330,
+        "img": "THygZr51pKc.webp",
+        "price_for_mid": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Запеченные ролл с лососем и тунцом",
+        "compound": "сливочный сыр, огурец, шапочка лосось/тунец, спайси соус, лук зелёный",
+        "price_for_large": 340,
+        "img": "Y7xnIt4xR4k.webp",
+        "price_for_mid": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    }
+]

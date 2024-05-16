@@ -1,0 +1,62 @@
+[
+    {
+        "name": "Холодная тортилья с курочкой",
+        "compound": "мексиканская лепешка, творожный сыр, курочка, маринованный огурчик, помидор",
+        "price_for_large": 270,
+        "img": "ZD7sjWLlT0w.webp",
+        "price_for_mid": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Холодная тортилья с лососем",
+        "compound": "мексиканская лепешка, творожный сыр, лосось копченый, Пекинская капуста, помидор",
+        "price_for_large": 290,
+        "img": "iAwDetWX218.webp",
+        "price_for_mid": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Горячая тортилья с беконом",
+        "compound": "Мексиканская лепешка, творожный сыр, свежий огурчик, помидор, бекон, зелёный лук, Пекинская капуста",
+        "price_for_large": 290,
+        "img": "VEOkW2g-M0M.webp",
+        "price_for_mid": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Горячая тортилья с курочкой",
+        "compound": "Мексиканская лепешка, творожный сыр, курочка, помидор, свежий огурчик, Пекинская капуста",
+        "price_for_large": 290,
+        "img": "kbdbEwlpvlg.webp",
+        "price_for_mid": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Горячая тортилья с креветкой",
+        "compound": "Мексиканская лепешка, творожный сыр, помидор, свежий огурчик, креветка, Пекинская капуста",
+        "price_for_large": 300,
+        "img": "wvffosF9ibM.webp",
+        "price_for_mid": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Запечённая тортилья с беконом и ветчиной",
+        "compound": "Мексиканская лепешка, творожный сыр, бекон, ветчина, свежий огурчик, помидор, Пекинская капуста, сырная шапочка, чесночный соус",
+        "price_for_large": 320,
+        "img": "-QK-ozSIAUo.webp",
+        "price_for_mid": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    }
+]

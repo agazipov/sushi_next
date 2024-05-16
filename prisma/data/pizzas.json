@@ -1,0 +1,132 @@
+[
+    {
+        "name": "Донателло",
+        "compound": "Сыр Моцарелла, сыр Брынза, сыр Пармезан, сыр \"Hochland\", грецкий орех, соус Маджорио",
+        "price_for_mid": 250,
+        "price_for_large": 400,
+        "img": "p9vfspblKhw.webp",
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Леонардо",
+        "compound": "Бекон, пепперони, ветчина, сервелат, маслины, сыр Моцарелла, соус томатный, соус «Рыба&Рис»",
+        "price_for_mid": 270,
+        "price_for_large": 430,
+        "img": "FzsHiuxhqqU.webp",
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Микеланджело",
+        "compound": "Копченая курочка, сыр Моцарелла, помидоры, ананас, соус Маджорио",
+        "price_for_mid": 250,
+        "price_for_large": 390,
+        "img": "wFLdyAKBjz8.webp",
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Рафаэль",
+        "compound": "Креветки, мидии, сыр Моцарелла, перец Болгарский, Маслины, салат, соус томатный",
+        "price_for_mid": 270,
+        "price_for_large": 440,
+        "img": "YVTAnqWzJP4.webp",
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Ассорти",
+        "compound": "Сервелат, шампиньоны, помидоры, сыр Моцарелла, соус томатный, соус «Маджорио», укроп",
+        "price_for_mid": 250,
+        "price_for_large": 420,
+        "img": "lrezo3ZICI0.webp",
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Барбекю Дьябло",
+        "compound": "Ветчина, бекон, карбонат, сыр Моцарелла, перец Халапенью, соус «Барбекю»",
+        "price_for_mid": 270,
+        "price_for_large": 430,
+        "img": "vcPaAaeqamE.webp",
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Большой Биг",
+        "compound": "Бекон, карбонат, сыр Моцарелла, перец болгарский, шампиньоны, соус Маджорио",
+        "price_for_mid": 250,
+        "price_for_large": 390,
+        "img": "qdsW7z0ZgLc.webp",
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Ветчина&Грибы",
+        "compound": "Шампиньоны, Ветчина, сыр Моцарелла, соус «Маджорио», соус томатный",
+        "price_for_mid": 250,
+        "price_for_large": 390,
+        "img": "-vkQ6-UQ-T0.webp",
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Каприз",
+        "compound": "Ветчина, шампиньоны, лук, маринованные огурчики, маслины, сыр Моцарелла, соус «Рыба&Рис»",
+        "price_for_mid": 260,
+        "price_for_large": 420,
+        "img": "H-ZbbqT6pGY.webp",
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Маргарита",
+        "compound": "Помидоры, сыр Моцарелла, сыр Брынза, соус «Маджорио», соус томатный",
+        "price_for_mid": 200,
+        "price_for_large": 300,
+        "img": "HCLrMoPhUXM.webp",
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Пепперони",
+        "compound": "Пепперони, сыр Моцарелла, помидоры, соус томатный, соус «Маджорио»",
+        "price_for_mid": 250,
+        "price_for_large": 390,
+        "img": "_z_w5kOx7DE.webp",
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Цыпленок",
+        "compound": "Копченая курочка, брокколи, соус «Маджорио», сыр Моцарелла, помидоры, соус томатный",
+        "price_for_mid": 250,
+        "price_for_large": 390,
+        "img": "ZkYJfLkb1Xg.webp",
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Римская пицца с лососем",
+        "compound": "соус маджорио, соус томатный, руккола, сливочный сыр, масага красная, лосось, пряное оливковое масло",
+        "price_for_large": 399,
+        "img": "26px4b4A6dw.webp",
+        "price_for_mid": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    }
+]

@@ -1,0 +1,152 @@
+[
+    {
+        "name": "Эби темпура",
+        "compound": "Творожный сыр, креветка, водоросли Чука, соус Ореховый",
+        "price_for_large": 310,
+        "img": "s3d-LvHMEYE.webp",
+        "price_for_mid": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Блэк",
+        "compound": "Творожный сыр, креветка, угорь, икра Тобико, икорная шапочка",
+        "price_for_large": 300,
+        "img": "X6cjkdwfKEI.webp",
+        "price_for_mid": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Унаги темпура",
+        "compound": "Творожный сыр, угорь, омлет Томаго, соус Унаги",
+        "price_for_large": 320,
+        "img": "NtxqldkN5Pw.webp",
+        "price_for_mid": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Сяке темпура",
+        "compound": "Творожный сыр, лосось с/с, свежий огурчик, зелёный лук, икорная шапочка",
+        "price_for_large": 320,
+        "img": "cc67Ui3fvEo.webp",
+        "price_for_mid": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Унаги-сяке темпура",
+        "compound": "Творожный сыр, лосось с/с, угорь, свежий огурчик, икорная шапочка, соус Унаги",
+        "price_for_large": 350,
+        "img": "LV9P9O8ZchM.webp",
+        "price_for_mid": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Куш",
+        "compound": "Творожный сыр, курочка, омлет Томаго, шапочка Куш",
+        "price_for_large": 300,
+        "img": "2N-0QIN5EGI.webp",
+        "price_for_mid": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Оригами",
+        "compound": "Творожный сыр, курочка, бекон, лук фри, соус Барбекю",
+        "price_for_large": 290,
+        "img": "ebj9hKHw7Fs.webp",
+        "price_for_mid": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Тори темпура",
+        "compound": "Творожный сыр, курочка, свежий огурчик, соус Спайси",
+        "price_for_large": 290,
+        "img": "tfpEjPr-Lyg.webp",
+        "price_for_mid": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Кани темпура",
+        "compound": "Творожный сыр, мясо краба, икра Тобико",
+        "price_for_large": 290,
+        "img": "R4xE88Ot_dY.webp",
+        "price_for_mid": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Цезарь Хот",
+        "compound": "Курочка, помидор, лист салата, лук фри, соус Чесночный",
+        "price_for_large": 280,
+        "img": "FcjVnfKp4I8.webp",
+        "price_for_mid": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Америка",
+        "compound": "Творожный сыр, креветка, икра Тобико, шапочка Фиеста с мидиями",
+        "price_for_large": 300,
+        "img": "7XvSaydlH68.webp",
+        "price_for_mid": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Текка темпура",
+        "compound": "Творожный сыр, тунец, свежий огурчик, икорная шапочка",
+        "price_for_large": 300,
+        "img": "-qV_yPe8BRg.webp",
+        "price_for_mid": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Вегас",
+        "compound": "Творожный сыр, грибы Шиитаке, зеленый лук, соус Терияке",
+        "price_for_large": 260,
+        "img": "8nzptjg1Gxo.webp",
+        "price_for_mid": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Чикен темпура",
+        "compound": "сливочный сыр, курица, помидор, пармезан",
+        "price_for_large": 300,
+        "img": "bbcJX-l7JHs.webp",
+        "price_for_mid": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Токио",
+        "compound": "сливочный сыр, лосось, огурец, сырная шапочка, соус унаги, лук жаренный",
+        "price_for_large": 310,
+        "img": "XNUULdN_1HY.webp",
+        "price_for_mid": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    }
+]

@@ -1,0 +1,74 @@
+[
+    {
+        "name": "Молочный коктейль 300мл",
+        "price_for_mid": 120,
+        "img": "yj2qmGLr6t8.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Сок детский 200мл",
+        "price_for_mid": 40,
+        "img": "yj2qmGLr6t8.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Coca-cola classic 0,5",
+        "price_for_mid": 85,
+        "img": "Vkpf8mSRyNY.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Coca-cola zero 1",
+        "price_for_mid": 120,
+        "img": "Vkpf8mSRyNY.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Coca-cola classic 1,5",
+        "price_for_mid": 150,
+        "img": "Vkpf8mSRyNY.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Эспрессо 60мл",
+        "price_for_mid": 80,
+        "img": "aqTC7uD-0Kk.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Капучино 200мл",
+        "price_for_mid": 150,
+        "img": "aqTC7uD-0Kk.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Латте 200мл",
+        "price_for_mid": 180,
+        "img": "aqTC7uD-0Kk.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    }
+]

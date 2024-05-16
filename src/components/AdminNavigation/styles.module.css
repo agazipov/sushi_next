@@ -1,0 +1,24 @@
+.nav {
+    margin: 14px;
+    width: 100%;
+    display: flex;
+    gap: 8px;
+    overflow-y: scroll;
+}
+
+.link {
+    padding: 4px 10px;
+    background-color: rgb(76 72 95);
+    border-radius: 9px;
+    color: white;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    text-decoration-line: none;
+}
+
+.link:hover {
+    background-color: rgb(108 104 131);
+}
