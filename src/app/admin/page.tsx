@@ -1,10 +1,16 @@
-
+import { getServerSession } from "next-auth/next";
+import { authConfig } from "../api/auth/[...nextauth]/route";
 
 export default async function AdminPage() {   
+    const session = await getServerSession(authConfig);
+
+    if (!session) {
+        return <div>Нет сессии</div>        
+    }
 
     return (
-        <>
-            <h1>Админ панель</h1>
-        </>
-    )
+      <div>
+        <h1>AdminPanel</h1>
+      </div>
+    );
 }

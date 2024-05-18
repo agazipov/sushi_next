@@ -16,7 +16,10 @@ export default async function Categorie({ params: { id } }: Props) {
 
     return (
         <>
-            <h2>{categorie.name}</h2>
+            <div>
+                <h2>{categorie.name}</h2>
+                <Link href={`/admin/${id}/${id}`}>Добавить блюдо</Link>
+            </div>
 
             <table>
                 <thead>
@@ -37,7 +40,9 @@ export default async function Categorie({ params: { id } }: Props) {
                             <td>{dish.compound}</td>
                             <td>{dish.price_for_mid}</td>
                             <td>{dish.price_for_large}</td>
-                            <td><Link href={`/admin/${id}/${dish.id}`}>Изменить</Link></td>
+                            <td>
+                                <Link href={`/admin/${id}/${dish.id}`}>Изменить</Link>
+                            </td>
                         </tr>
                     ))}
                 </tbody>
