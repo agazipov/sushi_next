@@ -6,6 +6,7 @@ import extras from "./data/extras.json";
 import friedRolls from "./data/friedRolls.json";
 import pizzas from "./data/pizzas.json";
 import tortillas from "./data/tortillas.json";
+import { generatePassword, generateSalt } from "@/lib/identification";
 
 const prisma = new PrismaClient();
 
@@ -40,7 +41,7 @@ const CATEGORIES_LIST = [
     },
 ];
 
-const seed = async () => {
+const seedDishes = async () => {
     await prisma.categorie.deleteMany();
     await prisma.dish.deleteMany();
 
@@ -55,11 +56,21 @@ const seed = async () => {
         })
     }
 
-    // for (const dish of TEST_MENU) {
-    //     const newDish = await prisma.dish.create({
-    //         data: dish,
-    //     });
-    // }
 };
 
-seed();
+const seedUsers = async () => {
+    await prisma.user.deleteMany();
+    await prisma.session.deleteMany();
+    const salt = await generateSalt();
+
+    await prisma.user.create({
+        data: {
+            name: process.env.ADMIN_NAME || "user",
+            salt: salt,
+            passwordHash: await generatePassword(salt, process.env.ADMIN_PASSWORD || "123"),
+        }
+    })
+}
+
+// seedDishes();
+seedUsers();

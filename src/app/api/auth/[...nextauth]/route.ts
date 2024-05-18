@@ -1,32 +1,39 @@
 import NextAuth, { User, AuthOptions } from "next-auth";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { prisma } from "@/lib/prisma";
-import Credentials from "next-auth/providers/credentials";
+import CredentialProvider from "next-auth/providers/credentials";
 import { users } from "./users";
+import { checkPassword } from "@/lib/identification";
 
 export const authConfig: AuthOptions = {
-  // adapter: PrismaAdapter(prisma),
-  providers: [
-    Credentials({
-      credentials: {
-        email: { label: "email", type: "email", requierd: true },
-        password: { label: "password", type: "password", requierd: true }
-      },
-      async authorize(credentials) {
-        if (!credentials?.email || !credentials.password) return null;
+    // adapter: PrismaAdapter(prisma),
+    providers: [
+        CredentialProvider({
+            credentials: {
+                name: { label: "name", type: "name", requierd: true },
+                password: { label: "password", type: "password", requierd: true }
+            },
+            async authorize(credentials) {
+                if (!credentials?.name || !credentials.password) return null;
+                console.log('huita');
 
-        const currentUser = users.find(user => user.email === credentials.email)
-
-        if (currentUser && currentUser.password === credentials.password) {
-          const { password, ...userWithoutPass } = currentUser;
-
-          return userWithoutPass as User;
-        }
-
-        return null
-      }
-    })
-  ],
+                const user = await prisma.user.findUnique({
+                    where: { name: credentials?.name },
+                    select: {
+                      id: true,
+                      name: true,
+                      passwordHash: true,
+                      salt: true
+                    },
+                  });
+                  if (user && user.passwordHash === await checkPassword(credentials.password, user.salt)) {
+                    return user;
+                  } else {
+                    return null;
+                  }
+            }
+        })
+    ],
 }
 
 const handler = NextAuth(authConfig)

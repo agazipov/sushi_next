@@ -30,6 +30,9 @@ export async function createDish(data: FormData) {
 }
 
 export async function updateDish(data: FormData) {
+    const session = await getServerSession(authConfig);
+    if (!session) return;
+
     const { id, name, compound, price_for_large, price_for_mid, img } = Object.fromEntries(data) as unknown as Dish;
     const PfLToNumber = Number(price_for_large);
     const PfMToNumber = Number(price_for_mid);
@@ -52,6 +55,9 @@ export async function updateDish(data: FormData) {
 }
 
 export async function removeDish(id: string) {
+    const session = await getServerSession(authConfig);
+    if (!session) return;
+    
     await prisma.dish.delete({
         where: {
             id,
