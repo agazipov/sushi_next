@@ -1,4 +1,4 @@
-import { getAllCategories } from "@/services/menu";
+import { getAllCategories } from "@/src/services/menu";
 import Link from "next/link";
 import styles from "./styles.module.css"
 

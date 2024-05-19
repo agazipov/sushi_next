@@ -1,4 +1,4 @@
-import { createDish, updateDish } from "@/src/app/admin/action";
+import { createDish, updateDish } from "@/src/app/admin/actionDish";
 import styles from "./styles.module.css";
 import { Dish } from "@prisma/client";
 

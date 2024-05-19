@@ -1,8 +1,7 @@
-import NextAuth, { User, AuthOptions } from "next-auth";
+import NextAuth, { AuthOptions } from "next-auth";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { prisma } from "@/lib/prisma";
 import CredentialProvider from "next-auth/providers/credentials";
-import { users } from "./users";
 import { checkPassword } from "@/lib/identification";
 
 export const authConfig: AuthOptions = {
@@ -15,7 +14,6 @@ export const authConfig: AuthOptions = {
             },
             async authorize(credentials) {
                 if (!credentials?.name || !credentials.password) return null;
-                console.log('huita');
 
                 const user = await prisma.user.findUnique({
                     where: { name: credentials?.name },

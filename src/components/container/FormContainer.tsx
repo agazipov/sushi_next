@@ -3,7 +3,7 @@
 import { Dish } from "@prisma/client"
 import DishForm from "../DishForm/DishForm"
 import Link from "next/link"
-import { removeDish } from "@/src/app/admin/action"
+import { removeDish } from "@/src/app/admin/actionDish"
 import { usePathname } from "next/navigation"
 
 type Props = {

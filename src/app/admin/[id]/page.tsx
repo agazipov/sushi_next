@@ -1,4 +1,4 @@
-import { getCategorieById } from "@/services/menu";
+import { getCategorieById } from "@/src/services/menu";
 import Link from "next/link";
 
 type Props = {

@@ -60,7 +60,7 @@ const seedDishes = async () => {
 
 const seedUsers = async () => {
     await prisma.user.deleteMany();
-    await prisma.session.deleteMany();
+    // await prisma.session.deleteMany();
     const salt = await generateSalt();
 
     await prisma.user.create({
@@ -72,5 +72,19 @@ const seedUsers = async () => {
     })
 }
 
+const seedStoks = async () => {
+    await prisma.stock.deleteMany();
+
+    await prisma.stock.create({
+        data: {
+            title: "Пицца Инь Янь",
+            body: "32см - 470гр\n Цена: 450₽\n ☯Собери половинки на свой вкус",
+            img: "",
+            show: false,
+        }
+    })
+}
+
+seedStoks();
 // seedDishes();
-seedUsers();
+// seedUsers();

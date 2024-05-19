@@ -15,7 +15,7 @@ export async function createDish(data: FormData) {
     const PfLToNumber = Number(price_for_large);
     const PfMToNumber = Number(price_for_mid);
 
-    const post = await prisma.dish.create({
+    const dish = await prisma.dish.create({
         data: {
             name,
             compound,
@@ -26,7 +26,7 @@ export async function createDish(data: FormData) {
         },
     });
 
-    //   redirect(`/admin/${dish.id}`);
+    redirect(`/admin/${dish.categorieId}`);
 }
 
 export async function updateDish(data: FormData) {
@@ -37,7 +37,7 @@ export async function updateDish(data: FormData) {
     const PfLToNumber = Number(price_for_large);
     const PfMToNumber = Number(price_for_mid);
 
-    const post = await prisma.dish.update({
+    const dish = await prisma.dish.update({
         where: {
             id,
         },
@@ -50,20 +50,6 @@ export async function updateDish(data: FormData) {
         },
     });
 
-    //   revalidatePath(`/blog/${post.id}`);
-    //   redirect(`/blog/${post.id}`);
-}
-
-export async function removeDish(id: string) {
-    const session = await getServerSession(authConfig);
-    if (!session) return;
-    
-    await prisma.dish.delete({
-        where: {
-            id,
-        },
-    });
-
-    //   revalidatePath("/blog");
-    //   redirect("/blog");
+    revalidatePath(`/admin/${dish.categorieId}`);
+    redirect(`/admin/${dish.categorieId}`);
 }

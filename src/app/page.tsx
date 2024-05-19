@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from "react";
-import { fetchTelegram } from "../../services/telegram"; 
+import { fetchTelegram } from "../services/telegram"; 
 import { useSession, signIn, signOut } from "next-auth/react";
 import styles from "./page.module.css";
 import Link from "next/link";
