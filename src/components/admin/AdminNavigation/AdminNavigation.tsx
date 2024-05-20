@@ -1,6 +1,6 @@
 import { getAllCategories } from "@/src/services/menu";
 import Link from "next/link";
-import styles from "./styles.module.css"
+import styles from "./styles.module.css";
 
 export default async function AdminNavigation() {
     const categories = await getAllCategories();

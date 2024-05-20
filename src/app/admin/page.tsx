@@ -1,7 +1,7 @@
 import { getServerSession } from "next-auth/next";
 import { authConfig } from "../api/auth/[...nextauth]/route";
 import { getAllStocks } from "@/src/services/stock";
-import Stock from "@/src/components/Stock/Stock";
+import Stock from "@/src/components/admin/Stock/Stock";
 
 export default async function AdminPage() {   
     const session = await getServerSession(authConfig);

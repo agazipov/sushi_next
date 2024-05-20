@@ -1,6 +1,6 @@
 import { getDishById } from "@/src/services/menu";
 import styles from "./page.module.css";
-import FormContainer from "@/src/components/container/FormContainer";
+import FormContainer from "@/src/components/containers/FormContainer";
 
 type Props = {
   params: {

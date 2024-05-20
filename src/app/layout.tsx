@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "@/styles/globals.css";
 import AuthProvider from "../context/AuthProvider";
+import "@/styles/globals.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import ImportBsJS from "./importBsJS";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,6 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
+      <ImportBsJS />
       <AuthProvider>
         <body className={inter.className}>{children}</body>
       </AuthProvider>

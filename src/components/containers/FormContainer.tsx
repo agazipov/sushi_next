@@ -1,7 +1,7 @@
 "use client"
 
 import { Dish } from "@prisma/client"
-import DishForm from "../DishForm/DishForm"
+import DishForm from "../admin/DishForm/DishForm"
 import Link from "next/link"
 import { removeDish } from "@/src/app/admin/actionDish"
 import { usePathname } from "next/navigation"
@@ -12,7 +12,8 @@ type Props = {
 
 export default function FormContainer({ dish }: Props) {
     const pathname = usePathname();
-    
+    // если клиентский заменить форму на кнопкиs
+
     return (
         <div>
             {dish ?

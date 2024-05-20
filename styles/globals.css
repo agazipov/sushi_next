@@ -11,7 +11,9 @@ html {
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
 
-  --my-border-radius: 14px
+  --my-border-radius: 14px;;
+  --custom-grey-opacity: #adb5bdb5;
+  --custom-pink-opacity: #f8d7dac9;
 }
 
 /* Remove default margin in favour of better control in authored CSS */

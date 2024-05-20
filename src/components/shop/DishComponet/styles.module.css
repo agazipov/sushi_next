@@ -1,0 +1,154 @@
+.dish {
+    padding: 12px;
+
+    background-color: var(--custom-grey-opacity);
+    border-radius: var(--my-border-radius);
+}
+
+.default {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.custom {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.custom>.dish__wrapper {
+    max-width: 100px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.dish__header {
+    display: flex;
+    flex-direction: column;
+}
+
+.dish__title {
+    text-align: center;
+}
+
+.dish__wrapper {
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dish__desc {
+    width: 100px;
+    font-size: small;
+    text-align: center;
+}
+
+.dish__info {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dish__info_custom {
+    flex-direction: column;
+    gap: 6px;
+}
+
+.dish__info_wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.dish__price {
+    text-wrap: nowrap;
+}
+
+.dish__img {
+    width: 50%;
+    flex-shrink: 0;
+}
+
+.dish__img>img {
+    width: 100%;
+    height: auto;
+
+    border: 1px solid black;
+    border-radius: var(--my-border-radius);
+
+    background-color: var(--bs-danger-bg-subtle);
+}
+
+.dish__size {
+    position: relative;
+
+    display: flex;
+    justify-content: space-between;
+
+    border: 1px solid var(--bs-gray);
+    border-radius: var(--bs-border-radius);
+    background-color: var(--bs-gray-300);
+
+    padding: 4px;
+}
+
+.dish__size_activ {
+    text-decoration-line: underline;
+    font-weight: bold;
+
+    background-color: var(--bs-gray-600);
+    pointer-events: none;
+}
+
+.dish__size_activ::before {
+    content: '\02764';
+    position: absolute;
+    left: -26px;
+}
+
+.dish__count {
+    width: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+    .dish__size:hover {
+        cursor: pointer;
+        background-color: var(--bs-gray-400);
+    }
+}
+
+@media (max-width: 992px) {
+    .dish__info-wrapper {
+        font-size: small;
+    }
+}
+
+@media (max-width: 576px) {
+    .default {
+        margin: auto 46px;
+    }
+    .dish__info-wrapper {
+        font-size: medium;
+    }
+    .dish__desc {
+        font-size: medium;
+    }
+    .dish__wrapper {
+        justify-content: space-around;
+    }
+    .dish__info_default {
+        justify-content: space-around;
+    }
+}

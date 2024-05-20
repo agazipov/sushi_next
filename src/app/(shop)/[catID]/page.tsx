@@ -1,4 +1,5 @@
 import { getCategorieById } from "@/src/services/menu";
+import DishList from "@/src/components/shop/DishList/DishList";
 
 type Props = {
     params: {
@@ -14,6 +15,6 @@ export default async function CategoriePage({ params: { catID } }: Props) {
     }
 
     return (
-        <div>{categorie.name}</div>
+        <DishList dishe={categorie.dishes} />
     )
 }

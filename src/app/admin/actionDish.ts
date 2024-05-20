@@ -53,3 +53,17 @@ export async function updateDish(data: FormData) {
     revalidatePath(`/admin/${dish.categorieId}`);
     redirect(`/admin/${dish.categorieId}`);
 }
+
+export async function removeDish(id: string) {
+    const session = await getServerSession(authConfig);
+    if (!session) return;
+
+    const dish = await prisma.dish.delete({
+        where: {
+            id,
+        },
+    });
+
+    revalidatePath(`/admin/${dish.categorieId}`);
+    redirect(`/admin/${dish.categorieId}`);
+}

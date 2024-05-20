@@ -7,20 +7,6 @@ import { authConfig } from "../api/auth/[...nextauth]/route";
 import { prisma } from "@/lib/prisma";
 import type { Stock } from "@prisma/client";
 
-export async function removeDish(id: string) {
-    const session = await getServerSession(authConfig);
-    if (!session) return;
-
-    const dish = await prisma.dish.delete({
-        where: {
-            id,
-        },
-    });
-
-    revalidatePath(`/admin/${dish.categorieId}`);
-    redirect(`/admin/${dish.categorieId}`);
-}
-
 export async function createStoks(data: FormData) {
     const session = await getServerSession(authConfig);
     if (!session) return;

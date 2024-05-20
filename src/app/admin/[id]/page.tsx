@@ -14,6 +14,8 @@ export default async function Categorie({ params: { id } }: Props) {
         return <div>Категория не найдена</div>
     }
 
+    // вынести в компонент
+
     return (
         <>
             <div>
