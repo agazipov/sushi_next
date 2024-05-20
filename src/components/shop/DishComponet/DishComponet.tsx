@@ -16,8 +16,13 @@ interface IDishComponent {
     viewVariant?: 'default' | 'custom'
 }
 
-const ViewVariantStyle: {[index: string]: string} = {
-    default: styles.primary,
+const ViewVariantRoot: {[index: string]: string} = {
+    default: styles.dish_default,
+    custom: styles.dish_custom,
+};
+
+const ViewVariantDishInfo: {[index: string]: string} = {
+    default: styles.dish__info_default,
     custom: styles.dish__info_custom,
 };
 
@@ -35,7 +40,7 @@ export function DishComponet({ dish, viewVariant = 'default' }: IDishComponent) 
     // });
 
     return (
-        <div className={classNames(styles.dish, viewVariant)}>
+        <div className={classNames(ViewVariantRoot[viewVariant])}>
             <div className={styles.dish__header}>
                 <h5 className={styles.dish__title}>{dish.name}</h5>
                 <div className={styles.dish__wrapper}>
@@ -43,7 +48,7 @@ export function DishComponet({ dish, viewVariant = 'default' }: IDishComponent) 
                         <Image
                             height={100}
                             width={100}
-                            src={`/public/img_dishes/${dish.img}`}
+                            src={`/img_dishes/${dish.img}`}
                             alt={dish.name}
                         />
                     </div>
@@ -52,7 +57,7 @@ export function DishComponet({ dish, viewVariant = 'default' }: IDishComponent) 
                     </div>
                 </div>
             </div>
-            <div className={classNames(styles.dish__info, ViewVariantStyle[viewVariant])}>
+            <div className={classNames( ViewVariantDishInfo[viewVariant])}>
                 <div className={styles.dish__info_wrapper}>
                     {dish.price_for_mid &&
                         <div
