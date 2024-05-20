@@ -3,6 +3,7 @@ import fishes from '@/public/img_app/fishes.webp';
 import Image from 'next/image';
 import styles from "./styles.module.css";
 import classNames from 'classnames';
+import Cart from '../Cart/Cart';
 
 export default function Header() {
     return (
@@ -23,7 +24,7 @@ export default function Header() {
                         <a href="mock">+7 (908) 939-22-12</a>
                         <a href="mock">+7 (912) 772-89-48</a>
                     </div> */}
-                {/* <Cart /> */}
+                <Cart />
             </div>
         </header>
     )
