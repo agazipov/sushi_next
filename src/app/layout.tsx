@@ -21,9 +21,11 @@ export default function RootLayout({
     <html lang="ru">
       <ImportBsJS />
       <AuthProvider>
-        <body className={inter.className}>{children}</body>
+        <body className={inter.className}>
+          <div id="portal"/>
+          {children}
+        </body>
       </AuthProvider>
-      <div id="portal" />
     </html>
   );
 }

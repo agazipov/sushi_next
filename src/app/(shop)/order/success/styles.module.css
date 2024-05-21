@@ -1,0 +1,13 @@
+.orderSuccess {
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.orderSuccess__wrapper {
+    padding: 10px;
+    border-radius: var(--my-border-radius);
+    text-align: center;
+    background-color: var(--bs-danger-bg-subtle);
+}

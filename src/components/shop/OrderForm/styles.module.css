@@ -1,0 +1,11 @@
+.form__my_style {
+    padding: 10px;
+    height: 100%;
+
+    background-color: var(--bs-danger-bg-subtle);
+    border-radius: var(--my-border-radius);
+}
+
+.formOrder__imput_mod {
+    flex-grow: 4 !important;
+}

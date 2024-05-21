@@ -15,9 +15,7 @@ const cartSlice = createSlice({
     name: 'cart',
     initialState,
     reducers: {
-        hydration: (_state, { payload }: PayloadAction<ICart>) => { 
-            return payload;
-        },
+        hydration: (_state, { payload }: PayloadAction<ICart>) => payload,
         addCart: (state, { payload }: PayloadAction<Dish>) => { //добавить счетчик общего прайса в функцию**
             // общая цена в зависимости от порции
             const checkSize = payload.select === 'mid';

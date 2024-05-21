@@ -1,9 +1,12 @@
-import {Button,Modal, ModalHeader,ModalTitle,ModalBody, ModalFooter} from 'react-bootstrap';
-import { useSelector } from 'react-redux';
-import { redirect } from "next/navigation";
+"use client"
+
+import { Button, Modal, ModalHeader, ModalTitle, ModalBody, ModalFooter } from 'react-bootstrap';
+import { useRouter } from "next/navigation";
 import { RootState } from '@/src/app/lib/store';
-import styles from "./styles.module.css";
 import { selectCart } from '@/src/app/lib/features/cart/cart';
+import { useAppSelector } from '@/src/app/lib/hooks';
+import { DishComponet } from '../DishComponet/DishComponet';
+import styles from "./styles.module.css";
 
 interface IModalCart {
     show: boolean,
@@ -11,11 +14,12 @@ interface IModalCart {
 }
 
 export default function ModalCart({ show, setShow }: IModalCart) {
-    const cart = useSelector((state: RootState) => selectCart(state));
+    const cart = useAppSelector((state: RootState) => selectCart(state));
+    const router = useRouter();
 
     const handleCheckOut = () => {
         setShow(false);
-        cart.buy.length !== 0 && redirect('/order');
+        cart.buy.length !== 0 && router.push('/order');
     };
 
     return (
@@ -24,7 +28,7 @@ export default function ModalCart({ show, setShow }: IModalCart) {
                 <ModalTitle>Корзина: {cart.countDishes} блюд за {cart.price}₽</ModalTitle>
             </ModalHeader>
             <ModalBody>
-                {cart.buy.length === 0 
+                {cart.buy.length === 0
                     ?
                     <div>Корзина пуста</div>
                     :
@@ -32,8 +36,7 @@ export default function ModalCart({ show, setShow }: IModalCart) {
                         {cart.buy.map((dish) => {
                             return (
                                 <li key={dish.id}>
-                                    {/* <Dish dish={dish} viewVariant='custom' /> */}
-                                    <div>{dish.name}</div>
+                                    <DishComponet dish={dish} viewVariant='custom' />
                                 </li>
                             )
                         })}

@@ -1,0 +1,31 @@
+.order {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.order__not {
+    height: 20vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media(max-width: 1200px) {
+
+}
+
+@media (max-width: 992px) {
+
+}
+
+@media (max-width: 768px) {
+    .order {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 576px) {
+
+}

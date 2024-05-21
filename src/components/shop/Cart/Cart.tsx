@@ -1,17 +1,17 @@
 "use client"
 
-import { useSelector } from "react-redux";
 import { useState } from "react";
 import { RootState } from "@/src/app/lib/store";
 import { selectCart } from '@/src/app/lib/features/cart/cart';
-import styles from "./styles.module.css";
 import { Portal } from "../Portal/Portal";
+import { useAppSelector } from "@/src/app/lib/hooks";
 import ModalCart from "../ModalCart/ModalCart";
+import styles from "./styles.module.css";
 
 
 export default function Cart() {
     const [show, setShow] = useState(false);
-    const cart = useSelector((state: RootState) => selectCart(state));
+    const cart = useAppSelector((state: RootState) => selectCart(state));
 
     return (
         <div className={styles.cart}>

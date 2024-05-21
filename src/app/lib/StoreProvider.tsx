@@ -1,18 +1,41 @@
-'use client'
-import { useRef } from 'react'
-import { Provider } from 'react-redux'
-import { makeStore, AppStore } from '../lib/store'
+"use client";
+
+import { useRef, useEffect } from "react";
+import { Provider } from "react-redux";
+import { makeStore, AppStore } from "../lib/store";
+import { cartActions } from "./features/cart/cart";
+import { ICart } from "@/src/types/reduxTypes";
 
 export default function StoreProvider({
-  children,
+    children,
 }: {
-  children: React.ReactNode
+    children: React.ReactNode
 }) {
-  const storeRef = useRef<AppStore>()
-  if (!storeRef.current) {
-    // Create the store instance the first time this renders
-    storeRef.current = makeStore()
-  }
+    // создаем экземпляр хранилища при первом рендеринге
+    const storeRef = useRef<AppStore>();
+    if (!storeRef.current) {
+        storeRef.current = makeStore();
+    }
 
-  return <Provider store={storeRef.current}>{children}</Provider>
+    // защита от гидрации при инициализации стора
+    useEffect(() => {
+        const getCartFromLocalStorage = () => {
+            try {
+                const persistedState = localStorage.getItem("cart");
+                if (persistedState) {
+                    return JSON.parse(persistedState);
+                }
+            } catch (e) {
+                console.log(e);
+            }
+            return null;
+        };
+
+        const cart = getCartFromLocalStorage();
+        if (cart) {
+            storeRef.current!.dispatch(cartActions.hydration(cart));
+        }
+    }, []);
+
+    return <Provider store={storeRef.current}>{children}</Provider>
 }
