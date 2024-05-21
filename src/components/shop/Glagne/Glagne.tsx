@@ -6,8 +6,10 @@ import Link from "next/link";
 import styles from "./styles.module.css";
 import classNames from 'classnames';
 import Image from "next/image";
+import { getAllStocks } from "@/src/services/stock";
 
 export default async function Navigation() {
+    const stocks = await getAllStocks();
 
     return (
         <div className={classNames(styles.home, "container")}>
@@ -38,15 +40,22 @@ export default async function Navigation() {
                     <Image width={800} height={650} src={carps} alt="Тарелка с рисом и палочки" />
                 </div>
                 <div className={styles.home__text}>
-                    <h3>АКЦИЯ</h3>
-                    <p>Пицца Инь Янь<br />
-                        32см - 470гр<br />
-                        Цена : 450₽<br />
-                        ☯Собери половинки на свой вкус*
-                    </p>
-                    <div className={styles.home__action}>
-                        {/* <img src={action} alt="Акция" /> */}
-                    </div>
+                    <h3>АКЦИИ</h3>
+                    {stocks &&
+                        stocks.filter(stock => stock.show).map((stock) => {
+                            return (
+                                <div key={stock.id}>
+                                    <h4>{stock.title}</h4>
+                                    <p>{stock.body}</p>
+                                    {stock.img &&
+                                        <div className={styles.home__action}>
+                                            <Image src={stock.img} alt="Акция" />
+                                        </div>
+                                    }
+                                </div>
+                            )
+                        })
+                    }
                 </div>
             </section>
 
@@ -58,7 +67,7 @@ export default async function Navigation() {
                     <p>Для того чтобы сделать заказ, добавьте в корзину интересующие вас блюда, щёлкните на корзине справа-сверху и подтвердите заказ. В открывшейся странице заказа необходимо указать Вашу информацию и сделать запрос. Пройдёт совсем не много времени и с вами свяжется наш оператор для уточнения деталей.</p>
                 </div>
             </section>
-            
+
             <section className={styles.home__map}>
                 <div style={{ position: 'relative', overflow: 'hidden' }}>
                     <a
