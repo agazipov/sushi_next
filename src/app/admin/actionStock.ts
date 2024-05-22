@@ -37,6 +37,8 @@ export async function updateStock(data: FormData) {
 export async function removeStock(data: Stock) {
     const session = await getServerSession(authConfig);
     if (!session) return;
+    console.log("stock", data);
+    
 
     const response = await fetch('http://localhost:3000/api/stock/removeStock', {
         method: "POST",

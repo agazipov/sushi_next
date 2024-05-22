@@ -35,8 +35,10 @@ export default function Stock({ stocks }: Props) {
                                 </div>
                                 {stock.img ? <p>{stock.img}</p> : <p>Нет изображения</p>}
                                 <div><p><u>Отображение:</u> {stock.show ? "Показан" : "Скрыт"}</p></div>
-                                <Button onClick={() => setShow(stock)} size="sm">Изменить</Button>
-                                <Button onClick={() => removeStock(stock)} size="sm">Удалить</Button>
+                                <div className={styles.stock__btn_group}>
+                                    <Button onClick={() => setShow(stock)} size="sm">Изменить</Button>
+                                    <Button onClick={() => removeStock(stock)} size="sm" variant="danger">Удалить</Button>
+                                </div>
                             </div>)
                     })
                     }

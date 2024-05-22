@@ -11,10 +11,9 @@
 }
 
 .stocks__list {
-    display: grid;
+    display: flex;
     gap: 12px;
-    align-content: center;
-    grid-auto-flow: row dense;
+    flex-wrap: wrap;
 }
 
 .stock__copy {
@@ -30,4 +29,9 @@
 
 .stock__body {
     max-width: 250px;
+}
+
+.stock__btn_group {
+    display: flex;
+    gap: 14px;
 }

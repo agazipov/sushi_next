@@ -1,5 +1,5 @@
 import { NextResponse, NextRequest } from "next/server";
-import fs, { promises as fsAsync } from 'fs';
+import { promises as fsAsync } from 'fs';
 import { pipeline } from 'stream';
 import { promisify } from 'util';
 import { Readable } from 'stream';
@@ -14,26 +14,22 @@ interface TForm extends Stock {
 
 export async function POST(req: NextRequest, res: NextResponse) {
     try {
-        const formData = req.body;
-        console.log(formData);
-        
-        // const file = Object.fromEntries(formData) as unknown as TForm;
+        const data = await req.json();
 
-        // await prisma.stock.delete({
-        //     where: {
-        //         id: file.id,
-        //     },
-        // });
+        await prisma.stock.delete({
+            where: {
+                id: data.id,
+            },
+        });
 
-        // const filePath = `./public/img_stock/${file.picture.name}`;
-        // try {
-        //     await fsAsync.stat(filePath);
-        //     await fsAsync.unlink(filePath);
-        //     return NextResponse.json({ status: "write and img delete success" });
-        // } catch (error) {
-        //     return NextResponse.json({ status: "write delete, img not found" });
-        // }
-        return NextResponse.json({ status: "write delete, img not found" });
+        const filePath = `./public/img_stock/${data.img}`;
+        try {
+            await fsAsync.stat(filePath);
+            await fsAsync.unlink(filePath);
+            return NextResponse.json({ status: "write and img delete success" });
+        } catch (error) {
+            return NextResponse.json({ status: "write delete, img not found" });
+        }
     }
     catch (e) {
         return NextResponse.json({ status: "fail", data: e })
