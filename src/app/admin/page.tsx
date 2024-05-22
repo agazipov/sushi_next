@@ -12,10 +12,6 @@ export default async function AdminPage() {
     }
 
     return (
-      <div>
-        <h1>AdminPanel</h1>
-
         <Stock stocks={stocks}/>
-      </div>
     );
 }

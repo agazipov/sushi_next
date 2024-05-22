@@ -6,9 +6,9 @@ export default function AdminLayout({
     children: React.ReactNode;
   }>) {
     return (
-        <div>
+        <>
             <AdminNavigation />
-            <div>{children}</div>
-        </div>
+            <section>{children}</section>
+        </>
     )
 }

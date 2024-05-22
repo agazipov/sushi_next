@@ -49,7 +49,7 @@ export default async function Navigation() {
                                     <p>{stock.body}</p>
                                     {stock.img &&
                                         <div className={styles.home__action}>
-                                            <Image src={stock.img} alt="Акция" />
+                                            <Image width={200} height={200} src={`/img_stock/${stock.img}`} alt="Акция" />
                                         </div>
                                     }
                                 </div>

@@ -1,0 +1,33 @@
+.root {
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.stock__header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.stocks__list {
+    display: grid;
+    gap: 12px;
+    align-content: center;
+    grid-auto-flow: row dense;
+}
+
+.stock__copy {
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    gap: 6px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+.stock__body {
+    max-width: 250px;
+}

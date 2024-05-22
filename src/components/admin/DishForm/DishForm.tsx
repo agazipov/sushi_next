@@ -49,7 +49,9 @@ export default function DishForm({ dish, categorieId }: Props) {
             {dish &&
                 <input type="hidden" name="id" value={dish.id} />
             }
-            {categorieId && <input type="hidden" name="categorieId" value={categorieId} />}
+            {categorieId &&
+                <input type="hidden" name="categorieId" value={categorieId} />
+            }
             <div>
                 <input type="submit" value={dish ? "Сохранить изменения" : "Добавить блюдо"} />
             </div>
