@@ -29,4 +29,6 @@ export async function removeStock(data: Stock) {
         body: JSON.stringify(data)
     })
     const result = await response.json();
+
+    revalidatePath(`/admin`);
 }
