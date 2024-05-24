@@ -10,7 +10,7 @@ import {
 import FormCheckLabel from "react-bootstrap/FormCheckLabel";
 import FormCheckInput from "react-bootstrap/FormCheckInput";
 import type { Stock } from "@prisma/client";
-import { updateStock, createStock } from "@/src/app/admin/actionStock";
+import { createStock, updateStock } from '@/src/app/api/auth/[...nextauth]/actionStock';
 
 interface IFormChange {
     stock: Stock | null

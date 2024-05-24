@@ -1,6 +1,7 @@
 import CategorieTable from "@/src/components/admin/CategorieTable/CategorieTable";
 import { getCategorieById } from "@/src/services/menu";
-import Link from "next/link";
+import styles from "./page.module.css";
+import classNames from "classnames";
 
 type Props = {
     params: {
@@ -15,12 +16,9 @@ export default async function Categorie({ params: { id } }: Props) {
         return <div>Категория не найдена</div>
     }
 
-    // передаю в линк два id категорий при создании нового блюда
     return (
-        <div>
-            <h2>{categorie.name}</h2>
-            <Link href={`/admin/${id}/${id}`}>Добавить блюдо</Link>
-
+        <div className={classNames(styles.root, "container")}>
+            <h2 className={styles.header}>{categorie.name}</h2>
             <CategorieTable dishes={categorie.dishes} categorieId={id}/>
         </div>
     )

@@ -1,13 +1,14 @@
 "use client"
 
 import type { Stock } from "@prisma/client";
-import { Portal } from "../../shop/Portal/Portal";
-import ModalSettings from "../ModalWrap/ModalWrap";
 import { useState } from "react";
-import {Button} from "react-bootstrap";
+import { Portal } from "../../shop/Portal/Portal";
+import ModalWrap from "../ModalWrap/ModalWrap";
+import { Button } from "react-bootstrap";
 import styles from "./styles.module.css";
 import classNames from "classnames";
-import { removeStock } from "@/src/app/admin/actionStock";
+import StockForm from "../StockForm/StockForm";
+import { removeStock } from "@/src/app/api/auth/[...nextauth]/actionStock";
 
 type Props = {
     stocks: Stock[];
@@ -47,7 +48,9 @@ export default function Stock({ stocks }: Props) {
                 <div>Нет акций</div>
             }
             <Portal>
-                <ModalSettings show={show} setShow={setShow} />
+                <ModalWrap show={show} setShow={setShow} >
+                    <StockForm stock={typeof show === "object" ? show : null} setShow={setShow} />
+                </ModalWrap>
             </Portal>
         </div>
     )

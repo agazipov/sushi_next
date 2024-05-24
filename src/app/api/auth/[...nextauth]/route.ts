@@ -18,20 +18,21 @@ export const authConfig: AuthOptions = {
                 const user = await prisma.user.findUnique({
                     where: { name: credentials?.name },
                     select: {
-                      id: true,
-                      name: true,
-                      passwordHash: true,
-                      salt: true
+                        id: true,
+                        name: true,
+                        passwordHash: true,
+                        salt: true
                     },
-                  });
-                  if (user && user.passwordHash === await checkPassword(credentials.password, user.salt)) {
+                });
+                if (user && user.passwordHash === await checkPassword(credentials.password, user.salt)) {
                     return user;
-                  } else {
+                } else {
                     return null;
-                  }
+                }
             }
         })
     ],
+    useSecureCookies: false,
 }
 
 const handler = NextAuth(authConfig);

@@ -1,0 +1,4 @@
+.stock__btn_group {
+    display: flex;
+    gap: 14px;
+}
