@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <ImportBsJS />
+      {/* <ImportBsJS /> */}
       <AuthProvider>
         <body className={inter.className}>
           <div id="portal"/>

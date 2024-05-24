@@ -32,7 +32,6 @@ export const authConfig: AuthOptions = {
             }
         })
     ],
-    useSecureCookies: false,
 }
 
 const handler = NextAuth(authConfig);
