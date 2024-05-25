@@ -5,7 +5,7 @@ import type { Dish } from "@prisma/client";
 import { getServerSession } from "next-auth";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { authConfig } from "../api/auth/[...nextauth]/route";
+import { authConfig } from "../api/auth/[...nextauth]/config";
 
 export async function createDish(data: FormData) {
     const session = await getServerSession(authConfig);
