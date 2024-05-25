@@ -1,5 +1,5 @@
 import { NextResponse, NextRequest } from "next/server";
-import fs, { promises as fsAsync } from 'fs';
+import fs from 'fs';
 import { pipeline } from 'stream';
 import { promisify } from 'util';
 import { Readable } from 'stream';
@@ -13,7 +13,8 @@ interface TForm extends Stock {
     picture: File
 }
 
-export async function POST(req: NextRequest, res: NextResponse) {
+//** добавление запись, если картинка существует - не записывает, иначе - записывает её
+export async function POST(req: NextRequest) {
     try {
         // проверка на сессию
         const cookies = req.cookies.getAll();
@@ -23,42 +24,55 @@ export async function POST(req: NextRequest, res: NextResponse) {
         };
         const session = await getSession({ req: mockRequest });
         if (!session) {
-            return NextResponse.json({ message: "Access closed"}, { status: 403 });
-        } else {
-            const formData = await req.formData();
-            // форма возвращает значение чекБоксов в стринге, из-за этого сыпит типы
-            const file = Object.fromEntries(formData) as unknown as TForm;
-            const check = file.show as unknown as string === "true" ? true : false;
-    
-            const filePath = `./public/img_stock/${file.picture.name}`;
+            return NextResponse.json({ message: "Access closed" }, { status: 403 });
+        }
+
+        // преобразуем реквест 
+        const formData = await req.formData();
+        const file = Object.fromEntries(formData) as unknown as TForm;
+        const check = file.show as unknown as string === "true" ? true : false;
+
+        const filePath = `./public/img_stock/${file.picture.name}`;
+
+        // ищем файл и проверяем наличие картинки
+        const fileExist = fs.existsSync(filePath);
+        if (!fileExist) {
+            // если такой нет то добавляем в БД
+            await prisma.stock.create({
+                data: {
+                    title: file.title,
+                    body: file.body,
+                    show: check,
+                    img: file.picture.name,
+                },
+            });
+
             try {
-                // проверка на уже существующий файл
-                await fsAsync.stat(filePath);
-
-                // если стат не выкидывает ошибки пишем в БД
-                await prisma.stock.create({
-                    data: {
-                        title: file.title,
-                        body: file.body,
-                        show: check,
-                        img: file.picture.name,
-                    },
-                });
-
-                // добавляем картинку в директорию
+                // добавляем картинку в publick
                 const blob = await file.picture!.arrayBuffer();
                 const readableStream = new Readable();
                 readableStream.push(Buffer.from(blob));
                 readableStream.push(null);
+
                 await pump(readableStream, fs.createWriteStream(filePath));
-        
-                return NextResponse.json({message: "Stoc added successfully" }, { status: 200 });
-            } catch (error) {
-                return NextResponse.json({message: "Something went wrong" }, { status: 500 });
+
+                return NextResponse.json(
+                    { message: "file create" },
+                    { status: 200 }
+                );
+            } catch (error: any) {
+                return NextResponse.json(
+                    { message: "file create, picture not recorded", error: error.message },
+                    { status: 206 }
+                )
             }
         }
+        return NextResponse.json(
+            { message: "picture name is taken" },
+            { status: 400 }
+        );
     }
     catch (e) {
-        return NextResponse.json({message: "request processing error", data: e}, { status: 500 })
+        return NextResponse.json({ message: "request processing error", data: e }, { status: 500 })
     }
 }

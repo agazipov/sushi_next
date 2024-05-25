@@ -1,3 +1,5 @@
+"use client"
+
 import {
     Button,
     Form,
@@ -11,6 +13,7 @@ import FormCheckLabel from "react-bootstrap/FormCheckLabel";
 import FormCheckInput from "react-bootstrap/FormCheckInput";
 import type { Stock } from "@prisma/client";
 import { createStock, updateStock } from '@/src/app/api/auth/[...nextauth]/actionStock';
+import { useRouter } from 'next/navigation';
 
 interface IFormChange {
     stock: Stock | null
@@ -18,9 +21,10 @@ interface IFormChange {
 }
 
 export default function StockForm({ stock, setShow }: IFormChange) {
+    const router = useRouter();
     const handleSubmit = (data: FormData) => {
         stock ? updateStock(data) : createStock(data);
-        setShow(false);
+        router.push("/admin/redirect");
     }
     
     return (
@@ -38,7 +42,7 @@ export default function StockForm({ stock, setShow }: IFormChange) {
 
             <FormGroup className="mb-3">
                 <FormLabel>{stock ? `Текущее изображение ${stock.img}. Заменить?` : "Изображение"}</FormLabel>
-                <FormControl type="file" name="picture" required />
+                <FormControl type="file" name="picture" required={stock ? false : true}/>
             </FormGroup>
 
             <FormLabel >Отображение</FormLabel>

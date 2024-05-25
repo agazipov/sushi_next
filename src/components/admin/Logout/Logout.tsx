@@ -1,12 +1,16 @@
 "use client"
 
+import { useRouter } from "next/navigation";
 import { signOut } from "next-auth/react";
 import Link from "next/link";
+import styles from "./styles.module.css";
 
 export default function Logout() {
+    const router = useRouter();
     return (
-        <div>
-            <Link style={{padding: "6px"}} href="#" onClick={() => signOut({ callbackUrl: "/" })}>Выйти</Link>
+        <div className={styles.root}>
+            <Link href="#" onClick={() => signOut({ callbackUrl: "/" })}>Выйти</Link>
+            <Link href="#" onClick={() => router.push("/admin")}>На сайт</Link>
         </div>
     )
 }

@@ -9,7 +9,7 @@ export async function createStock(data: FormData) {
     const result = await response.json();
     console.log("result", result);
 
-    revalidatePath(`/admin`);
+    // revalidatePath(`/admin`);
 }
 
 export async function updateStock(data: FormData) {
@@ -19,8 +19,8 @@ export async function updateStock(data: FormData) {
     })
     const result = await response.json();
     console.log("result", result);
-
-    revalidatePath(`/admin`);
+    
+    // revalidatePath(`/admin`);
 }
 
 export async function removeStock(data: Stock) {
@@ -29,6 +29,7 @@ export async function removeStock(data: Stock) {
         body: JSON.stringify(data)
     })
     const result = await response.json();
+    console.log("result", result);
 
-    revalidatePath(`/admin`);
+    // revalidatePath(`/admin`);
 }

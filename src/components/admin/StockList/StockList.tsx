@@ -14,7 +14,7 @@ type Props = {
     stocks: Stock[];
 };
 
-export default function Stock({ stocks }: Props) {
+export default function StockList({ stocks }: Props) {
     const [show, setShow] = useState<Stock | boolean>(false);
 
     return (

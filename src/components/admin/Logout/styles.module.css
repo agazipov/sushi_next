@@ -1,0 +1,9 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    text-wrap: nowrap;
+}
+
+.root>a {
+    padding: 4px;
+}
