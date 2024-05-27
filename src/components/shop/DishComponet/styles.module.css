@@ -58,6 +58,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 4px;
 }
 
 .dish__info_custom {
@@ -123,9 +124,7 @@
 .dish__count {
     width: 32px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
 }
 
 /* Enable hover only on non-touch devices */

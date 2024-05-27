@@ -12,7 +12,8 @@ import { RootState } from "@/src/app/lib/store";
 
 interface IDishComponent {
     dish: Dish,
-    viewVariant?: 'default' | 'custom'
+    viewVariant?: 'default' | 'custom',
+    countVariant: string[],
 }
 
 const ViewVariantRoot: { [index: string]: string } = {
@@ -25,7 +26,7 @@ const ViewVariantDishInfo: { [index: string]: string } = {
     custom: styles.dish__info_custom,
 };
 
-export function DishComponet({ dish, viewVariant = 'default' }: IDishComponent) {
+export function DishComponet({ dish, viewVariant = 'default' , countVariant}: IDishComponent) {
     const [selectDish, setSelectDish] = useState<Dish>(() => { return { ...dish, select: 'large' } });
 
     const handleSize = (value: 'mid' | 'large') => setSelectDish(prev => { return { ...prev, select: value } });
@@ -56,21 +57,21 @@ export function DishComponet({ dish, viewVariant = 'default' }: IDishComponent) 
                     {!!dish.price_for_mid &&
                         <div
                             className={classNames(styles.dish__size,
-                                selectDish.select === 'mid' && 'dish__size_activ')}
+                                selectDish.select === 'mid' && styles.dish__size_activ)}
                             onClick={() => handleSize('mid')}
                         >
-                            <div className={styles.dish__price}>{dish.price_for_mid}₽ за 4 шт: </div>
-                            <div className='dish__count'>{count ? count.countByMid : 0}</div>
+                            <div className={styles.dish__price}>{dish.price_for_mid}{countVariant[0]}</div>
+                            <div className={styles.dish__count}>{count ? count.countByMid : 0}</div>
                         </div>
                     }
                     {!!dish.price_for_large &&
                         <div
                             className={classNames(styles.dish__size,
-                                selectDish.select === 'large' && 'dish__size_activ')}
+                                selectDish.select === 'large' && styles.dish__size_activ)}
                             onClick={() => handleSize('large')}
                         >
-                            <div className={styles.dish__price}>{dish.price_for_large}₽ за 8 шт: </div>
-                            <div className='dish__count'>{count ? count.countByLarge : 0}</div>
+                            <div className={styles.dish__price}>{dish.price_for_large}{countVariant[1]}</div>
+                            <div className={styles.dish__count}>{count ? count.countByLarge : 0}</div>
                         </div>
                     }
                 </div>

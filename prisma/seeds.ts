@@ -12,7 +12,7 @@ const prisma = new PrismaClient();
 
 const CATEGORIES_LIST = [
     {
-        name: "Хлодные роллы",
+        name: "Холодные роллы",
         dishes: coldRolls
     },
     {

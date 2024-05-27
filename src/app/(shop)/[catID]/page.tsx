@@ -15,6 +15,6 @@ export default async function CategoriePage({ params: { catID } }: Props) {
     }
 
     return (
-        <DishList dishe={categorie.dishes} />
+        <DishList dishe={categorie.dishes} categorieName={categorie.name}/>
     )
 }
