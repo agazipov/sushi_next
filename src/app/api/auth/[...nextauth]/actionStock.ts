@@ -1,4 +1,3 @@
-import { revalidatePath } from "next/cache";
 import type { Stock } from "@prisma/client";
 
 export async function createStock(data: FormData) {
@@ -7,9 +6,8 @@ export async function createStock(data: FormData) {
         body: data
     })
     const result = await response.json();
-    console.log("result", result);
+    return result;
 
-    // revalidatePath(`/admin`);
 }
 
 export async function updateStock(data: FormData) {
@@ -18,9 +16,8 @@ export async function updateStock(data: FormData) {
         body: data
     })
     const result = await response.json();
-    console.log("result", result);
-    
-    // revalidatePath(`/admin`);
+    return result;
+
 }
 
 export async function removeStock(data: Stock) {
@@ -29,7 +26,5 @@ export async function removeStock(data: Stock) {
         body: JSON.stringify(data)
     })
     const result = await response.json();
-    console.log("result", result);
-
-    // revalidatePath(`/admin`);
+    return result;
 }

@@ -20,11 +20,24 @@ interface IFormChange {
     setShow: (e: boolean) => void
 }
 
+interface IResult {
+    message: string
+    error?: string
+}
+
 export default function StockForm({ stock, setShow }: IFormChange) {
     const router = useRouter();
-    const handleSubmit = (data: FormData) => {
-        stock ? updateStock(data) : createStock(data);
-        router.push("/admin/redirect");
+    const handleSubmit = async (data: FormData) => {
+        let result: IResult;
+        if (stock) {
+            result = await updateStock(data)
+        } else {
+            result = await createStock(data)
+        }
+        console.log("result", result);
+
+        router.refresh();
+        setShow(false);
     }
     
     return (

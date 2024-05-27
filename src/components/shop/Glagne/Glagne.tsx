@@ -6,10 +6,10 @@ import Link from "next/link";
 import styles from "./styles.module.css";
 import classNames from 'classnames';
 import Image from "next/image";
-import { getAllStocks } from "@/src/services/stock";
+import { getAllStocksFromPrisma } from "@/src/services/stock";
 
 export default async function Navigation() {
-    const stocks = await getAllStocks();
+    const stocks = await getAllStocksFromPrisma();
 
     return (
         <div className={classNames(styles.home, "container")}>

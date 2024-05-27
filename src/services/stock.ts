@@ -1,11 +1,5 @@
 import { prisma } from "@/lib/prisma";
 
-export function getAllStocks() {
+export async function getAllStocksFromPrisma() {
     return prisma.stock.findMany();
-}
-
-export function getStockById(id: string) {
-    return prisma.stock.findUnique({
-        where: { id }
-    })
 }

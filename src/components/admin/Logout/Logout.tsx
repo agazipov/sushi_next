@@ -10,7 +10,7 @@ export default function Logout() {
     return (
         <div className={styles.root}>
             <Link href="#" onClick={() => signOut({ callbackUrl: "/" })}>Выйти</Link>
-            <Link href="#" onClick={() => router.push("/admin")}>На сайт</Link>
+            <Link href="/" >На сайт</Link>
         </div>
     )
 }
