@@ -14,10 +14,12 @@ import FormCheckInput from "react-bootstrap/FormCheckInput";
 import type { Stock } from "@prisma/client";
 import { createStock, updateStock } from '@/src/app/api/auth/[...nextauth]/actionStock';
 import { useRouter } from 'next/navigation';
+import processResForStock from '@/lib/processResForStock';
 
 interface IFormChange {
     stock: Stock | null
     setShow: (e: boolean) => void
+    setMessage: (e: string) => void
 }
 
 interface IResult {
@@ -25,8 +27,9 @@ interface IResult {
     error?: string
 }
 
-export default function StockForm({ stock, setShow }: IFormChange) {
+export default function StockForm({ stock, setShow, setMessage }: IFormChange) {
     const router = useRouter();
+
     const handleSubmit = async (data: FormData) => {
         let result: IResult;
         if (stock) {
@@ -34,7 +37,7 @@ export default function StockForm({ stock, setShow }: IFormChange) {
         } else {
             result = await createStock(data)
         }
-        console.log("result", result);
+        setMessage(processResForStock(result.message));
 
         router.refresh();
         setShow(false);

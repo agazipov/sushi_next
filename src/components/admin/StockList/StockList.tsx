@@ -9,6 +9,9 @@ import styles from "./styles.module.css";
 import classNames from "classnames";
 import StockForm from "../StockForm/StockForm";
 import { removeStock } from "@/src/app/api/auth/[...nextauth]/actionStock";
+import toast, { Toaster } from 'react-hot-toast';
+import { useRouter } from "next/navigation";
+import processResForStock from "@/lib/processResForStock";
 
 type Props = {
     stocks: Stock[];
@@ -16,6 +19,13 @@ type Props = {
 
 export default function StockList({ stocks }: Props) {
     const [show, setShow] = useState<Stock | boolean>(false);
+    const router = useRouter();
+
+    const handleRemove = async (stock: Stock) => {
+        const result = await removeStock(stock);
+        toast(processResForStock(result.message));
+        router.refresh();
+    }
 
     return (
         <div className={classNames(styles.root, "container")}>
@@ -38,7 +48,7 @@ export default function StockList({ stocks }: Props) {
                                 <div><p><u>Отображение:</u> {stock.show ? "Показан" : "Скрыт"}</p></div>
                                 <div className={styles.stock__btn_group}>
                                     <Button onClick={() => setShow(stock)} size="sm">Изменить</Button>
-                                    <Button onClick={() => removeStock(stock)} size="sm" variant="danger">Удалить</Button>
+                                    <Button onClick={() => handleRemove(stock)} size="sm" variant="danger">Удалить</Button>
                                 </div>
                             </div>)
                     })
@@ -47,11 +57,18 @@ export default function StockList({ stocks }: Props) {
                 :
                 <div>Нет акций</div>
             }
+
             <Portal>
                 <ModalWrap show={show} setShow={setShow} >
-                    <StockForm stock={typeof show === "object" ? show : null} setShow={setShow} />
+                    <StockForm
+                        stock={typeof show === "object" ? show : null}
+                        setShow={setShow}
+                        setMessage={(e) => toast(e)}
+                    />
                 </ModalWrap>
             </Portal>
+
+            <Toaster />
         </div>
     )
 }
