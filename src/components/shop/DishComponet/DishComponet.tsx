@@ -13,7 +13,7 @@ import { RootState } from "@/src/app/lib/store";
 interface IDishComponent {
     dish: Dish,
     viewVariant?: 'default' | 'custom',
-    countVariant: string[],
+    countVariant?: string[],
 }
 
 const ViewVariantRoot: { [index: string]: string } = {
@@ -26,13 +26,18 @@ const ViewVariantDishInfo: { [index: string]: string } = {
     custom: styles.dish__info_custom,
 };
 
-export function DishComponet({ dish, viewVariant = 'default' , countVariant}: IDishComponent) {
-    const [selectDish, setSelectDish] = useState<Dish>(() => { return { ...dish, select: 'large' } });
+export function DishComponet({ dish, viewVariant = 'default', countVariant }: IDishComponent) {
+    const [selectDish, setSelectDish] = useState<Dish>(dish);
 
     const handleSize = (value: 'mid' | 'large') => setSelectDish(prev => { return { ...prev, select: value } });
 
     const dispath = useAppDispatch();
     const count = useAppSelector((state: RootState) => selectDishAmount(state, dish));
+
+    const imgParser = (img: string): string[] => {
+        const result = img.split('/');
+        return result;
+    }
 
     return (
         <div className={classNames(ViewVariantRoot[viewVariant])}>
@@ -40,12 +45,15 @@ export function DishComponet({ dish, viewVariant = 'default' , countVariant}: ID
                 <h5 className={styles.dish__title}>{dish.name}</h5>
                 <div className={styles.dish__wrapper}>
                     <div className={styles.dish__img}>
-                        <Image
-                            height={100}
-                            width={100}
-                            src={`/img_dishes/${dish.img}`}
-                            alt={dish.name}
-                        />
+                        {imgParser(dish.img).map((imgURL, index) => (
+                            <Image
+                                key={index}
+                                height={112}
+                                width={112}
+                                src={`/img_dishes/${imgURL}`}
+                                alt={dish.name}
+                            />
+                        ))}
                     </div>
                     <div className={styles.dish__desc}>
                         <p>{dish.compound}</p>
@@ -60,7 +68,9 @@ export function DishComponet({ dish, viewVariant = 'default' , countVariant}: ID
                                 selectDish.select === 'mid' && styles.dish__size_activ)}
                             onClick={() => handleSize('mid')}
                         >
-                            <div className={styles.dish__price}>{dish.price_for_mid}{countVariant[0]}</div>
+                            <div className={styles.dish__price}>
+                                {dish.price_for_mid}{countVariant ? countVariant[0] : "₽ за шт"}
+                            </div>
                             <div className={styles.dish__count}>{count ? count.countByMid : 0}</div>
                         </div>
                     }
@@ -70,7 +80,9 @@ export function DishComponet({ dish, viewVariant = 'default' , countVariant}: ID
                                 selectDish.select === 'large' && styles.dish__size_activ)}
                             onClick={() => handleSize('large')}
                         >
-                            <div className={styles.dish__price}>{dish.price_for_large}{countVariant[1]}</div>
+                            <div className={styles.dish__price}>
+                                {dish.price_for_large}{countVariant ? countVariant[1] : "₽ за шт"}
+                            </div>
                             <div className={styles.dish__count}>{count ? count.countByLarge : 0}</div>
                         </div>
                     }

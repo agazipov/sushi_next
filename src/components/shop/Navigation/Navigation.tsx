@@ -18,13 +18,17 @@ export default async function Navigation() {
                 <Nav className={classNames("me-auto")}>
                     {categories.map((categorie) => {
                         return (
-                                <NavLink
-                                    key={categorie.id}
-                                    as={Link}
-                                    href={`/${categorie.id}`}
-                                >{categorie.name}</NavLink>
+                            <NavLink
+                                key={categorie.id}
+                                as={Link}
+                                href={`/${categorie.id}`}
+                            >{categorie.name}</NavLink>
                         )
                     })}
+                    <NavLink
+                        as={Link}
+                        href={"/sets"}
+                    >Сеты</NavLink>
                 </Nav>
             </div>
         </Navbar>

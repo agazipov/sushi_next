@@ -1,0 +1,45 @@
+.set__root {
+    padding: 12px;
+
+    background-color: var(--custom-grey-opacity);
+    border-radius: var(--my-border-radius);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+
+    text-align: center;
+}
+
+.set__dishes {
+    width: 200px;
+    height: 150px;
+}
+
+.set__dish {
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    height: 150px;
+}
+
+.set__dish>img {
+    border: 1px solid black;
+    border-radius: var(--my-border-radius);
+
+    background-color: var(--bs-danger-bg-subtle);
+}
+
+.set__dish_name {
+    background-color: var(--bs-danger-bg-subtle);
+}
+
+.set__dish_info {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4px;
+}

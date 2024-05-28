@@ -1,45 +1,8 @@
 import { PrismaClient } from "@prisma/client";
-import coldRolls from "./data/coldRolls.json";
-import bakedRolls from "./data/bakedRolls.json";
-import beverages from "./data/beverages.json";
-import extras from "./data/extras.json";
-import friedRolls from "./data/friedRolls.json";
-import pizzas from "./data/pizzas.json";
-import tortillas from "./data/tortillas.json";
 import { generatePassword, generateSalt } from "@/lib/identification";
+import { CATEGORIES_LIST, SETS_LIST } from "@/lib/constant";
 
 const prisma = new PrismaClient();
-
-const CATEGORIES_LIST = [
-    {
-        name: "Холодные роллы",
-        dishes: coldRolls
-    },
-    {
-        name: "Печеные роллы",
-        dishes: bakedRolls
-    },
-    {
-        name: "Жареные роллы",
-        dishes: friedRolls
-    },
-    {
-        name: "Пицца",
-        dishes: pizzas
-    },
-    {
-        name: "Тортильи",
-        dishes: tortillas
-    },
-    {
-        name: "Напитки",
-        dishes: beverages
-    },
-    {
-        name: "Допы",
-        dishes: extras
-    },
-];
 
 const seedDishes = async () => {
     await prisma.categorie.deleteMany();
@@ -57,6 +20,49 @@ const seedDishes = async () => {
     }
 
 };
+
+const seedSets = async () => {
+    await prisma.set.deleteMany();
+
+    for (const set of SETS_LIST) {
+        await prisma.set.create({
+            data: {
+                name: set.name,
+                price: set.price,
+                discription: set.discription,
+                dishes: {
+                    create: set.dishes
+                }
+            }
+        })
+    }
+};
+
+const testSetCategorie = async () => {
+    const DISH_BY_SET = {
+        name: "Романтик",
+        compound: "20 кусочков, 1/2 от средней пориции. Включает: Филадельфия Классик, Дракон, Калифорния,Калифорния эби, Каппа маки",
+        price_for_large: 730,
+        img: "8SY3xsBqn_E.webp/xUaJ3SYtvy4.webp/UxOISO1_HKY.webp/AZLAXbQjyn0.webp/9PWsZnQ9-9E.webp",
+        price_for_mid: 0,
+        countByMid: 0,
+        countByLarge: 0,
+        select: "large"
+    }
+    const SETS = {
+        name: "Сеты_2",
+        dishes: [DISH_BY_SET]
+    }
+
+    await prisma.categorie.create({
+        data: {
+            name: SETS.name,
+            dishes: {
+                create: SETS.dishes
+            }
+        }
+    })
+}
 
 const seedUsers = async () => {
     await prisma.user.deleteMany();
@@ -85,6 +91,8 @@ const seedStoks = async () => {
     })
 }
 
-seedStoks();
+testSetCategorie();
+// seedSets();
+// seedStoks();
 // seedDishes();
 // seedUsers();

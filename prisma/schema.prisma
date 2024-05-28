@@ -16,6 +16,14 @@ model Categorie {
   dishes Dish[]
 }
 
+model Set {
+  id          String @id @default(cuid())
+  name        String @unique
+  discription String?
+  price       Int
+  dishes      Dish[]
+}
+
 model Dish {
   id              String     @id @default(cuid())
   name            String
@@ -28,6 +36,8 @@ model Dish {
   img             String
   Categorie       Categorie? @relation(fields: [categorieId], references: [id])
   categorieId     String?
+  Set             Set?       @relation(fields: [setId], references: [id])
+  setId           String?
 }
 
 model User {
