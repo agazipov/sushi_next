@@ -32,15 +32,13 @@ export default function ModalCart({ show, setShow }: IModalCart) {
                     ?
                     <div>Корзина пуста</div>
                     :
-                    <ol className={styles.modal__ol}>
+                    <div className={styles.modal__list}>
                         {cart.buy.map((dish) => {
                             return (
-                                <li key={dish.id}>
-                                    <DishComponet dish={dish} viewVariant='custom' />
-                                </li>
+                                    <DishComponet key={dish.id} dish={dish} viewVariant='custom' />
                             )
                         })}
-                    </ol>
+                    </div>
                 }
             </ModalBody>
             <ModalFooter>

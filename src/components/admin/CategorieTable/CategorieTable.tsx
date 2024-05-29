@@ -42,7 +42,7 @@ export default function CategorieTable({ dishes, categorieId }: TCategorieTable)
                             <td>{dish.price_for_mid}</td>
                             <td>{dish.price_for_large}</td>
                             <td>
-                                <div className={styles.stock__btn_group}>
+                                <div className={styles.dish__btn_group}>
                                     <Button onClick={() => setShow(dish)} size="sm">Изменить</Button>
                                     <Button onClick={() => removeDish(dish.id)} size="sm" variant="danger">Удалить</Button>
                                 </div>

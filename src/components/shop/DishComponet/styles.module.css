@@ -25,13 +25,6 @@
     text-align: center;
 }
 
-.custom>.dish__wrapper {
-    max-width: 100px;
-
-    display: flex;
-    flex-direction: column;
-}
-
 .dish__header {
     display: flex;
     flex-direction: column;
@@ -53,9 +46,9 @@
     width: 100%;
 
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
     gap: 6px;
 
     text-wrap: nowrap;

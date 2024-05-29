@@ -15,23 +15,25 @@ const ImgView = memo(function ImgView({ dish }: IImgView) {
     return (
         <div className={styles.dish__wrapper}>
             {nameImgList.length > 1 ?
-                <Carousel interval={null} variant="dark">
-                    {nameImgList.map((img) => (
-                        <CarouselItem key={img.url}>
-                            <div className={styles.dish__img}>
-                                <Image
-                                    height={150}
-                                    width={150}
-                                    src={`/img_dishes/${img.url}`}
-                                    alt={img.name}
-                                />
-                            </div>
-                            <CarouselCaption>
-                                <span className={styles.dish__caption}>{img.name}</span>
-                            </CarouselCaption>
-                        </CarouselItem>
-                    ))}
-                </Carousel>
+                <div className={styles.dish__caruosel}>
+                    <Carousel interval={null} variant="dark">
+                        {nameImgList.map((img, index) => (
+                            <CarouselItem key={index}>
+                                <div className={styles.dish__img}>
+                                    <Image
+                                        height={140}
+                                        width={140}
+                                        src={`/img_dishes/${img.url}`}
+                                        alt={img.name}
+                                    />
+                                </div>
+                                <CarouselCaption>
+                                    <span className={styles.dish__caption}>{img.name}</span>
+                                </CarouselCaption>
+                            </CarouselItem>
+                        ))}
+                    </Carousel>
+                </div>
                 :
                 <div className={styles.dish__img}>
                     <Image

@@ -7,6 +7,10 @@
     justify-content: space-between;
 }
 
+.dish__caruosel {
+    width: 140px;
+}
+
 .dish__desc {
     /* width: 100px; */
     font-size: small;
