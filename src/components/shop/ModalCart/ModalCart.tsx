@@ -23,32 +23,33 @@ export default function ModalCart({ show, setShow }: IModalCart) {
     };
 
     return (
-        <Modal show={show} onHide={() => setShow(false)}>
-            <ModalHeader closeButton>
-                <ModalTitle>Корзина: {cart.countDishes} блюд за {cart.price}₽</ModalTitle>
-            </ModalHeader>
-            <ModalBody>
-                {cart.buy.length === 0
-                    ?
-                    <div>Корзина пуста</div>
-                    :
-                    <div className={styles.modal__list}>
-                        {cart.buy.map((dish) => {
-                            return (
-                                    <DishComponet key={dish.id} dish={dish} viewVariant='custom' />
-                            )
-                        })}
-                    </div>
-                }
-            </ModalBody>
-            <ModalFooter>
-                <Button variant="dark" onClick={handleCheckOut} disabled={cart.buy.length === 0}>
-                    Оформить заказ
-                </Button>
-                <Button variant="secondary" onClick={() => setShow(false)}>
-                    Закрыть
-                </Button>
-            </ModalFooter>
-        </Modal>
+        <div className={show ? styles.activ : styles.inactiv}>test</div>
+        // <Modal show={show} onHide={() => setShow(false)}>
+        //     <ModalHeader closeButton>
+        //         <ModalTitle>Корзина: {cart.countDishes} блюд за {cart.price}₽</ModalTitle>
+        //     </ModalHeader>
+        //     <ModalBody>
+        //         {cart.buy.length === 0
+        //             ?
+        //             <div>Корзина пуста</div>
+        //             :
+        //             <div className={styles.modal__list}>
+        //                 {cart.buy.map((dish) => {
+        //                     return (
+        //                             <DishComponet key={dish.id} dish={dish} viewVariant='custom' />
+        //                     )
+        //                 })}
+        //             </div>
+        //         }
+        //     </ModalBody>
+        //     <ModalFooter>
+        //         <Button variant="dark" onClick={handleCheckOut} disabled={cart.buy.length === 0}>
+        //             Оформить заказ
+        //         </Button>
+        //         <Button variant="secondary" onClick={() => setShow(false)}>
+        //             Закрыть
+        //         </Button>
+        //     </ModalFooter>
+        // </Modal>
     )
 }

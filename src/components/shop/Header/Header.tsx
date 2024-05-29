@@ -1,9 +1,8 @@
-// import Cart from "../cart/Cart";
 import fishes from '@/public/img_app/fishes.webp';
 import Image from 'next/image';
-import styles from "./styles.module.css";
 import classNames from 'classnames';
 import Cart from '../Cart/Cart';
+import styles from "./styles.module.css";
 
 export default function Header() {
     return (
