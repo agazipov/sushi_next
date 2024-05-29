@@ -1,0 +1,202 @@
+[
+    {
+        "name": "Детский комбо №1",
+        "compound": "Включает: Каппа маки, Картофель фри, Сок детский",
+        "price_for_mid": 0,
+        "price_for_large": 240,
+        "img": "9PWsZnQ9-9E.webp/1-tmeDlwBuM.webp/yj2qmGLr6t8.webp",
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Детский комбо №2",
+        "compound": "Включает: Крабик, Картофель фри, Наггетсы из мяса цыпленка, Сок детский",
+        "price_for_mid": 0,
+        "price_for_large": 370,
+        "img": "QO-14tGUxCU.webp/1-tmeDlwBuM.webp/1dec-sl9mwI.webp/yj2qmGLr6t8.webp",
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Детский комбо №3",
+        "compound": "Включает: Маргарита, Тори маки, Молочный коктейль",
+        "price_for_mid": 0,
+        "price_for_large": 400,
+        "img": "HCLrMoPhUXM.webp/zjuji5uNt7E.webp/yj2qmGLr6t8.webp",
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Крутой Уокер",
+        "compound": "Включает: Луковые кольца, Кольца кальмара, Наггетсы, Картофель фри",
+        "price_for_mid": 0,
+        "price_for_large": 520,
+        "img": "WTi5yDsRICA.webp/a3uw6ZqnKl0.webp/1dec-sl9mwI.webp/1-tmeDlwBuM.webp",
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Запечённая Четверка",
+        "compound": "16 кусочков. Включает: Изуми, Фьюжн, Шик, Запечённый ролл",
+        "price_for_mid": 0,
+        "price_for_large": 670,
+        "img": "suoGTIWOQr0.webp/oICJfloS814.webp/S9f5vX6VzTg.webp/Y7xnIt4xR4k.webp",
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Романтик",
+        "compound": "20 кусочков, 1/2 от средней пориции.  Включает: Филадельфия Классик, Дракон, Калифорния, Калифорния Эби, Каппа маки",
+        "price_for_mid": 0,
+        "price_for_large": 730,
+        "img": "8SY3xsBqn_E.webp/xUaJ3SYtvy4.webp/UxOISO1_HKY.webp/AZLAXbQjyn0.webp/9PWsZnQ9-9E.webp",
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Ниндзя",
+        "compound": "40 кусочков.  Включает: Аляска, Каппа маки, Унаги маки, Сяке маки",
+        "price_for_mid": 0,
+        "price_for_large": 860,
+        "img": "IlAr9WVfedw.webp/9PWsZnQ9-9E.webp/9PWsZnQ9-9E.webp/LQzku-niAqM.webp",
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Хот",
+        "compound": "24 кусочка.  Включает: Эби темпура, Тори темпура, Унаги-сяке темпура",
+        "price_for_mid": 0,
+        "price_for_large": 850,
+        "img": "s3d-LvHMEYE.webp/tfpEjPr-Lyg.webp/LV9P9O8ZchM.webp",
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Фирменный",
+        "compound": "32 кусочка.  Включает: Филадельфия Классик, Бонито, Сяке маки, Сяке темпура",
+        "price_for_mid": 0,
+        "price_for_large": 990,
+        "img": "8SY3xsBqn_E.webp/HVogVPEf5Oo.webp/LQzku-niAqM.webp/cc67Ui3fvEo.webp",
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Сицилия",
+        "compound": "32 кусочка.  Включает: Вулкан Классик, Тояма, Куш, Вегас",
+        "price_for_mid": 0,
+        "price_for_large": 1000,
+        "img": "EnVsRaFpWDY.webp/FhC6DyiSIYQ.webp/2N-0QIN5EGI.webp/8nzptjg1Gxo.webp",
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Мексика",
+        "compound": "32 кусочка.  Включает: Холодная тортилья с курочкой, Холодная тортилья с лососем, Горячая тортилья с креветкой, Горячая тортилья с беконом",
+        "price_for_mid": 0,
+        "price_for_large": 1000,
+        "img": "ZD7sjWLlT0w.webp/iAwDetWX218.webp/wvffosF9ibM.webp/VEOkW2g-M0M.webp",
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Мальчишник",
+        "compound": "40 кусочков. Включает: Дракон, Бонито, Гейша маки, Каппа маки, Унаги-сяке темпура",
+        "price_for_mid": 0,
+        "price_for_large": 1150,
+        "img": "xUaJ3SYtvy4.webp/HVogVPEf5Oo.webp/DlUW1JrOOXc.webp/9PWsZnQ9-9E.webp/LV9P9O8ZchM.webp",
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Астория",
+        "compound": "40 кусочков. Включает: Филадельфия, Кабиа, Фитнес, Сяке темпура, Унаги темпура",
+        "price_for_mid": 0,
+        "price_for_large": 1280,
+        "img": "8SY3xsBqn_E.webp/os5tOogRaIs.webp3hMJtZz_Ol8.webp/cc67Ui3fvEo.webp/NtxqldkN5Pw.webp",
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Самурай",
+        "compound": "40 кусочков. Включает: Филадельфия Хот, Тояма, Ямайка, Вулкан, Изуми",
+        "price_for_mid": 0,
+        "price_for_large": 1350,
+        "img": "Hdttk9G975c.webp/FhC6DyiSIYQ.webp/MuxKT2emlBM.webp/EnVsRaFpWDY.webp/suoGTIWOQr0.webp",
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Акэбоно",
+        "compound": "48 кусочков. Включает: Филадельфия Лайм, Канада, Нагано, Калифорния эби, Сяке маки, Каппа маки",
+        "price_for_mid": 0,
+        "price_for_large": 1400,
+        "img": "edLXVuAkp3g.webp/mngJsvDMJU0.webp/z9eRg8oCvqE.webp/LQzku-niAqM.webp/9PWsZnQ9-9E.webp",
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Девичник",
+        "compound": "48 кусочков. Включает: Москва, Калифорния, Унаги маки, Фитнес, Тори темпура, Эби темпура",
+        "price_for_mid": 0,
+        "price_for_large": 1450,
+        "img": "4bt707Tx43c.webp/UxOISO1_HKY.webp/TpdPj7SUBoo.webp/3hMJtZz_Ol8.webp/tfpEjPr-Lyg.webp/s3d-LvHMEYE.webp",
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Люкс",
+        "compound": "40 кусочков. Включает: Москва, Филадельфия Лайм, Сакана, Дракон, Канада",
+        "price_for_mid": 0,
+        "price_for_large": 1530,
+        "img": "4bt707Tx43c.webp/edLXVuAkp3g.webp/xFF9PSHhnh8.webp/xUaJ3SYtvy4.webp/mngJsvDMJU0.webp",
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Микс",
+        "compound": "56 кусочков. Включает: Королевский, Сяке маки, Унаги маки, Кани темпура, Блэк, Фьюжн, Фиеста",
+        "price_for_mid": 0,
+        "price_for_large": 1700,
+        "img": "v2LJGv42S-Y.webp/LQzku-niAqM.webp/TpdPj7SUBoo.webp/R4xE88Ot_dY.webp/X6cjkdwfKEI.webp/oICJfloS814.webp/NLZaDDjWud4.webp",
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Запечённая Четверка",
+        "compound": "64 кусочка. Включает: Мясной, Кабуки, Катана, Бонито, Текка маки, Ига маки, шиитаке маки, Чикен темпура",
+        "price_for_mid": 0,
+        "price_for_large": 1900,
+        "img": "UJey7POWtv4.webp/xilSkszd0PE.webp/KsHnfsO1rkA.webp/HVogVPEf5Oo.webp/yPiciDJCL9Y.webp/TOIGkcieCr8.webp/tAOFOdfEsx4.webp/bbcJX-l7JHs.webp",
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    },
+    {
+        "name": "Торнадо New",
+        "compound": "80 кусочков. Включает: Сакана, Бутта ролл, Ига, Киото, Чукос, Чука маки, Каппа маки,    Эби маки, Текка темпура, Кани темпура",
+        "price_for_mid": 0,
+        "price_for_large": 2300,
+        "img": "xFF9PSHhnh8.webp/8BCQdMclXtQ.webp/ykdyPV3PzuE.webp/gw2ePk43d5s.webp/EzafE0fXBes.webp/7Hp_WlNM_9Q.webp/9PWsZnQ9-9E.webp/BbEl5HpDkmc.webp/R4xE88Ot_dY.webp/-qV_yPe8BRg.webp",
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "large"
+    }
+]

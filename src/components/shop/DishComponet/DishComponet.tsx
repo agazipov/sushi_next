@@ -9,6 +9,8 @@ import Image from "next/image";
 import { useAppDispatch, useAppSelector } from "@/src/app/lib/hooks";
 import { cartActions, selectDishAmount } from "@/src/app/lib/features/cart/cart";
 import { RootState } from "@/src/app/lib/store";
+import { imgParser } from "@/lib/imgParser";
+import ImgView from "../ImgView/ImgView";
 
 interface IDishComponent {
     dish: Dish,
@@ -29,61 +31,45 @@ const ViewVariantDishInfo: { [index: string]: string } = {
 export function DishComponet({ dish, viewVariant = 'default', countVariant }: IDishComponent) {
     const [selectDish, setSelectDish] = useState<Dish>(dish);
 
-    const handleSize = (value: 'mid' | 'large') => setSelectDish(prev => { return { ...prev, select: value } });
+    const handleSize = (value: 'mid' | 'large') => setSelectDish(prev => ({ ...prev, select: value }));
 
     const dispath = useAppDispatch();
     const count = useAppSelector((state: RootState) => selectDishAmount(state, dish));
 
-    const imgParser = (img: string): string[] => {
-        const result = img.split('/');
-        return result;
-    }
-
     return (
         <div className={classNames(ViewVariantRoot[viewVariant])}>
             <div className={styles.dish__header}>
-                <h5 className={styles.dish__title}>{dish.name}</h5>
-                <div className={styles.dish__wrapper}>
-                    <div className={styles.dish__img}>
-                        {imgParser(dish.img).map((imgURL, index) => (
-                            <Image
-                                key={index}
-                                height={112}
-                                width={112}
-                                src={`/img_dishes/${imgURL}`}
-                                alt={dish.name}
-                            />
-                        ))}
-                    </div>
-                    <div className={styles.dish__desc}>
-                        <p>{dish.compound}</p>
-                    </div>
-                </div>
+                <h5>{dish.name}</h5>
+                <ImgView dish={dish}/>
             </div>
             <div className={classNames(ViewVariantDishInfo[viewVariant])}>
-                <div className={styles.dish__info_wrapper}>
+                <div>
                     {!!dish.price_for_mid &&
                         <div
-                            className={classNames(styles.dish__size,
-                                selectDish.select === 'mid' && styles.dish__size_activ)}
+                            className={classNames(
+                                styles.dish__size,
+                                selectDish.select === 'mid' && styles.dish__size_activ
+                                )}
                             onClick={() => handleSize('mid')}
                         >
-                            <div className={styles.dish__price}>
+                            <div>
                                 {dish.price_for_mid}{countVariant ? countVariant[0] : "₽ за шт"}
                             </div>
-                            <div className={styles.dish__count}>{count ? count.countByMid : 0}</div>
+                            <div>{count ? count.countByMid : 0}</div>
                         </div>
                     }
                     {!!dish.price_for_large &&
                         <div
-                            className={classNames(styles.dish__size,
-                                selectDish.select === 'large' && styles.dish__size_activ)}
+                            className={classNames(
+                                styles.dish__size,
+                                selectDish.select === 'large' && styles.dish__size_activ
+                                )}
                             onClick={() => handleSize('large')}
                         >
-                            <div className={styles.dish__price}>
+                            <div >
                                 {dish.price_for_large}{countVariant ? countVariant[1] : "₽ за шт"}
                             </div>
-                            <div className={styles.dish__count}>{count ? count.countByLarge : 0}</div>
+                            <div>{count ? count.countByLarge : 0}</div>
                         </div>
                     }
                 </div>

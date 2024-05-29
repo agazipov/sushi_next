@@ -6,7 +6,7 @@
         "price_for_large": 0,
         "countByMid": 0,
         "countByLarge": 0,
-        "select": "large"
+        "select": "mid"
     },
     {
         "name": "Порция Васаби",
@@ -15,7 +15,7 @@
         "price_for_large": 0,
         "countByMid": 0,
         "countByLarge": 0,
-        "select": "large"
+        "select": "mid"
     },
     {
         "name": "Порция соевого соуса",
@@ -24,7 +24,7 @@
         "price_for_large": 0,
         "countByMid": 0,
         "countByLarge": 0,
-        "select": "large"
+        "select": "mid"
     },
     {
         "name": "Cоус ким чи 50гр",
@@ -33,7 +33,7 @@
         "price_for_large": 0,
         "countByMid": 0,
         "countByLarge": 0,
-        "select": "large"
+        "select": "mid"
     },
     {
         "name": "Cоус ореховый 50гр",
@@ -42,7 +42,7 @@
         "price_for_large": 0,
         "countByMid": 0,
         "countByLarge": 0,
-        "select": "large"
+        "select": "mid"
     },
     {
         "name": "Cоус спайси 50гр",
@@ -51,7 +51,7 @@
         "price_for_large": 0,
         "countByMid": 0,
         "countByLarge": 0,
-        "select": "large"
+        "select": "mid"
     },
     {
         "name": "Картофель фри с соусом 100/25гр",
@@ -60,7 +60,7 @@
         "price_for_large": 0,
         "countByMid": 0,
         "countByLarge": 0,
-        "select": "large"
+        "select": "mid"
     },
     {
         "name": "Кольца кальмаров в кляре с соусом 100/25гр",
@@ -69,7 +69,7 @@
         "price_for_large": 0,
         "countByMid": 0,
         "countByLarge": 0,
-        "select": "large"
+        "select": "mid"
     },
     {
         "name": "Луковые кольца с соусом 120/25гр",
@@ -78,7 +78,7 @@
         "price_for_large": 0,
         "countByMid": 0,
         "countByLarge": 0,
-        "select": "large"
+        "select": "mid"
     },
     {
         "name": "Наггетсы из мяса цыпленка с соусом 8шт/25гр",
@@ -87,7 +87,7 @@
         "price_for_large": 0,
         "countByMid": 0,
         "countByLarge": 0,
-        "select": "large"
+        "select": "mid"
     },
     {
         "name": "Салат Чука",
@@ -96,7 +96,7 @@
         "price_for_large": 0,
         "countByMid": 0,
         "countByLarge": 0,
-        "select": "large"
+        "select": "mid"
     },
     {
         "name": "Чука с креветкой",
@@ -105,7 +105,7 @@
         "price_for_large": 0,
         "countByMid": 0,
         "countByLarge": 0,
-        "select": "large"
+        "select": "mid"
     },
     {
         "name": "Чука с угрем",
@@ -114,7 +114,7 @@
         "price_for_large": 0,
         "countByMid": 0,
         "countByLarge": 0,
-        "select": "large"
+        "select": "mid"
     },
     {
         "name": "Лапша Фунчеза с овощами 200гр",
@@ -123,7 +123,7 @@
         "price_for_large": 0,
         "countByMid": 0,
         "countByLarge": 0,
-        "select": "large"
+        "select": "mid"
     },
     {
         "name": "Лапша Удон с овощами 200гр",
@@ -132,7 +132,7 @@
         "price_for_large": 0,
         "countByMid": 0,
         "countByLarge": 0,
-        "select": "large"
+        "select": "mid"
     },
     {
         "name": "Лапша Рамэн с овощами 200гр",
@@ -141,7 +141,7 @@
         "price_for_large": 0,
         "countByMid": 0,
         "countByLarge": 0,
-        "select": "large"
+        "select": "mid"
     },
     {
         "name": "Рис Японский с овощами 200гр",
@@ -150,7 +150,7 @@
         "price_for_large": 0,
         "countByMid": 0,
         "countByLarge": 0,
-        "select": "large"
+        "select": "mid"
     },
     {
         "name": "Рис Японский с овощами 200гр",
@@ -159,7 +159,7 @@
         "price_for_large": 0,
         "countByMid": 0,
         "countByLarge": 0,
-        "select": "large"
+        "select": "mid"
     },
     {
         "name": "Фреш ролл с беконом 240гр",
@@ -169,7 +169,7 @@
         "price_for_large": 0,
         "countByMid": 0,
         "countByLarge": 0,
-        "select": "large"
+        "select": "mid"
     },
     {
         "name": "Фреш ролл с креветкой 240гр",
@@ -179,7 +179,7 @@
         "price_for_large": 0,
         "countByMid": 0,
         "countByLarge": 0,
-        "select": "large"
+        "select": "mid"
     },
     {
         "name": "Фреш ролл с рыбкой 240гр",
@@ -189,7 +189,7 @@
         "price_for_large": 0,
         "countByMid": 0,
         "countByLarge": 0,
-        "select": "large"
+        "select": "mid"
     },
     {
         "name": "Чизкейк клубничный",
@@ -198,7 +198,7 @@
         "price_for_large": 0,
         "countByMid": 0,
         "countByLarge": 0,
-        "select": "large"
+        "select": "mid"
     },
     {
         "name": "Чизкейк Сникерс",
@@ -207,7 +207,7 @@
         "price_for_large": 0,
         "countByMid": 0,
         "countByLarge": 0,
-        "select": "large"
+        "select": "mid"
     },
     {
         "name": "Онигири темпура с лососем",
@@ -216,7 +216,7 @@
         "price_for_large": 0,
         "countByMid": 0,
         "countByLarge": 0,
-        "select": "large"
+        "select": "mid"
     },
     {
         "name": "Онигири темпура с курицей",
@@ -225,7 +225,7 @@
         "price_for_large": 0,
         "countByMid": 0,
         "countByLarge": 0,
-        "select": "large"
+        "select": "mid"
     },
     {
         "name": "Запеченные Мидии",
@@ -235,7 +235,7 @@
         "img": "Gz2e5wULuKw.webp",
         "countByMid": 0,
         "countByLarge": 0,
-        "select": "large"
+        "select": "mid"
     },
     {
         "name": "Фри бокс с беконом 260гр",
@@ -245,6 +245,6 @@
         "price_for_large": 0,
         "countByMid": 0,
         "countByLarge": 0,
-        "select": "large"
+        "select": "mid"
     }
 ]

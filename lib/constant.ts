@@ -5,6 +5,7 @@ import extras from "./data/extras.json";
 import friedRolls from "./data/friedRolls.json";
 import pizzas from "./data/pizzas.json";
 import tortillas from "./data/tortillas.json";
+import sets from "./data/sets.json";
 
 export const COUNT_VARIANT: { [index: string]: string[] } = {
     "Холодные роллы": ["₽ за 4 шт: ", "₽ за 8 шт: "],
@@ -44,6 +45,10 @@ export const CATEGORIES_LIST = [
     {
         name: "Допы",
         dishes: extras
+    },
+    {
+        name: "Сеты",
+        dishes: sets
     },
 ];
 
@@ -96,7 +101,7 @@ export const SETS_LIST = [
             ...coldRolls.filter(dish => dish.name === "Филадельфия Классик"),
             ...coldRolls.filter(dish => dish.name === "Дракон"),
             ...coldRolls.filter(dish => dish.name === "Калифорния"),
-            ...coldRolls.filter(dish => dish.name === "Калифорния эби"),
+            ...coldRolls.filter(dish => dish.name === "Калифорния Эби"),
             ...coldRolls.filter(dish => dish.name === "Каппа маки"),
         ]
     },
@@ -196,7 +201,7 @@ export const SETS_LIST = [
         discription: "48 кусочков",
         price: 1400,
         dishes: [
-            ...coldRolls.filter(dish => dish.name === "Филадельфия лайм"),
+            ...coldRolls.filter(dish => dish.name === "Филадельфия Лайм"),
             ...coldRolls.filter(dish => dish.name === "Канада"),
             ...coldRolls.filter(dish => dish.name === "Нагано"),
             ...coldRolls.filter(dish => dish.name === "Калифорния эби"),
