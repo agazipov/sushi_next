@@ -25,10 +25,6 @@ export default async function Navigation() {
                             >{categorie.name}</NavLink>
                         )
                     })}
-                    <NavLink
-                        as={Link}
-                        href={"/sets"}
-                    >Сеты</NavLink>
                 </Nav>
             </div>
         </Navbar>

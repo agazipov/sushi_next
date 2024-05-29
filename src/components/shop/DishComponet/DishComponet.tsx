@@ -1,16 +1,14 @@
 "use client";
 
-import styles from "./styles.module.css";
-import classNames from 'classnames';
 import type { Dish } from "@prisma/client/edge";
-import { Button, ButtonGroup } from "react-bootstrap";
 import { useState } from "react";
-import Image from "next/image";
 import { useAppDispatch, useAppSelector } from "@/src/app/lib/hooks";
 import { cartActions, selectDishAmount } from "@/src/app/lib/features/cart/cart";
 import { RootState } from "@/src/app/lib/store";
-import { imgParser } from "@/lib/imgParser";
 import ImgView from "../ImgView/ImgView";
+import { Button, ButtonGroup } from "react-bootstrap";
+import classNames from 'classnames';
+import styles from "./styles.module.css";
 
 interface IDishComponent {
     dish: Dish,

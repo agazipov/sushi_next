@@ -21,22 +21,22 @@ const seedDishes = async () => {
 
 };
 
-const seedSets = async () => {
-    await prisma.set.deleteMany();
+// const seedSets = async () => {
+//     await prisma.set.deleteMany();
 
-    for (const set of SETS_LIST) {
-        await prisma.set.create({
-            data: {
-                name: set.name,
-                price: set.price,
-                discription: set.discription,
-                dishes: {
-                    create: set.dishes
-                }
-            }
-        })
-    }
-};
+//     for (const set of SETS_LIST) {
+//         await prisma.set.create({
+//             data: {
+//                 name: set.name,
+//                 price: set.price,
+//                 discription: set.discription,
+//                 dishes: {
+//                     create: set.dishes
+//                 }
+//             }
+//         })
+//     }
+// };
 
 const testSetCategorie = async () => {
     const DISH_BY_SET = {
@@ -91,8 +91,8 @@ const seedStoks = async () => {
     })
 }
 
-testSetCategorie();
+// testSetCategorie();
 // seedSets();
 // seedStoks();
-// seedDishes();
+seedDishes();
 // seedUsers();

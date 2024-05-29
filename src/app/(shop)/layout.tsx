@@ -4,18 +4,18 @@ import Navigation from "@/src/components/shop/Navigation/Navigation";
 import StoreProvider from "../lib/StoreProvider";
 
 export default function MainLayout({
-  children,
+    children,
 }: Readonly<{
-  children: React.ReactNode;
+    children: React.ReactNode;
 }>) {
-  return (
-    <>
-      <StoreProvider>
-        <Header />
-        <Navigation />
-        <main>{children}</main>
-        <Footer />
-      </StoreProvider>
-    </>
-  )
+    return (
+        <>
+            <StoreProvider>
+                <Header />
+                <Navigation />
+                <main>{children}</main>
+                <Footer />
+            </StoreProvider>
+        </>
+    )
 }
