@@ -5,6 +5,8 @@
     flex-direction: column-reverse;
     align-items: center;
     justify-content: space-between;
+
+    gap: 8px;
 }
 
 .dish__caruosel {
@@ -13,8 +15,12 @@
 
 .dish__desc {
     /* width: 100px; */
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    
     font-size: small;
-    text-align: center;
 }
 
 /* .dish__img {

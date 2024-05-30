@@ -1,7 +1,11 @@
 .dish_default {
     padding: 12px;
 
-    background-color: var(--custom-grey-opacity);
+    width: 100%;
+
+    /* background-color: var(--custom-grey-opacity); */
+    background: rgb(173,181,189);
+    background: linear-gradient(331deg, rgba(173,181,189,1) 15%, rgba(255,218,218,1) 48%, rgba(255,244,244,1) 76%);
     border-radius: var(--my-border-radius);
 
     display: flex;
@@ -33,6 +37,7 @@
 
 .dish__info_default {
     width: 100%;
+    min-height: 68px;
 
     display: flex;
     justify-content: space-between;
@@ -106,15 +111,19 @@
     .default {
         margin: auto 46px;
     }
+
     .dish__info-wrapper {
         font-size: medium;
     }
+
     .dish__desc {
         font-size: medium;
     }
+
     .dish__wrapper {
         justify-content: space-around;
     }
+
     .dish__info_default {
         justify-content: space-around;
     }

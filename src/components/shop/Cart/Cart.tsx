@@ -26,7 +26,7 @@ export default function Cart() {
                     <span>Цена: {cart.price}</span>
                 </div>
             </button>
-            {/* <TestComponent /> */}
+            <TestComponent param={3}/>
             {/* <Portal >
                 <Modal show={show} setShow={setShow}>
                 </Modal>

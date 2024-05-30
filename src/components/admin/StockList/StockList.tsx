@@ -25,6 +25,7 @@ export default function StockList({ stocks }: Props) {
         const result = await removeStock(stock);
         toast(processResForStock(result.message));
         router.refresh();
+        // window.location.reload();
     }
 
     return (
@@ -58,7 +59,6 @@ export default function StockList({ stocks }: Props) {
                 <div>Нет акций</div>
             }
 
-            <Portal>
                 <ModalWrap show={show} setShow={setShow} >
                     <StockForm
                         stock={typeof show === "object" ? show : null}
@@ -66,7 +66,6 @@ export default function StockList({ stocks }: Props) {
                         setMessage={(e) => toast(e)}
                     />
                 </ModalWrap>
-            </Portal>
 
             <Toaster />
         </div>

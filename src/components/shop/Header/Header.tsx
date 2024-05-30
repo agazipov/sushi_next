@@ -15,7 +15,7 @@ export default function Header() {
                 <div className={styles.header__img}>
                     <Image width={770} height={770} src={fishes} alt="Логотип с 2 карпами" />
                 </div>
-                <TestComponent param={2}/>
+                {/* <TestComponent param={2}/> */}
                 {/* <div className="header__info">
                         <p>г. Бакал, ул. Ленина, 5, помещение 1 (вход с торца)</p>
                         <p>ДОСТАВКА от 500 рублей по Бакалу БЕСПЛАТНО</p>
