@@ -9,11 +9,11 @@ export default function MainLayout({
     children: React.ReactNode;
 }>) {
     return (
-            <StoreProvider>
-                <Header />
-                <Navigation />
-                <main>{children}</main>
-                <Footer />
-            </StoreProvider>
+        <StoreProvider>
+            <Header />
+            <Navigation />
+            <main>{children}</main>
+            <Footer />
+        </StoreProvider>
     )
 }

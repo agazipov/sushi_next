@@ -7,6 +7,7 @@ import { selectCart } from '@/src/app/lib/features/cart/cart';
 import { useAppSelector } from '@/src/app/lib/hooks';
 import { DishComponet } from '../DishComponet/DishComponet';
 import styles from "./styles.module.css";
+import TestComponent from '../Test/Test';
 
 interface IModalCart {
     show: boolean,
@@ -23,33 +24,33 @@ export default function ModalCart({ show, setShow }: IModalCart) {
     };
 
     return (
-        <div className={show ? styles.activ : styles.inactiv}>test</div>
-        // <Modal show={show} onHide={() => setShow(false)}>
-        //     <ModalHeader closeButton>
-        //         <ModalTitle>Корзина: {cart.countDishes} блюд за {cart.price}₽</ModalTitle>
-        //     </ModalHeader>
-        //     <ModalBody>
-        //         {cart.buy.length === 0
-        //             ?
-        //             <div>Корзина пуста</div>
-        //             :
-        //             <div className={styles.modal__list}>
-        //                 {cart.buy.map((dish) => {
-        //                     return (
-        //                             <DishComponet key={dish.id} dish={dish} viewVariant='custom' />
-        //                     )
-        //                 })}
-        //             </div>
-        //         }
-        //     </ModalBody>
-        //     <ModalFooter>
-        //         <Button variant="dark" onClick={handleCheckOut} disabled={cart.buy.length === 0}>
-        //             Оформить заказ
-        //         </Button>
-        //         <Button variant="secondary" onClick={() => setShow(false)}>
-        //             Закрыть
-        //         </Button>
-        //     </ModalFooter>
-        // </Modal>
+        <Modal show={show} onHide={() => setShow(false)}>
+            <ModalHeader closeButton>
+                <ModalTitle>Корзина: {cart.countDishes} блюд за {cart.price}₽</ModalTitle>
+            </ModalHeader>
+            <ModalBody>
+                {/* {cart.buy.length === 0
+                    ?
+                    <div>Корзина пуста</div>
+                    :
+                    <div className={styles.modal__list}>
+                        {cart.buy.map((dish) => {
+                            return (
+                                <DishComponet key={dish.id} dish={dish} viewVariant='custom' />
+                            )
+                        })}
+                    </div>
+                } */}
+                <TestComponent param={3}/>
+            </ModalBody>
+            <ModalFooter>
+                <Button variant="dark" onClick={handleCheckOut} disabled={cart.buy.length === 0}>
+                    Оформить заказ
+                </Button>
+                <Button variant="secondary" onClick={() => setShow(false)}>
+                    Закрыть
+                </Button>
+            </ModalFooter>
+        </Modal>
     )
 }
