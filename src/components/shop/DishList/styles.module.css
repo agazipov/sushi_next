@@ -25,7 +25,8 @@
 
 @media (max-width: 576px) {
     .dishesList {
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(1, 0.6fr);
+        justify-content: center;
         gap: 24px;
     }
 }

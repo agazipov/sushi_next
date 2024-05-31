@@ -34,15 +34,21 @@
 
 @media (max-width: 768px) {
     .navigation {
-        font-size: 1rem;
+        font-size: 1.6rem;
     }
     
     .navigation__brand {
-        font-size: 1.2rem;
+        font-size: 2rem;
     }
     
 }
 
 @media (max-width: 576px) {
-
+    .navigation {
+        font-size: 1.4rem;
+    }
+    
+    .navigation__brand {
+        font-size: 1.8rem;
+    }
 }

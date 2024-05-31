@@ -27,30 +27,30 @@ export default async function Navigation() {
                     <p>Бесплатная доставка от 600 руб</p>
                     <div className={styles.discription__btn_group}>
                         <Link href={"tel:+79089392212"}>
-                            <Button variant="dark">Позвоните нам</Button>
+                            <Button variant="dark">Позвонить</Button>
                         </Link>
-                        <Link href={"/"}>
+                        {/* <Link href={"/"}>
                             <Button variant="dark">Начать покупки</Button>
-                        </Link>
+                        </Link> */}
                     </div>
                 </div>
             </section>
 
             <section className={classNames(styles.home__section, styles.discription)}>
                 <div className={styles.home__img}>
-                    <Image width={800} height={650} src={pai_mai} alt="Тарелка с рисом и палочки" />
+                    <Image width={800} height={650} src={pai_mai} alt="Пай Май" />
                 </div>
                 <div className={styles.home__text}>
                     <h3>АКЦИИ</h3>
                     {stocks &&
                         stocks.filter(stock => stock.show).map((stock) => {
                             return (
-                                <div key={stock.id}>
+                                <div  className={styles.home__action} key={stock.id}>
                                     <h4>{stock.title}</h4>
                                     <p>{stock.body}</p>
                                     {stock.img &&
-                                        <div className={styles.home__action}>
-                                            <Image width={200} height={200} src={`/img_stock/${stock.img}`} alt="Акция" />
+                                        <div className={styles.home__action_img}>
+                                            <Image width={400} height={400} src={`/img_stock/${stock.img}`} alt="Акция" />
                                         </div>
                                     }
                                 </div>
@@ -70,7 +70,8 @@ export default async function Navigation() {
             </section> */}
 
             <section className={styles.home__section}>
-                <div className={classNames(styles.home__img, styles.home__img_modify)}>
+                <div className={classNames(styles.home__img, styles.home__img_route)}>
+                <h4>Схема проезда</h4>
                     <Image width={800} height={650} src={road} alt="Карта" />
                 </div>
                 {/* <div className={styles.home__map}>

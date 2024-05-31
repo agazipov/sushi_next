@@ -103,14 +103,15 @@ textarea:not([rows]) {
   font-family: var(--font-dokdo);
   font-size: 1.6rem;
   line-height: 0.9;
+
   
-  /* input,
+  input,
   button,
   textarea,
   select {
-    font-size: 1.6rem !important;
+    font-size: 1.4rem !important;
     line-height: 1 !important;
-  } */
+  }
 
   /* h1 {
     font-size: 4.8rem;

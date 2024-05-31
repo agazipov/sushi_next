@@ -95,6 +95,12 @@
     flex-direction: column;
 }
 
+.header__backgroud {
+    border-radius: 6px;
+    background-color: #ffffffbd;
+    padding: 4px;
+}
+
 
 @keyframes rotateLogo {
     from {
@@ -137,6 +143,7 @@
         flex-direction:row;
         align-items: end;
         justify-content: space-between;
+        padding: 14px 14px;
     }
     .header__title>h1 {
         font-size: 2.4em;

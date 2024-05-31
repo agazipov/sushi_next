@@ -15,10 +15,10 @@ export default function Header() {
                     <Image width={770} height={770} src={fishes} alt="Логотип с 2 карпами" />
                 </div>
                 <div className={styles.header__contact}>
-                    <div className={styles.header__info}>
+                    <div className={classNames(styles.header__info, styles.header__backgroud)}>
                         <p>г. Бакал, ул. Ленина, 5,<br/> помещение 1 (вход с торца)</p>
                     </div>
-                    <div className={styles.header__links}>
+                    <div className={classNames(styles.header__links, styles.header__backgroud)}>
                         <a href="mock">+7 (908) 939-22-12</a>
                         <a href="mock">+7 (912) 772-89-48</a>
                     </div>
