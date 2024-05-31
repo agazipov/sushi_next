@@ -4,8 +4,8 @@
     width: 100%;
 
     /* background-color: var(--custom-grey-opacity); */
-    background: rgb(173,181,189);
-    background: linear-gradient(331deg, rgba(173,181,189,1) 15%, rgba(255,218,218,1) 48%, rgba(255,244,244,1) 76%);
+    background: var(--background-grey-pour);
+    background: var(--background-pink-radial);
     border-radius: var(--my-border-radius);
 
     display: flex;
@@ -38,6 +38,8 @@
 .dish__info_default {
     width: 100%;
     min-height: 68px;
+
+    padding-left: 16px;
 
     display: flex;
     justify-content: space-between;
@@ -91,6 +93,7 @@
     content: '\02764';
     position: absolute;
     left: -26px;
+    top: 9px;
 }
 
 /* Enable hover only on non-touch devices */

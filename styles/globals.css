@@ -11,14 +11,29 @@ html {
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
 
-  --my-border-radius: 14px;;
+  --my-border-radius: 14px;
+
   --custom-grey-opacity: #adb5bdb5;
   --custom-pink-opacity: #f8d7dac9;
+
+  --background-pink-pour: rgb(248,215,218);
+  --background-pink-radial: radial-gradient(circle, rgba(248,215,218,0.8939950980392157) 56%, rgba(173,181,189,1) 100%);
+
+  --background-grey-pour: rgb(173,181,189);
+  --background-gray-gradient: linear-gradient(331deg, rgba(173,181,189,1) 15%, rgba(255,218,218,1) 48%, rgba(255,244,244,1) 76%);
 }
 
 /* Remove default margin in favour of better control in authored CSS */
-body, h1, h2, h3, h4, p,
-figure, blockquote, dl, dd {
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
   margin: 0;
 }
 
@@ -35,14 +50,21 @@ body {
 }
 
 /* Set shorter line heights on headings and interactive elements */
-h1, h2, h3, h4,
-button, input, label {
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
   line-height: 1.1;
 }
 
 /* Balance text wrapping on headings */
-h1, h2,
-h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   text-wrap: balance;
 }
 
@@ -60,8 +82,10 @@ picture {
 }
 
 /* Inherit fonts for inputs and buttons */
-input, button,
-textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
 
@@ -74,3 +98,53 @@ textarea:not([rows]) {
 :target {
   scroll-margin-block: 5ex;
 }
+
+.dokdo {
+  font-family: var(--font-dokdo);
+  font-size: 1.6rem;
+  line-height: 0.9;
+  
+  /* input,
+  button,
+  textarea,
+  select {
+    font-size: 1.6rem !important;
+    line-height: 1 !important;
+  } */
+
+  /* h1 {
+    font-size: 4.8rem;
+  } */
+
+  h2 {
+    font-size: 3.2rem;
+  }
+
+  h3 {
+    font-size: 2.8rem;
+  }
+
+  h4 {
+    font-size: 2.4rem;
+  }
+
+  h5 {
+    font-size: 2rem;
+  }
+}
+
+.hanzi {
+  font-family: var(--font-hanzi);
+}
+.inter {
+  font-family: var(--font-inter);
+}
+
+/* 
+@font-face {
+  font-family: 'HanZi';
+  src: url('../public/fonts/Hanzi.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+} */

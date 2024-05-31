@@ -2,7 +2,6 @@
 
 import { Button, Table } from "react-bootstrap";
 import { Dish } from "@prisma/client"
-import { Portal } from "../../shop/Portal/Portal";
 import ModalWrap from "../ModalWrap/ModalWrap";
 import { useState } from "react";
 import DishForm from "../DishForm/DishForm";
@@ -51,11 +50,9 @@ export default function CategorieTable({ dishes, categorieId }: TCategorieTable)
                     ))}
                 </tbody>
             </Table>
-            <Portal>
-                <ModalWrap show={show} setShow={setShow} >
-                    <DishForm dish={typeof show === "object" ? show : null} categorieId={categorieId} setShow={setShow} />
-                </ModalWrap>
-            </Portal>
+            <ModalWrap show={show} setShow={setShow} >
+                <DishForm dish={typeof show === "object" ? show : null} categorieId={categorieId} setShow={setShow} />
+            </ModalWrap>
         </>
     )
 }

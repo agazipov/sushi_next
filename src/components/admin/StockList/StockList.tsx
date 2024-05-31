@@ -2,7 +2,6 @@
 
 import type { Stock } from "@prisma/client";
 import { useState } from "react";
-import { Portal } from "../../shop/Portal/Portal";
 import ModalWrap from "../ModalWrap/ModalWrap";
 import { Button } from "react-bootstrap";
 import styles from "./styles.module.css";
@@ -25,7 +24,6 @@ export default function StockList({ stocks }: Props) {
         const result = await removeStock(stock);
         toast(processResForStock(result.message));
         router.refresh();
-        // window.location.reload();
     }
 
     return (
@@ -58,15 +56,13 @@ export default function StockList({ stocks }: Props) {
                 :
                 <div>Нет акций</div>
             }
-
-                <ModalWrap show={show} setShow={setShow} >
-                    <StockForm
-                        stock={typeof show === "object" ? show : null}
-                        setShow={setShow}
-                        setMessage={(e) => toast(e)}
-                    />
-                </ModalWrap>
-
+            <ModalWrap show={show} setShow={setShow} >
+                <StockForm
+                    stock={typeof show === "object" ? show : null}
+                    setShow={setShow}
+                    setMessage={(e) => toast(e)}
+                />
+            </ModalWrap>
             <Toaster />
         </div>
     )

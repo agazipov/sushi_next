@@ -5,10 +5,8 @@ import { RootState } from "@/src/app/lib/store";
 import { selectCart } from '@/src/app/lib/features/cart/cart';
 import { useAppSelector } from "@/src/app/lib/hooks";
 import ModalCart from "../ModalCart/ModalCart";
-import { Portal } from "../Portal/Portal";
-import Modal from "../Modal/Modal";
 import styles from "./styles.module.css";
-import TestComponent from "../Test/Test";
+
 
 
 export default function Cart() {
@@ -26,11 +24,6 @@ export default function Cart() {
                     <span>Цена: {cart.price}</span>
                 </div>
             </button>
-            <TestComponent param={3}/>
-            {/* <Portal >
-                <Modal show={show} setShow={setShow}>
-                </Modal>
-            </Portal> */}
             <ModalCart show={show} setShow={setShow} />
         </div>
     )

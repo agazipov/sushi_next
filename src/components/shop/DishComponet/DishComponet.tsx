@@ -38,7 +38,7 @@ export function DishComponet({ dish, viewVariant = 'default', countVariant }: ID
         <div className={classNames(ViewVariantRoot[viewVariant])}>
             <div className={styles.dish__header}>
                 <h5>{dish.name}</h5>
-                <ImgView dish={dish}/>
+                <ImgView dish={dish} />
             </div>
             <div className={classNames(ViewVariantDishInfo[viewVariant])}>
                 <div>
@@ -47,7 +47,7 @@ export function DishComponet({ dish, viewVariant = 'default', countVariant }: ID
                             className={classNames(
                                 styles.dish__size,
                                 selectDish.select === 'mid' && styles.dish__size_activ
-                                )}
+                            )}
                             onClick={() => handleSize('mid')}
                         >
                             <div>
@@ -61,7 +61,7 @@ export function DishComponet({ dish, viewVariant = 'default', countVariant }: ID
                             className={classNames(
                                 styles.dish__size,
                                 selectDish.select === 'large' && styles.dish__size_activ
-                                )}
+                            )}
                             onClick={() => handleSize('large')}
                         >
                             <div >
@@ -72,8 +72,9 @@ export function DishComponet({ dish, viewVariant = 'default', countVariant }: ID
                     }
                 </div>
                 <ButtonGroup>
-                    <Button variant="dark" onClick={() => dispath(cartActions.addCart(selectDish))}>+</Button>
+                    <Button size="sm" variant="dark" onClick={() => dispath(cartActions.addCart(selectDish))}>+</Button>
                     <Button
+                        size="sm"
                         variant="dark" onClick={() => dispath(cartActions.delCart(selectDish))}
                         disabled={
                             (selectDish.select === 'mid' && (count ? count.countByMid! === 0 : true))

@@ -6,7 +6,7 @@ export default function AdminLayout({
     children: React.ReactNode;
   }>) {
     return (
-        <main>
+        <main className="inter">
             <AdminNavigation />
             <section>{children}</section>
         </main>

@@ -3,13 +3,14 @@ import Link from "next/link";
 import styles from "./styles.module.css";
 import { getAllCategories } from "@/src/services/menu";
 import classNames from 'classnames';
+import Cart from "../Cart/Cart";
 
 export default async function Navigation() {
     const categories = await getAllCategories();
 
     return (
         <Navbar bg="dark" data-bs-theme="dark" className={styles.navigation}>
-            <div className={classNames(styles.navigation__container, "container")}>
+            <div className={classNames(styles.navigation__container)}>
                 <NavbarBrand
                     className={styles.navigation__brand}
                     as={Link}
@@ -27,6 +28,7 @@ export default async function Navigation() {
                     })}
                 </Nav>
             </div>
+            <Cart />
         </Navbar>
     )
 }

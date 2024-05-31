@@ -7,7 +7,6 @@ import { selectCart } from '@/src/app/lib/features/cart/cart';
 import { useAppSelector } from '@/src/app/lib/hooks';
 import { DishComponet } from '../DishComponet/DishComponet';
 import styles from "./styles.module.css";
-import TestComponent from '../Test/Test';
 
 interface IModalCart {
     show: boolean,
@@ -41,7 +40,6 @@ export default function ModalCart({ show, setShow }: IModalCart) {
                         })}
                     </div>
                 } */}
-                <TestComponent param={3}/>
             </ModalBody>
             <ModalFooter>
                 <Button variant="dark" onClick={handleCheckOut} disabled={cart.buy.length === 0}>

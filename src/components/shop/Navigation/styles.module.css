@@ -1,11 +1,26 @@
 .navigation {
+    font-size: 2rem;
+
     margin-bottom: 20px;
+
+    display: flex;
+    justify-content: center;
 
     position: sticky !important;
     top: 0;
     z-index: 50;
 }
+
+.navigation__brand {
+    font-size: 2.4rem;
+}
+
 .navigation__container{
+    margin: 0 24px;
+
+    display: flex;
+    align-items: center;
+
     overflow-y: auto;
 }
 
@@ -18,7 +33,14 @@
 }
 
 @media (max-width: 768px) {
-
+    .navigation {
+        font-size: 1rem;
+    }
+    
+    .navigation__brand {
+        font-size: 1.2rem;
+    }
+    
 }
 
 @media (max-width: 576px) {
