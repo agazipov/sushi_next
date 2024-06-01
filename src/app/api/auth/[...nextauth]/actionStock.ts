@@ -10,7 +10,7 @@ export async function createStock(data: FormData) {
 
 }
 
-export async function updateStock(data: FormData) {
+export async function updateStock(data: FormData) {   
     const response = await fetch('http://localhost:3000/api/stock/updateStock', {
         method: "POST",
         body: data

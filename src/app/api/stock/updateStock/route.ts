@@ -21,7 +21,7 @@ interface IData {
 }
 
 //** обновляет запись, если картинка существует - оставляет её, иначе - записывает её
-export async function POST(req: NextRequest) {
+export async function POST(req: NextRequest) {   
     try {
         // проверка на сессию
         const cookies = req.cookies.getAll();
