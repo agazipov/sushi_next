@@ -7,9 +7,20 @@ import OrderList from "../OrderList/OrderList";
 import OrderForm from "../OrderForm/OrderForm";
 import styles from "./styles.module.css";
 import classNames from "classnames";
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function Order() {
     const cart = useAppSelector((state: RootState) => selectCart(state));
+    const router = useRouter();
+
+    useEffect(() => {
+        const timeNow = Date.now();
+        let timeOut = localStorage.getItem("timeOut");
+        if (timeNow - Number(timeOut) < 60000) {
+            router.push('/order/success');
+        } 
+    }, [])
 
     if (cart.buy.length === 0) {
         return (
