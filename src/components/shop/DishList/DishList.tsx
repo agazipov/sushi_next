@@ -1,6 +1,5 @@
 import styles from "./styles.module.css";
 import classNames from 'classnames';
-import type { Dish } from "@prisma/client/edge";
 
 type TCategoriePage = {
     children: React.ReactNode,

@@ -1,21 +1,25 @@
-import { ICart } from "@/src/types/reduxTypes"
-import { DishComponet } from "../DishComponet/DishComponet"
+import { ICart } from "@/src/types/reduxTypes";
+import { DishComponet } from "../DishComponet/DishComponet";
+import { COUNT_VARIANT } from "@/lib/constant";
+import styles from "./styles.module.css";
 
 interface IOrderList {
     cart: ICart
 }
 
-export default function OrderList({cart}: IOrderList) {
+export default function OrderList({ cart }: IOrderList) {
     return (
-        <div>
-            <h3>Корзина: {cart.countDishes} блюд за {cart.price}₽</h3>
-            <div>
-                {cart.buy.map((dish, index) => {
-                    return (
-                        <DishComponet key={dish.id} dish={dish} viewVariant="custom" />
-                    )
-                })}
-            </div>
+        <div className={styles.orderList}>
+            {cart.buy.map((dish) => {
+                return (
+                    <DishComponet
+                        key={dish.id}
+                        dish={dish}
+                        viewVariant='custom'
+                        countVariant={COUNT_VARIANT[dish.categorieName]}
+                    />
+                )
+            })}
         </div>
     )
 }

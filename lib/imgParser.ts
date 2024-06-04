@@ -6,7 +6,7 @@ interface ImgsParams {
     name: string
 }
 
-export const imgParser = (dish: Dish): ImgsParams[] => {
+export const imgNameParser = (dish: Dish): ImgsParams[] => {
     const result = []
     const arrUrl = dish.img.split('/');
 

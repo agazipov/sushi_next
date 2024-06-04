@@ -1,11 +1,22 @@
-.form__my_style {
+.form__modify {
+    max-width: 460px;
+
     padding: 10px;
     height: 100%;
 
-    background-color: var(--bs-danger-bg-subtle);
+    background: var(--background-grey-pour);
+    background: var(--background-pink-radial);
     border-radius: var(--my-border-radius);
+
+    outline: 4px solid var(--bs-danger-border-subtle);
 }
 
 .formOrder__imput_mod {
     flex-grow: 4 !important;
+}
+
+@media (max-width: 992px) {
+    .form__modify {
+        grid-row-start: 2;
+    }
 }

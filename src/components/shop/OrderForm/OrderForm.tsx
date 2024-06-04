@@ -12,16 +12,27 @@ import FormCheckInput from "react-bootstrap/FormCheckInput";
 import { useState } from "react";
 import styles from "./styles.module.css";
 import { ICart } from '@/src/types/reduxTypes';
+import { useAppDispatch } from '@/src/app/lib/hooks';
+import { useRouter } from 'next/navigation';
+import { cartActions } from '@/src/app/lib/features/cart/cart';
+import { sendOrder } from './action';
+import { IResult } from '@/src/types/commonTypes';
 
-interface IFormOrder {
-    onSubmit: (data: FormData) => void
-}
-
-export default function OrderForm({ onSubmit }: IFormOrder) {
+export default function OrderForm({ cart }: { cart: ICart }) {
     const [viewDelivery, setViewDelivery] = useState(false);
+    const dispatch = useAppDispatch();
+    const router = useRouter();
+
+    const handleSubmit = async (data: FormData) => {
+        const result: IResult = await sendOrder(cart, data)
+        if (result.message === "order success") {
+            router.push('/order/success');
+            dispatch(cartActions.clearCart());
+        }
+    }
 
     return (
-        <Form action={onSubmit} className={styles.form__my_style}>
+        <Form action={handleSubmit} className={styles.form__modify}>
 
             <FormLabel >Контактная информация</FormLabel>
             <InputGroup className="mb-3">
@@ -52,6 +63,7 @@ export default function OrderForm({ onSubmit }: IFormOrder) {
                         checked={!viewDelivery}
                         type="radio"
                         value='false'
+                        name="delivery"
                         onChange={() => setViewDelivery(false)}
                     />
                     <FormCheckLabel>Самовывоз</FormCheckLabel>
@@ -65,6 +77,7 @@ export default function OrderForm({ onSubmit }: IFormOrder) {
                     <FormCheckInput
                         type="radio"
                         value='true'
+                        name="delivery"
                         onChange={() => setViewDelivery(true)}
                     />
                     <FormCheckLabel>Доставка</FormCheckLabel>
@@ -89,7 +102,7 @@ export default function OrderForm({ onSubmit }: IFormOrder) {
                         defaultChecked
                     />
                     <FormControl
-                        placeholder="Квартира"
+                        placeholder="Кв"
                         type="number"
                         required
                         name="apartment"
@@ -99,7 +112,7 @@ export default function OrderForm({ onSubmit }: IFormOrder) {
             }
 
             <FormGroup className="mb-3" >
-                <Form.Label>Комьентарий к заказу</Form.Label>
+                <Form.Label>Коментарий к заказу</Form.Label>
                 <FormControl as="textarea" rows={3} name="comment" defaultChecked />
             </FormGroup>
 

@@ -1,16 +1,17 @@
 import { Carousel, CarouselItem, CarouselCaption } from 'react-bootstrap';
-import { imgParser } from "@/lib/imgParser";
+import { imgNameParser } from "@/lib/imgParser";
 import { Dish } from "@prisma/client";
 import { memo } from 'react';
 import Image from "next/image";
 import styles from "./styles.module.css";
 
 interface IImgView {
-    dish: Dish
+    dish: Dish,
+    mod: string
 }
 
-const ImgView = memo(function ImgView({ dish }: IImgView) {
-    const nameImgList = imgParser(dish);
+const ImgView = memo(function ImgView({ dish, mod }: IImgView) {
+    const nameImgList = imgNameParser(dish);
 
     return (
         <div className={styles.dish__wrapper}>
@@ -44,9 +45,11 @@ const ImgView = memo(function ImgView({ dish }: IImgView) {
                     />
                 </div>
             }
-            <div className={styles.dish__desc}>
-                <p>{dish.compound}</p>
-            </div>
+            {mod === "default" &&
+                <div className={styles.dish__desc}>
+                    <p>{dish.compound}</p>
+                </div>
+            }
         </div>
     )
 })

@@ -15,16 +15,12 @@ import type { Stock } from "@prisma/client";
 import { createStock, updateStock } from '@/src/app/api/auth/[...nextauth]/actionStock';
 import { useRouter } from 'next/navigation';
 import processResForStock from '@/lib/processResForStock';
+import { IResult } from '@/src/types/commonTypes';
 
 interface IFormChange {
     stock: Stock | null
     setShow: (e: boolean) => void
     setMessage: (e: string) => void
-}
-
-interface IResult {
-    message: string
-    error?: string
 }
 
 export default function StockForm({ stock, setShow, setMessage }: IFormChange) {

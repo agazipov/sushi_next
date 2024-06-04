@@ -5,7 +5,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 24px;
+    gap: 40px;
 }
 
 .home__section {
@@ -20,23 +20,32 @@
 }
 
 .discription {
-    flex-direction: row-reverse;
-    text-align: left;
+    /* flex-direction: row-reverse; */
+    text-align: center;
 }
 
 .discription__btn_group {
     padding-top: 14px;
     display: flex;
-    flex-direction: row-reverse;
+    justify-content: center;
+    /* flex-direction: row-reverse; */
     /* justify-content: end; */
     gap: 10px;
+}
+
+.home__text_container {
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
 .home__text {
     max-width: 600px;
     height: 100%;
 
-    padding: 24px;
+    padding: 16px;
 
     color: var(--bs-black);
 
@@ -44,12 +53,18 @@
     background: var(--background-pink-pour);
     background: var(--background-pink-radial);
     /* background-color: var(--custom-pink-opacity); */
+
+    outline: 4px solid var(--bs-danger-border-subtle);
+    outline-offset: 2px;
 }
 
+/* не нужное свойство */
 .home__map {
     position: 'relative';
     overflow: 'hidden';
+
     padding: 10px;
+
     background-color: var(--background-pink-radial);
     border-radius: var(--my-border-radius);
 }
@@ -63,15 +78,36 @@
     height: auto;
 }
 
-.home__action {
+.home__stocks {
+    padding: 24px;
+
+    color: var(--bs-black);
+
+    border-radius: var(--my-border-radius);
+    background: var(--background-pink-pour);
+    background: var(--background-pink-radial);
+
+    outline: 4px solid var(--bs-danger-border-subtle);
+    outline-offset: 2px;
+}
+
+.home__stocks_grid {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.home__stock {
     max-width: 400px;
 }
 
-.home__action_img {
+.home__stock_img {
     
 }
 
-.home__action_img>img {
+.home__stock_img>img {
     width: 100%;
     height: auto;
 
@@ -80,10 +116,13 @@
 .home__img_route {
     padding: 10px;
 
+    text-align: center;
+
     background: var(--background-pink-radial);
     border-radius: var(--my-border-radius);
 
-    text-align: center;
+    outline: 4px solid var(--bs-danger-border-subtle);
+    outline-offset: 2px;
 }
 
 .home__img_route>img {
@@ -114,13 +153,17 @@
 }
 
 @media (max-width: 576px) {
+    .home__stocks_grid {
+        flex-direction: column;
+    }
+
     .home__img {
         /* width: 200px; */
         display: none;
     }
 
     .home__text {
-        /* max-width: 200px; */
+        max-width: none;
         font-size: 1.2rem;
     }
 }

@@ -1,4 +1,4 @@
-type TOrder = {
+export type TOrder = {
     name: string
     phone: string
     delivery: boolean

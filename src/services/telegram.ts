@@ -1,6 +1,6 @@
-export async function fetchTelegram(message: string) {
+export async function fetchTelegram(message: string, chat: string, bot: string) {
     const bodyParser = {
-        chat_id: 0,
+        chat_id: chat,
         text: message,
         reply_markup: {
             inline_keyboard: [
@@ -19,17 +19,13 @@ export async function fetchTelegram(message: string) {
         }
     }
 
-
-    // BOT_TOKEN
-    const response = await fetch(`https://api.telegram.org/bot${'123'}/sendMessage`, {
-        //   next: { tags: ["config"] },
+    const response = await fetch(`https://api.telegram.org/bot${bot}/sendMessage`, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json;charset=utf-8'
+            'Content-Type': 'application/json;charset=utf-8',
         },
         body: JSON.stringify(bodyParser)
     });
-    const telegram = await response.json();
-
-    return telegram;
+    const result = await response.json();
+    return result;
 }

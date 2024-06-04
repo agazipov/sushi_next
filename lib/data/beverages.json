@@ -6,7 +6,7 @@
         "price_for_large": 0,
         "countByMid": 0,
         "countByLarge": 0,
-        "select": "large"
+        "select": "mid"
     },
     {
         "name": "Сок детский 200мл",
@@ -15,7 +15,7 @@
         "price_for_large": 0,
         "countByMid": 0,
         "countByLarge": 0,
-        "select": "large"
+        "select": "mid"
     },
     {
         "name": "Coca-cola classic 0,5",
@@ -24,7 +24,7 @@
         "price_for_large": 0,
         "countByMid": 0,
         "countByLarge": 0,
-        "select": "large"
+        "select": "mid"
     },
     {
         "name": "Coca-cola zero 1",
@@ -33,7 +33,7 @@
         "price_for_large": 0,
         "countByMid": 0,
         "countByLarge": 0,
-        "select": "large"
+        "select": "mid"
     },
     {
         "name": "Coca-cola classic 1,5",
@@ -42,7 +42,7 @@
         "price_for_large": 0,
         "countByMid": 0,
         "countByLarge": 0,
-        "select": "large"
+        "select": "mid"
     },
     {
         "name": "Эспрессо 60мл",
@@ -51,7 +51,7 @@
         "price_for_large": 0,
         "countByMid": 0,
         "countByLarge": 0,
-        "select": "large"
+        "select": "mid"
     },
     {
         "name": "Капучино 200мл",
@@ -60,7 +60,7 @@
         "price_for_large": 0,
         "countByMid": 0,
         "countByLarge": 0,
-        "select": "large"
+        "select": "mid"
     },
     {
         "name": "Латте 200мл",
@@ -69,6 +69,6 @@
         "price_for_large": 0,
         "countByMid": 0,
         "countByLarge": 0,
-        "select": "large"
+        "select": "mid"
     }
 ]
