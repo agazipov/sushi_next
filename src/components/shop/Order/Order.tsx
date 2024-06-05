@@ -30,7 +30,7 @@ export default function Order() {
 
     return (
         <section className={classNames(styles.order, "container")}>
-            <h3>У вас в корзине {cart.countDishes} блюд за {cart.price}₽</h3>
+            <h3>У вас в корзине {cart.countDishes} блюд(а) за {cart.price}₽</h3>
             <div className={styles.order__content}>
                 <OrderForm cart={cart}/>
                 <OrderList cart={cart} />

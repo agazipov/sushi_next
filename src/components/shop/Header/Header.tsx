@@ -8,7 +8,7 @@ export default function Header() {
     return (
         <header className={styles.header}>
             <div className={classNames(styles.header__container, 'container')}>
-                <div className={classNames(styles.header__title, "hanzi")}>
+                <div className={classNames(styles.header__title)}>
                     <h1>Рыба & Рис</h1>
                 </div>
                 <div className={styles.header__img}>

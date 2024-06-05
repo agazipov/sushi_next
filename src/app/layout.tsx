@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import AuthProvider from "../context/AuthProvider";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@/styles/globals.css";
+import { Comfortaa, Dancing_Script, Inter, Kaushan_Script, Lobster, Montserrat, Pacifico } from "next/font/google";
 import localFont from 'next/font/local';
 import ImportBsJS from "./importBsJS";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const comfortaa = Comfortaa({ subsets: ["latin"], variable: "--font-comfortaa" });
+const lobster = Lobster({ weight: "400", subsets: ["latin"], variable: "--font-lobster" });
+const pacifico = Pacifico({ weight: "400", subsets: ["latin"], variable: "--font-pacifico" });
 
 const dokdo = localFont({
   src: '../../public/fonts/east-sea-dokdo.otf',
@@ -38,8 +41,17 @@ export default function RootLayout({
     <html lang="ru">
       {/* <ImportBsJS /> */}
       <AuthProvider>
-        <body className={`${dokdo.variable} ${hanzi.variable} ${inter.variable}`}>
-        {/* <body className={myFont.className}> */}
+        <body className={
+          `
+        ${dokdo.variable} 
+          ${hanzi.variable} 
+          ${inter.variable} 
+          ${lobster.variable}
+          ${pacifico.variable}
+          ${comfortaa.variable}
+          `
+        }>
+          {/* <body className={myFont.className}> */}
           {children}
         </body>
       </AuthProvider>

@@ -1,0 +1,68 @@
+.font__styles {
+  font-family: var(--font-comfortaa);
+  // font-family: var(--font-pacifico);
+  // font-family: var(--font-lobster);
+  // font-family: var(--font-dokdo);
+  // font-size: 1.6rem;
+  // line-height: 0.9;
+
+  h1 {
+    font-size: 4.8rem;
+    font-family: var(--font-dokdo);
+  }
+
+  h2 {
+    font-size: 3.2rem;
+    font-family: var(--font-dokdo);
+  }
+
+  h3 {
+    font-size: 2.8rem;
+    font-family: var(--font-dokdo);
+  }
+
+  h4 {
+    font-size: 2.4rem;
+    font-family: var(--font-dokdo);
+  }
+
+  h5 {
+    font-size: 2rem;
+    font-family: var(--font-dokdo);
+  }
+}
+
+.dokdo {
+  font-family: var(--font-dokdo);
+  font-size: 1.6rem;
+  line-height: 0.9;
+
+
+  input,
+  button,
+  textarea,
+  select {
+    font-size: 1.4rem !important;
+    line-height: 1 !important;
+  }
+
+  h1 {
+    font-size: 4.8rem;
+  }
+
+  h2 {
+    font-size: 3.2rem;
+  }
+
+  h3 {
+    font-size: 2.8rem;
+  }
+
+  h4 {
+    font-size: 2.4rem;
+  }
+
+  h5 {
+    font-size: 2rem;
+  }
+}

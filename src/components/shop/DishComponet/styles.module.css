@@ -48,6 +48,9 @@
 }
 
 .dish__info_default {
+    font-family: var(--font-dokdo);
+    font-size: 1.6rem;
+    line-height: 0.9;
     /* width: 100%; */
     /* min-height: 68px; */
 

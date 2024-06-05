@@ -24,7 +24,7 @@ export default function ModalCart({ show, setShow }: IModalCart) {
     };
 
     return (
-        <Modal className="dokdo" show={show} onHide={() => setShow(false)}>
+        <Modal className={styles.modal__font} show={show} onHide={() => setShow(false)}>
             <ModalHeader closeButton>
                 <ModalTitle>Корзина: {cart.countDishes} блюд за {cart.price}₽</ModalTitle>
             </ModalHeader>

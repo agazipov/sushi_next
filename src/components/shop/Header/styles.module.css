@@ -27,6 +27,8 @@
 }
 
 .header__title {
+    font-family: var(--font-hanzi);
+
     position: absolute;
     top: 0;
     left: 0;
