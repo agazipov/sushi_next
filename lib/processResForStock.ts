@@ -28,6 +28,15 @@ export default function processResForStock(message: string) {
         case "file delete, picture was not deleted":
             result = "Акция удалена, ошибка при удалении картинки";
             break;
+        case "picture added":
+            result = "Картинка добавлена";
+            break;
+        case "picture not added":
+            result = "Ошибка при записи картинки";
+            break;
+        case "picture delete":
+            result = "Картинка удалена";
+            break;
         case "request processing error":
             result = "Что-то пошло не так";
             break;

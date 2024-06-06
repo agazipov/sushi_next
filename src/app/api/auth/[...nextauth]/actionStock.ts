@@ -1,28 +1,33 @@
 import type { Stock } from "@prisma/client";
 
+export async function getAllStocks() {   
+    const response = await fetch(`http://localhost:3000/api/stock`
+    );
+    const result: Stock[] = await response.json();
+    return result;
+}
+
 export async function createStock(data: FormData) {
-    const response = await fetch('http://localhost:3000/api/stock/createStock', {
+    const response = await fetch('http://localhost:3000/api/stock', {
         method: "POST",
         body: data
     })
     const result = await response.json();
     return result;
-
 }
 
 export async function updateStock(data: FormData) {   
-    const response = await fetch('http://localhost:3000/api/stock/updateStock', {
-        method: "POST",
+    const response = await fetch('http://localhost:3000/api/stock', {
+        method: "PUT",
         body: data
     })
     const result = await response.json();
     return result;
-
 }
 
 export async function removeStock(data: Stock) {
-    const response = await fetch('http://localhost:3000/api/stock/removeStock', {
-        method: "POST",
+    const response = await fetch('http://localhost:3000/api/stock', {
+        method: "DELETE",
         body: JSON.stringify(data)
     })
     const result = await response.json();

@@ -1,3 +1,4 @@
+import { TOrder } from "@/src/types/orderTypes";
 import { ICart } from "@/src/types/reduxTypes";
 
 export function parsedOrderForString(formState: TOrder, cart: ICart): string {

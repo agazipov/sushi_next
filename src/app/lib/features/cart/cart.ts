@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import { ICart } from "@/src/types/reduxTypes";
+import { ICart, IDishModify } from "@/src/types/reduxTypes";
 import { Dish } from "@prisma/client";
 import { addBuyForCart, delBuyForCart } from './libs';
 import { RootState } from '../../store';
@@ -16,7 +16,7 @@ const cartSlice = createSlice({
     initialState,
     reducers: {
         hydration: (_state, { payload }: PayloadAction<ICart>) => payload,
-        addCart: (state, { payload }: PayloadAction<Dish>) => { //добавить счетчик общего прайса в функцию**
+        addCart: (state, { payload }: PayloadAction<IDishModify>) => { //добавить счетчик общего прайса в функцию**
             // общая цена в зависимости от порции
             const checkSize = payload.select === 'mid';
             state.price = checkSize ? state.price + payload.price_for_mid! : state.price + payload.price_for_large!;

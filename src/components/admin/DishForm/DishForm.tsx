@@ -4,7 +4,6 @@ import {
     FormLabel,
     FormGroup,
     FormControl,
-    FormCheck,
     InputGroup
 } from 'react-bootstrap';
 import { createDish, updateDish } from "@/src/app/admin/actionDish";
@@ -46,20 +45,18 @@ export default function DishForm({ dish, categorieId, setShow }: Props) {
                 <FormControl type="text" placeholder="Цена(бол)" required name="price_for_large" defaultValue={dish ? dish.price_for_large : "0"} />
             </InputGroup>
 
+            <FormLabel >Изображение</FormLabel>
+            <InputGroup className="mb-3">
+                <FormControl type="text" placeholder="Изображение" required name="img" defaultValue={dish ? dish.img : ''} />
+            </InputGroup>
+
             {dish &&
-                <>
-                    <input type="hidden" name="id" value={dish.id} />
-                    <input
-                        type="hidden"
-                        name="img"
-                        defaultValue={dish ? dish.img : ''}
-                    />
-                </>
+                <input type="hidden" name="id" value={dish.id} />
             }
             {categorieId &&
                 <input type="hidden" name="categorieId" value={categorieId} />
             }
-           <Button variant="primary" type="submit">{dish ? "Сохранить изменения" : "Добавить акцию"}</Button>
+            <Button variant="primary" type="submit">{dish ? "Сохранить изменения" : "Добавить акцию"}</Button>
         </Form>
     )
 }

@@ -1,7 +1,7 @@
-import { ICart } from "@/src/types/reduxTypes";
+import { ICart, IDishModify } from "@/src/types/reduxTypes";
 import { Dish } from "@prisma/client";
 
-export function addBuyForCart(state: ICart, payload: Dish, check: boolean) {
+export function addBuyForCart(state: ICart, payload: IDishModify, check: boolean) {
     const indexBySelectDish = state.buy.findIndex((dish) => dish.id === payload.id); // ищем блюдо в карзине
 
     if (indexBySelectDish !== -1) { // если блюдо есть изменяем имеющееся

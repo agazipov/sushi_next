@@ -18,6 +18,7 @@ export default async function AdminNavigation() {
                         href={`/admin/${categorie.id}`}
                     >{categorie.name}</Link>
                 ))}
+                <Link className={styles.link} href={"/admin/gallery"}>Галлерея</Link>
             </nav>
             <Logout />
         </div>

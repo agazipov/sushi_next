@@ -8,9 +8,10 @@ import styles from "./styles.module.css";
 import classNames from 'classnames';
 import Image from "next/image";
 import { getAllStocksFromPrisma } from "@/src/services/stock";
+import { getAllStocks } from "@/src/app/api/auth/[...nextauth]/actionStock";
 
 export default async function Navigation() {
-    const stocks = await getAllStocksFromPrisma();
+    const stocks = await getAllStocks();
 
     return (
         <div className={classNames(styles.home, "container")}>
