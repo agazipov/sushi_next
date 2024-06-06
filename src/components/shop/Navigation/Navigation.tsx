@@ -1,4 +1,5 @@
-import { Navbar, Nav, NavLink, NavbarBrand } from "react-bootstrap";
+import { Navbar, Nav, NavLink, NavbarBrand, NavDropdown } from "react-bootstrap";
+import DropdownItem from "react-bootstrap/DropdownItem";
 import Link from "next/link";
 import styles from "./styles.module.css";
 import { getAllCategories } from "@/src/services/menu";
@@ -15,20 +16,37 @@ export default async function Navigation() {
                     className={styles.navigation__brand}
                     as={Link}
                     href={'/'}
-                >ГЛАВНАЯ</NavbarBrand>
-                <Nav className={classNames("me-auto")}>
-                    {categories.map((categorie) => {
+                >ГЛА</NavbarBrand>
+                <Nav className={classNames("me-auto", styles.navigation__customNav)}>
+                    <NavDropdown
+                        title="Роллы"
+                        menuVariant="dark"
+                    >
+                        {categories.slice(0, 3).map((categorie) => {
+                            return (
+                                <DropdownItem
+                                    key={categorie.id}
+                                    className={styles.navigation__dropdown}
+                                    as={Link}
+                                    href={`/${categorie.id}`}
+                                >{categorie.name}
+                                </DropdownItem>
+                            )
+                        })}
+                    </NavDropdown>
+                    {categories.slice(3).map((categorie) => {
                         return (
                             <NavLink
                                 key={categorie.id}
                                 as={Link}
                                 href={`/${categorie.id}`}
-                            >{categorie.name}</NavLink>
+                            >{categorie.name}
+                            </NavLink>
                         )
                     })}
                 </Nav>
             </div>
             <Cart />
-        </Navbar>
+        </Navbar >
     )
 }

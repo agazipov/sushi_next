@@ -1,8 +1,8 @@
 .navigation {
     font-family: var(--font-dokdo);
-    font-size: 1.6rem;
+    font-size: 2rem;
     line-height: 0.9;
-    /* font-size: 2rem; */
+    text-align: center;
 
     margin-bottom: 20px;
 
@@ -24,7 +24,11 @@
     display: flex;
     align-items: center;
 
-    overflow-y: auto;
+    /* overflow-y: auto; */
+}
+
+.navigation__dropdown {
+    font-size: 2rem;
 }
 
 @media(max-width: 1200px) {}
@@ -43,11 +47,8 @@
 }
 
 @media (max-width: 576px) {
-    .navigation {
-        font-size: 1.4rem;
-    }
-
-    .navigation__brand {
-        font-size: 1.8rem;
+    .navigation__customNav {
+        justify-content: center;
+        flex-wrap: wrap;
     }
 }

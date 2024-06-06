@@ -37,8 +37,9 @@
     right: 0;
 
     color: white;
-    font-size: smaller;
+    font-size: 1.4rem;
 
+    text-shadow: 0 0 6px black;
 
     display: flex;
     flex-direction: column;

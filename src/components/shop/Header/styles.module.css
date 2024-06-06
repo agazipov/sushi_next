@@ -82,6 +82,8 @@
     align-items: baseline;
     justify-content: space-between;
 
+    text-align: justify;
+
     z-index: 20;
 }
 
@@ -148,6 +150,6 @@
         padding: 14px 14px;
     }
     .header__title>h1 {
-        font-size: 2.4em;
+        font-size: 3.2em;
     }
 }
