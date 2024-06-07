@@ -17,7 +17,7 @@ export default function Order() {
     useEffect(() => {
         const timeNow = Date.now();
         let timeOut = localStorage.getItem("timeOut");
-        if (timeNow - Number(timeOut) < 60000) {
+        if (timeNow - Number(timeOut) < 300000) {
             router.push('/order/success');
         } 
     }, [])

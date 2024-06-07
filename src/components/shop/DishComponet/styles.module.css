@@ -1,4 +1,6 @@
 .dish_default {
+    position: relative;
+
     padding: 12px;
     width: 100%;
     max-width: 250px;
@@ -119,6 +121,16 @@
     position: absolute;
     left: -26px;
     top: 9px;
+}
+
+.dish__stock {
+    position: absolute;
+    transform: rotate(25deg);
+    background-color: yellow;
+    right: -16px;
+    top: -4px;
+    padding: 8px 14px;
+    border-radius: var(--my-border-radius);
 }
 
 /* Enable hover only on non-touch devices */

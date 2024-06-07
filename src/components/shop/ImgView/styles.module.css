@@ -39,5 +39,8 @@
 }
 
 .dish__caption {
-    background-color: var(--bs-danger-bg-subtle);
+    font-weight: bold;
+    background-color: #f8d7da96;
+    padding: 2px 6px;
+    border-radius: 4px;
 }

@@ -26,11 +26,11 @@ export default function OrderForm({ cart }: { cart: ICart }) {
     const handleSubmit = async (data: FormData) => {
         const result: IResult = await sendOrder(cart, data);
         if (result.message === "order success") {
-            router.push('/order/success');
             localStorage.setItem("timeOut", Date.now().toString());
             localStorage.setItem("order", JSON.stringify(cart));
             // dispatch(orderActions.getOrder(cart));
             dispatch(cartActions.clearCart());
+            router.push('/order/success');
         }
     }
 

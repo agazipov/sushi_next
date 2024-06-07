@@ -37,7 +37,7 @@ export default function CategorieTable({ dishes, categorieId }: TCategorieTable)
                     {dishes.map((dish, index) => (
                         <tr key={dish.id}>
                             <td>{index + 1}</td>
-                            <td>{dish.name}</td>
+                            <td className={dish.stock ? styles.stock : ""}>{dish.name}</td>
                             <td>{dish.compound}</td>
                             <td className={styles.table__img}>{dish.img.replace(/\//g, " ")}</td>
                             <td>{dish.price_for_mid}</td>

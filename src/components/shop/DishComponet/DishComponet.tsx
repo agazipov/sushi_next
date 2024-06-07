@@ -33,10 +33,13 @@ export function DishComponet({ dish, viewVariant = 'default', countVariant }: ID
     const handleSize = (value: 'mid' | 'large') => setSelectDish(prev => ({ ...prev, select: value }));
 
     const dispath = useAppDispatch();
-    const count = useAppSelector((state: RootState) => selectDishAmount(state, dish));
+    const count = useAppSelector((state: RootState) => selectDishAmount(state, dish));   
 
     return (
         <div className={classNames(styles.dish_default, ViewVariantRoot[viewVariant])}>
+            {dish.stock && dish.stock !== '' && 
+                <div className={styles.dish__stock}>{dish.stock}</div>
+            }
             <div className={styles.dish__header}>
                 <h4>{dish.name}</h4>
                 <ImgView dish={dish} mod={viewVariant}/>

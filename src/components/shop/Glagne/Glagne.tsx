@@ -1,7 +1,5 @@
 import { Button } from "react-bootstrap";
 import japan_girl from '@/public/img_app/art_girl.webp';
-import rice from '@/public/img_app/rice.webp';
-import pai_mai from '@/public/img_app/pai-mei.webp';
 import road from '@/public/img_app/Scene_2.gif';
 import Link from "next/link";
 import styles from "./styles.module.css";
@@ -9,9 +7,10 @@ import classNames from 'classnames';
 import Image from "next/image";
 import { getAllStocksFromPrisma } from "@/src/services/stock";
 import { getAllStocks } from "@/src/app/api/auth/[...nextauth]/actionStock";
+import { Stock } from "@prisma/client";
 
-export default async function Navigation() {
-    const stocks = await getAllStocks();
+export default async function Home({stocks}: {stocks: Stock[]}) {
+    // const stocks = await getAllStocks();
 
     return (
         <div className={classNames(styles.home, "container")}>

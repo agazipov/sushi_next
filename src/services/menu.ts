@@ -1,13 +1,5 @@
 import { prisma } from "@/lib/prisma";
 
-// export function getAllSets() {
-//     return prisma.set.findMany({
-//         include: {
-//             dishes: true,
-//         }
-//     });
-// }
-
 export function getAllCategories() {
     return prisma.categorie.findMany();
 }
