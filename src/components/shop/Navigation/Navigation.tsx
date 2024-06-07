@@ -1,7 +1,7 @@
 import { Navbar, Nav, NavLink, NavbarBrand, NavDropdown } from "react-bootstrap";
 import DropdownItem from "react-bootstrap/DropdownItem";
 import Link from "next/link";
-import styles from "./styles.module.css";
+import styles from "./styles.module.scss";
 import { getAllCategories } from "@/src/services/menu";
 import classNames from 'classnames';
 import Cart from "../Cart/Cart";
@@ -16,8 +16,8 @@ export default async function Navigation() {
                     className={styles.navigation__brand}
                     as={Link}
                     href={'/'}
-                >ГЛА</NavbarBrand>
-                <Nav className={classNames("me-auto", styles.navigation__customNav)}>
+                >Рыба&Рис</NavbarBrand>
+                <Nav className={classNames("me-auto", styles.navigation__modify)}>
                     <NavDropdown
                         title="Роллы"
                         menuVariant="dark"

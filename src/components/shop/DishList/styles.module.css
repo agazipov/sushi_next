@@ -1,9 +1,24 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+
+.title {
+    text-decoration-line: underline;
+    border-radius: 6px;
+    background-color: #ffffffbd;
+    padding: 0 14px;
+}
+
 .dishesList {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 24px;
     align-content: center;
     justify-items: center;
+    width: 100%;
 }
 
 @media(max-width: 1200px) {

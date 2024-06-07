@@ -14,7 +14,7 @@ import { IDishModify } from "@/src/types/reduxTypes";
 interface IDishComponent {
     dish: Dish,
     viewVariant?: 'default' | 'custom',
-    countVariant?: string[],
+    countVariant: string[],
 }
 
 const ViewVariantRoot: { [index: string]: string } = {
@@ -28,7 +28,7 @@ const ViewVariantDishInfo: { [index: string]: string } = {
 };
 
 export function DishComponet({ dish, viewVariant = 'default', countVariant }: IDishComponent) {
-    const [selectDish, setSelectDish] = useState<IDishModify>(() => ({...dish, categorieName: countVariant ? countVariant[0] : ''}));
+    const [selectDish, setSelectDish] = useState<IDishModify>(() => ({...dish, categorieName: countVariant[0]}));
 
     const handleSize = (value: 'mid' | 'large') => setSelectDish(prev => ({ ...prev, select: value }));
 
@@ -56,14 +56,14 @@ export function DishComponet({ dish, viewVariant = 'default', countVariant }: ID
                                 onClick={() => handleSize('mid')}
                             >
                                 <div>
-                                    {dish.price_for_mid}{countVariant ? countVariant[1] : "₽ за шт"}
+                                    {dish.price_for_mid}{countVariant[1]}
                                 </div>
                             </div>
                             <div className={styles.dish__cart_collumn}>
                                 <span className={styles.dish__size_count}>
                                     {count ? count.countByMid : 0}
                                 </span>
-                                {countVariant ? countVariant[3] : "за шт"}
+                                {countVariant[3]}
                             </div>
                         </>
                     }
@@ -77,14 +77,14 @@ export function DishComponet({ dish, viewVariant = 'default', countVariant }: ID
                                 onClick={() => handleSize('large')}
                             >
                                 <div >
-                                    {dish.price_for_large}{countVariant ? countVariant[2] : "₽ за шт"}
+                                    {dish.price_for_large}{countVariant[2]}
                                 </div>
                             </div>
                             <div className={styles.dish__cart_collumn}>
                                 <span className={styles.dish__size_count}>
                                     {count ? count.countByLarge : 0}
                                 </span>
-                                {countVariant ? countVariant[4] : "за шт"}
+                                {countVariant[4]}
                             </div>
                         </>
                     }
