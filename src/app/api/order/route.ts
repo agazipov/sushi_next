@@ -1,14 +1,33 @@
 import { parsedOrderForString } from "@/lib/parsedOrderForString";
 import { fetchTelegram } from "@/src/services/telegram";
+import { prisma } from "@/lib/prisma";
 import { NextResponse, NextRequest } from "next/server";
 
 export async function POST(req: NextRequest) {
     try {
         const { cart, dataObj } = await req.json();
-    
+
         const formedOrder = parsedOrderForString(dataObj, cart);
-    
-        await fetchTelegram(formedOrder, process.env.CHAT_ID || '', process.env.BOT_TOKEN || '')
+
+        await fetchTelegram(formedOrder, process.env.CHAT_ID || '', process.env.BOT_TOKEN || '');
+
+        await prisma.metricOrder.update({
+            where: {
+                id: "clx5rdto2000010t9bds4mdm2",
+            },
+            data: {
+                price: {
+                    increment: cart.price,
+                },
+                countDishes: {
+                    increment: cart.countDishes,
+                },
+                allOrders: {
+                    increment: 1,
+                },
+            }
+        });
+
         return NextResponse.json(
             { message: "order success" },
             { status: 200 }

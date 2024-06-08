@@ -1,6 +1,6 @@
 "use client"
 
-import type { Stock } from "@prisma/client";
+import type { MetricOrder, Stock } from "@prisma/client";
 import { useState } from "react";
 import ModalWrap from "../ModalWrap/ModalWrap";
 import { Button } from "react-bootstrap";
@@ -14,9 +14,10 @@ import processResForStock from "@/lib/processResForStock";
 
 type Props = {
     stocks: Stock[];
+    metric: MetricOrder;
 };
 
-export default function StockList({ stocks }: Props) {
+export default function StockList({ stocks, metric }: Props) {
     const [show, setShow] = useState<Stock | boolean>(false);
     const router = useRouter();
 
@@ -28,6 +29,11 @@ export default function StockList({ stocks }: Props) {
 
     return (
         <div className={classNames(styles.root, "container")}>
+            <div>
+                <p>Заказано на сумму: {metric.price}</p>
+                <p>Заказано блюд: {metric.countDishes}</p>
+                <p>Всего заказов: {metric.allOrders}</p>
+            </div>
             <div className={styles.stock__header}>
                 <h3>Управление акциями</h3>
                 <Button onClick={() => setShow(true)}>Добавить акцию</Button>

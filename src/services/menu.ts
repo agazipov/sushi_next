@@ -1,11 +1,11 @@
 import { prisma } from "@/lib/prisma";
 
-export function getAllCategories() {
-    return prisma.categorie.findMany();
+export async function getAllCategories() {
+    return await prisma.categorie.findMany();
 }
 
-export function getCategorieById(id: string) {
-    return prisma.categorie.findUnique({
+export async function getCategorieById(id: string) {
+    return await prisma.categorie.findUnique({
         where: { id },
         include: {
             dishes: true,
@@ -13,8 +13,8 @@ export function getCategorieById(id: string) {
     })
 }
 
-export function getDishById(id: string) {
-    return prisma.dish.findUnique({
+export async function getDishById(id: string) {
+    return await prisma.dish.findUnique({
         where: { id },
     })
 }

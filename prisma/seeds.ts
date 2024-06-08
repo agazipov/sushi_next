@@ -91,8 +91,21 @@ const seedStoks = async () => {
     })
 }
 
+const seedMetric = async () => {
+    await prisma.metricOrder.deleteMany();
+
+    await prisma.metricOrder.create({
+        data: {
+            price: 0,
+            countDishes: 0,
+            allOrders: 0,
+        }
+    })
+}
+
 // testSetCategorie();
 // seedSets();
 // seedStoks();
-seedDishes();
+// seedDishes();
 // seedUsers();
+seedMetric();

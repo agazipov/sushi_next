@@ -52,3 +52,10 @@ model Metric {
   value     String
   startTime DateTime
 }
+
+model MetricOrder {
+  id          String @id @default(cuid())
+  price       Int    @default(0)
+  countDishes Int    @default(0)
+  allOrders   Int    @default(0)
+}

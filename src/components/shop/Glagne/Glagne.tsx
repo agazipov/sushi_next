@@ -5,12 +5,10 @@ import Link from "next/link";
 import styles from "./styles.module.css";
 import classNames from 'classnames';
 import Image from "next/image";
-import { getAllStocksFromPrisma } from "@/src/services/stock";
-import { getAllStocks } from "@/src/app/api/auth/[...nextauth]/actionStock";
 import { Stock } from "@prisma/client";
 
 export default async function Home({stocks}: {stocks: Stock[]}) {
-    // const stocks = await getAllStocks();
+    // useReportWebVitals(sendToAnalytics);
 
     return (
         <div className={classNames(styles.home, "container")}>

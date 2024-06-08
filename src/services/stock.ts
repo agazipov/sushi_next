@@ -1,5 +1,5 @@
 import { prisma } from "@/lib/prisma";
 
-export function getAllStocksFromPrisma() {
-    return prisma.stock.findMany();
+export async function getAllStocksFromPrisma() {
+    return await prisma.stock.findMany();
 }
