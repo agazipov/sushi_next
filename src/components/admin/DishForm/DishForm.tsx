@@ -52,7 +52,7 @@ export default function DishForm({ dish, categorieId, setShow }: Props) {
 
             <FormLabel >Акция</FormLabel>
             <InputGroup className="mb-3">
-                <FormControl type="text" placeholder="Акция" required name="stock" defaultValue={dish ? (dish.stock || '') : ''} />
+                <FormControl type="text" placeholder="Акция" name="stock" defaultValue={dish ? (dish.stock || '') : ''} />
             </InputGroup>
 
             {dish &&

@@ -5,18 +5,31 @@ import styles from "./styles.module.scss";
 import { getAllCategories } from "@/src/services/menu";
 import classNames from 'classnames';
 import Cart from "../Cart/Cart";
+import Image from "next/image";
+import fishes from '@/public/img_app/fishes.webp';
+// import { usePathname} from 'next/navigation'
 
 export default async function Navigation() {
     const categories = await getAllCategories();
 
+    // const pathname = usePathname();
+    // console.log(pathname)
+    
     return (
-        <Navbar bg="dark" data-bs-theme="dark" className={styles.navigation}>
+        <Navbar bg="dark" data-bs-theme="dark" sticky="top" className={styles.navigation}>
             <div className={classNames(styles.navigation__container)}>
                 <NavbarBrand
                     className={styles.navigation__brand}
                     as={Link}
                     href={'/'}
-                >Рыба&Рис</NavbarBrand>
+                >
+                    <Image
+                        width={42}
+                        height={42}
+                        src={fishes}
+                        alt="logo"
+                    />
+                </NavbarBrand>
                 <Nav className={classNames("me-auto", styles.navigation__modify)}>
                     <NavDropdown
                         title="Роллы"

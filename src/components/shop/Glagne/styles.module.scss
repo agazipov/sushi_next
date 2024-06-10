@@ -71,11 +71,11 @@
 
 .home__img {
     width: 400px;
-}
 
-.home__img>img {
-    width: 100%;
-    height: auto;
+    img {
+        width: 100%;
+        height: auto;
+    }
 }
 
 .home__stocks_grid {
@@ -87,7 +87,7 @@
 }
 
 .home__stocks {
-    padding: 24px;
+    padding: 16px;
     max-width: 1116px;
 
     color: var(--bs-black);
@@ -106,16 +106,24 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
 
-.home__stock_img>img {
-    width: 100%;
-    height: auto;
-
+    img {
+        width: 100%;
+        height: auto;
+    }
 }
 
 .home__img_route {
-    padding: 10px;
+    // max-width: 600px;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    height: 60vh;
+
+    padding: 16px;
 
     text-align: center;
 
@@ -126,9 +134,9 @@
     outline-offset: 2px;
 }
 
-.home__img_route>img {
-    clip-path: polygon(0% 12%, 100% 12%, 100% 88%, 0% 88%);
-}
+// .home__img_route>img {
+//     clip-path: polygon(0% 12%, 100% 12%, 100% 88%, 0% 88%);
+// }
 
 @media(max-width: 1200px) {}
 
@@ -164,6 +172,10 @@
     }
 
     .home__stocks {
+        max-width: 450px;
+    }
+
+    .home__img_route {
         max-width: 450px;
     }
 

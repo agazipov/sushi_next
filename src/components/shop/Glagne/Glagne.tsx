@@ -2,13 +2,13 @@ import { Button } from "react-bootstrap";
 import japan_girl from '@/public/img_app/art_girl.webp';
 import road from '@/public/img_app/Scene_2.gif';
 import Link from "next/link";
-import styles from "./styles.module.css";
+import styles from "./styles.module.scss";
 import classNames from 'classnames';
 import Image from "next/image";
 import { Stock } from "@prisma/client";
+import MapService from "../Map/Map";
 
 export default async function Home({stocks}: {stocks: Stock[]}) {
-    // useReportWebVitals(sendToAnalytics);
 
     return (
         <div className={classNames(styles.home, "container")}>
@@ -89,32 +89,12 @@ export default async function Home({stocks}: {stocks: Stock[]}) {
             </section> */}
 
             <section className={styles.home__section}>
-                <div className={classNames(styles.home__img, styles.home__img_route)}>
+                <div className={styles.home__img_route}>
+                {/* <div className={classNames(styles.home__img, styles.home__img_route)}> */}
                     <h4>Схема проезда</h4>
-                    <Image width={800} height={650} src={road} alt="Карта" />
+                    {/* <Image width={800} height={650} src={road} alt="Карта" /> */}
+                    <MapService apikey={process.env.API_KEY || ""}/>
                 </div>
-                {/* <div className={styles.home__map}>
-                    <a
-                        href="https://yandex.ru/maps/37166/bakal/search/%D1%80%D1%8B%D0%B1%20%D1%80%D0%B8%D1%81/?utm_medium=mapframe&utm_source=maps"
-                        style={{ color: '#eee', fontSize: '12px', position: 'absolute', top: '0px' }}
-                    >
-                        Рыба&Рис в Бакале
-                    </a>
-                    <a
-                        href="https://yandex.ru/maps/37166/bakal/?utm_medium=mapframe&utm_source=maps"
-                        style={{ color: "#eee", fontSize: "12px", position: "absolute", top: "14px" }}
-                    >
-                        Бакал
-                    </a>
-                    <iframe
-                        title="yandex_map"
-                        src="https://yandex.ru/map-widget/v1/?ll=58.814795%2C54.938172&mode=search&oid=131386570138&ol=biz&sll=58.811208%2C54.938172&sspn=0.016476%2C0.005603&text=%D1%80%D1%8B%D0%B1%20%D1%80%D0%B8%D1%81&z=16.2"
-                        width="400"
-                        height="400"
-                        allowFullScreen={true}
-                        style={{ position: "relative" }}
-                    />
-                </div> */}
             </section>
         </div >
     )

@@ -16,6 +16,8 @@ html {
   --custom-grey-opacity: #adb5bdb5;
   --custom-pink-opacity: #f8d7dac9;
 
+  --my-yellow: #ffff00;
+
   --background-pink-pour: rgb(248,215,218);
   --background-pink-radial: radial-gradient(circle, rgba(248,215,218,0.8939950980392157) 56%, rgba(173,181,189,1) 100%);
 

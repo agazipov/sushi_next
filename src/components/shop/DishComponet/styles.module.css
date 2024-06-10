@@ -126,11 +126,13 @@
 .dish__stock {
     position: absolute;
     transform: rotate(25deg);
-    background-color: yellow;
+    background-color: var(--my-yellow);
     right: -16px;
     top: -4px;
     padding: 8px 14px;
     border-radius: var(--my-border-radius);
+    outline: 3px solid var(--bs-gray-900);
+    z-index: 30;
 }
 
 /* Enable hover only on non-touch devices */
