@@ -1,6 +1,5 @@
 import { Button } from "react-bootstrap";
 import japan_girl from '@/public/img_app/art_girl.webp';
-import road from '@/public/img_app/Scene_2.gif';
 import Link from "next/link";
 import styles from "./styles.module.scss";
 import classNames from 'classnames';
@@ -8,7 +7,7 @@ import Image from "next/image";
 import { Stock } from "@prisma/client";
 import MapService from "../Map/Map";
 
-export default async function Home({stocks}: {stocks: Stock[]}) {
+export default async function Home({ stocks }: { stocks: Stock[] }) {
 
     return (
         <div className={classNames(styles.home, "container")}>
@@ -25,29 +24,25 @@ export default async function Home({stocks}: {stocks: Stock[]}) {
                         <p>Здесь вы можете заказать доставку суши и не только</p>
                         <p>Для особых ценителей в нашем ассортименте имеется большой выбор пиццы)</p>
                         <p>Бесплатная доставка от 600 руб</p>
-                        <div className={styles.discription__btn_group}>
-                            {/* <Link href={"tel:+79089392212"}>
-                                <Button variant="dark">Позвонить</Button>
-                            </Link> */}
-                            <Link href={"/"}>
-                                <Button variant="dark">Начать покупки</Button>
-                            </Link>
-                        </div>
                     </div>
                     <div className={styles.home__text}>
                         <h4>Наши контакты</h4>
-                        <p>Вы можете найти нас по адресу <u>Бакал, ул. Ленина, д.5</u></p>
+                        <p>Вы можете найти нас по адресу <Link href={"#map"}>Бакал, ул. Ленина, д.5</Link></p>
                         <p>Вы так-же можете оформить заказ по телефонам:</p>
-                        <a href="mock">+7 (908) 939-22-12</a>
-                        <br />
-                        <a href="mock">+7 (912) 772-89-48</a>
-                        <div className={styles.discription__btn_group}>
-                            <Link href={"tel:+79089392212"}>
-                                <Button variant="dark">Позвонить</Button>
-                            </Link>
-                            {/* <Link href={"/"}>
-                                <Button variant="dark">Начать покупки</Button>
-                            </Link> */}
+                        <div>
+                            <div className={styles.home__contact_mobyle}>
+                                <Link href={"tel:+79089392212"}>
+                                    <Button variant="dark">+7(908)939-22-12</Button>
+                                </Link>
+                                <Link href={"tel:+79127728948"}>
+                                    <Button variant="dark">+7(912)772-89-48</Button>
+                                </Link>
+                            </div>
+                            <div className={styles.home__contact_pc}>
+                                <span><u>+7 (908) 939-22-12</u></span>
+                                <br />
+                                <span><u>+7 (912) 772-89-48</u></span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -88,12 +83,13 @@ export default async function Home({stocks}: {stocks: Stock[]}) {
                 </div>
             </section> */}
 
-            <section className={styles.home__section}>
+            <section className={styles.home__section} id="map">
                 <div className={styles.home__img_route}>
-                {/* <div className={classNames(styles.home__img, styles.home__img_route)}> */}
+                    {/* <div className={classNames(styles.home__img, styles.home__img_route)}> */}
                     <h4>Схема проезда</h4>
+                    <Link href={"https://yandex.ru/maps/37166/bakal/?ll=58.810689%2C54.938218&mode=poi&poi%5Bpoint%5D=58.810636%2C54.938389&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D131386570138&z=18.8"} target="__blank">открыть на карте</Link>
                     {/* <Image width={800} height={650} src={road} alt="Карта" /> */}
-                    <MapService apikey={process.env.API_KEY || ""}/>
+                    <MapService apikey={process.env.API_KEY || ""} />
                 </div>
             </section>
         </div >

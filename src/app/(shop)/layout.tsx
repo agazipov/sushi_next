@@ -5,6 +5,8 @@ import StoreProvider from "../lib/StoreProvider";
 import Background from "@/src/components/shop/Background/Background";
 import React from "react";
 import styles from "./styles.module.scss";
+import LastOrderProvider from "@/src/context/LastOrderProvider";
+import TimeOutProvider from "@/src/context/TimeOutProvider";
 
 export default function MainLayout({
     children,
@@ -13,13 +15,17 @@ export default function MainLayout({
 }>) {
     return (
         <StoreProvider>
-            <Background />
-            <div className={styles.font__styles}>
-                <Header />
-                <Navigation />
-                <main>{children}</main>
-                <Footer />
-            </div>
+            <TimeOutProvider>
+                <LastOrderProvider>
+                    <Background />
+                    <div className={styles.font__styles}>
+                        <Header />
+                        <Navigation />
+                        <main>{children}</main>
+                        <Footer />
+                    </div>
+                </LastOrderProvider>
+            </TimeOutProvider>
         </StoreProvider>
     )
 }

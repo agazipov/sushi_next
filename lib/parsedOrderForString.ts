@@ -2,7 +2,7 @@ import { TOrder } from "@/src/types/orderTypes";
 import { ICart } from "@/src/types/reduxTypes";
 
 export function parsedOrderForString(formState: TOrder, cart: ICart): string {
-    const deliveryChek = formState.delivery === false;
+    const deliveryChek = formState.delivery === "false";
 
     let string = 'Имя: ' + formState.name + '\n'
         + 'Телефон: ' + formState.phone + '\n'

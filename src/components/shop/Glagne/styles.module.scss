@@ -33,6 +33,10 @@
     gap: 10px;
 }
 
+.home__contact_mobyle {
+    display: none;
+}
+
 .home__text_container {
     text-align: center;
 
@@ -110,11 +114,12 @@
     img {
         width: 100%;
         height: auto;
+        border-radius: var(--my-border-radius);
     }
 }
 
 .home__img_route {
-    // max-width: 600px;
+    max-width: 1000px;
     width: 100%;
 
     display: flex;
@@ -151,6 +156,12 @@
 }
 
 @media (max-width: 768px) {
+    .home {
+        button {
+            font-size: 0.9rem;
+        }
+    }
+
     .home__img {
         width: 350px;
     }
@@ -164,6 +175,17 @@
         flex-direction: column;
         align-items: center;
     }
+
+    .home__contact_mobyle {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .home__contact_pc {
+        display: none;
+    }
+    
 }
 
 @media (max-width: 576px) {

@@ -17,18 +17,23 @@ import { useRouter } from 'next/navigation';
 import { cartActions } from '@/src/app/lib/features/cart/cart';
 import { sendOrder } from './action';
 import { IResult } from '@/src/types/commonTypes';
+import { useSetLastOrder } from '@/src/context/LastOrderProvider';
+import { useSetTime } from '@/src/context/TimeOutProvider';
 
 export default function OrderForm({ cart }: { cart: ICart }) {
     const [viewDelivery, setViewDelivery] = useState(false);
     const dispatch = useAppDispatch();
     const router = useRouter();
+    const lastOrder = useSetLastOrder();
+    const timeOut = useSetTime();
 
     const handleSubmit = async (data: FormData) => {
         const result: IResult = await sendOrder(cart, data);
         if (result.message === "order success") {
-            localStorage.setItem("timeOut", Date.now().toString());
-            localStorage.setItem("order", JSON.stringify(cart));
-            // dispatch(orderActions.getOrder(cart));
+            lastOrder(cart);
+            timeOut(Date.now());
+            // localStorage.setItem("timeOut", Date.now().toString());
+            // localStorage.setItem("order", JSON.stringify(cart));
             dispatch(cartActions.clearCart());
             router.push('/order/success');
         }

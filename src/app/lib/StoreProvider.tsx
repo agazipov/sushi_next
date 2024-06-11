@@ -4,7 +4,6 @@ import { useRef, useEffect } from "react";
 import { Provider } from "react-redux";
 import { makeStore, AppStore } from "../lib/store";
 import { cartActions } from "./features/cart/cart";
-import { ICart } from "@/src/types/reduxTypes";
 
 export default function StoreProvider({
     children,

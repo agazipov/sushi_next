@@ -9,17 +9,22 @@ import styles from "./styles.module.css";
 import classNames from "classnames";
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { useTime } from '@/src/context/TimeOutProvider';
 
 export default function Order() {
     const cart = useAppSelector((state: RootState) => selectCart(state));
     const router = useRouter();
+    const timeOut = useTime();
 
     useEffect(() => {
-        const timeNow = Date.now();
-        let timeOut = localStorage.getItem("timeOut");
-        if (timeNow - Number(timeOut) < 300000) {
+        if (!timeOut) {
             router.push('/order/success');
-        } 
+        }
+        // const timeNow = Date.now();
+        // let timeOut = localStorage.getItem("timeOut");
+        // if (timeNow - Number(timeOut) < 300000) {
+        //     router.push('/order/success');
+        // } 
     }, [])
 
     if (cart.buy.length === 0) {

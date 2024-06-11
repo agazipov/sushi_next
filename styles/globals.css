@@ -7,6 +7,9 @@
 
 /* Prevent font size inflation */
 html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+
   -moz-text-size-adjust: none;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;

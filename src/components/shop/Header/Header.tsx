@@ -3,6 +3,7 @@ import Image from 'next/image';
 import classNames from 'classnames';
 import Cart from '../Cart/Cart';
 import styles from "./styles.module.css";
+import Link from 'next/link';
 
 export default function Header() {
     return (
@@ -16,11 +17,15 @@ export default function Header() {
                 </div>
                 <div className={styles.header__contact}>
                     <div className={classNames(styles.header__info, styles.header__backgroud)}>
-                        <p>г. Бакал, ул. Ленина, 5,<br/> помещение 1 (вход с торца)</p>
+                        <Link href={"/#map"}><p>г. Бакал, ул. Ленина, 5,<br /> помещение 1 (вход с торца)</p></Link>
                     </div>
                     <div className={classNames(styles.header__links, styles.header__backgroud)}>
-                        <a href="mock">+7 (908) 939-22-12</a>
-                        <a href="mock">+7 (912) 772-89-48</a>
+                        <Link href={"tel:+79089392212"}>
+                            +7(908)939-22-12
+                        </Link>
+                        <Link href={"tel:+79127728948"}>
+                            +7(912)772-89-48
+                        </Link>
                     </div>
                 </div>
                 {/* <Cart /> */}

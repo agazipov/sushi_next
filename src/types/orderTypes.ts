@@ -1,7 +1,7 @@
 export type TOrder = {
     name: string
     phone: string
-    delivery: boolean
+    delivery: string
     street?: string
     house?: number
     apartment?: number
