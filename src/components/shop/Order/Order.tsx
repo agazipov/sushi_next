@@ -7,25 +7,22 @@ import OrderList from "../OrderList/OrderList";
 import OrderForm from "../OrderForm/OrderForm";
 import styles from "./styles.module.css";
 import classNames from "classnames";
-import { useEffect } from 'react';
+import { useLayoutEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { useTime } from '@/src/context/TimeOutProvider';
+import { useChekTime } from '@/src/context/TimeOutProvider';
 
 export default function Order() {
     const cart = useAppSelector((state: RootState) => selectCart(state));
     const router = useRouter();
-    const timeOut = useTime();
+    const chekTimeOut = useChekTime();
 
-    useEffect(() => {
-        if (!timeOut) {
+    useLayoutEffect(() => {
+        const chek = chekTimeOut(Date.now()); 
+        if (chek) {
             router.push('/order/success');
         }
-        // const timeNow = Date.now();
-        // let timeOut = localStorage.getItem("timeOut");
-        // if (timeNow - Number(timeOut) < 300000) {
-        //     router.push('/order/success');
-        // } 
-    }, [])
+    }, [chekTimeOut, router]);
+   
 
     if (cart.buy.length === 0) {
         return (

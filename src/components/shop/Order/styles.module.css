@@ -18,11 +18,20 @@
 }
 
 .order__not {
-    height: 20vh;
-
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    
+    padding: 10px;
+
+    background: var(--background-grey-pour);
+    background: var(--background-pink-radial);
+    border-radius: var(--my-border-radius);
+
+    outline: 4px solid var(--bs-danger-border-subtle);
+
+    text-align: center;
 }
 
 @media(max-width: 1200px) {

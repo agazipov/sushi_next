@@ -32,8 +32,6 @@ export default function OrderForm({ cart }: { cart: ICart }) {
         if (result.message === "order success") {
             lastOrder(cart);
             timeOut(Date.now());
-            // localStorage.setItem("timeOut", Date.now().toString());
-            // localStorage.setItem("order", JSON.stringify(cart));
             dispatch(cartActions.clearCart());
             router.push('/order/success');
         }

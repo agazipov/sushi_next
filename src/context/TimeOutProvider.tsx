@@ -3,44 +3,64 @@
 import React, {
     useCallback,
     useContext,
-    useLayoutEffect,
+    useEffect,
     useState,
 } from "react";
 
-const context = React.createContext<boolean>(false);
+// const context = React.createContext<boolean>(false);
 const setterContext = React.createContext((time: number) => { });
+const chekContext = React.createContext((time: number): boolean => true);
 
-export const useTime = () => useContext(context);
+// export const useTime = () => useContext(context);
 export const useSetTime = () => useContext(setterContext);
+export const useChekTime = () => useContext(chekContext);
+
+const TIMEOUT = 30000;
 
 export default function TimeOutProvider({ children }: {
     children: React.ReactNode
-}) {
-    const [time, setTime] = useState<boolean>(false);
+}) {   
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         const timeNow = Date.now();
         const timeOut = localStorage.getItem("timeOut");
-        if (!timeOut) {
-            setTime(true);
+        // если нет таймера показываем заказ
+        if (timeOut === null) {
+            // setTime(false);
             return;
         }
-        if (timeNow - Number(timeOut) > 300000) {           
+        // если таймаут закончен показываем заказ
+        if (timeNow - Number(timeOut) > TIMEOUT) {     
             localStorage.removeItem("timeOut");
-            setTime(true);
-        }
-    }, [])
+        } 
+    }, []);
 
+    // скрываем заказ только при оформлении
     const writeTimout = useCallback((time: number) => {
         localStorage.setItem("timeOut", time.toString());
-        setTime(false);
-    }, [])
+    }, []);
+
+    // проверка состояния
+    const chekTimout = useCallback((timeNow: number): boolean => {
+        const timeOut = localStorage.getItem("timeOut");
+        // если нет таймера показываем заказ
+        if (timeOut === null) {
+            return false;
+        }
+        // если таймаут закончен показываем заказ
+        if (timeNow - Number(timeOut) < TIMEOUT) {     
+            return true;
+        } else {
+            localStorage.removeItem("timeOut");
+            return false;
+        }       
+    }, []);
 
     return (
-        <context.Provider value={time}>
             <setterContext.Provider value={writeTimout}>
-                {children}
+                <chekContext.Provider value={chekTimout}>
+                    {children}
+                </chekContext.Provider>
             </setterContext.Provider>
-        </context.Provider>
     )
 }
