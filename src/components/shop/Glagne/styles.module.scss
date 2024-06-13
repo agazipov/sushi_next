@@ -76,7 +76,7 @@
 .home__img {
     width: 400px;
 
-    img {
+    & img {
         width: 100%;
         height: auto;
     }
@@ -111,7 +111,7 @@
     flex-direction: column;
     justify-content: space-between;
 
-    img {
+    & img {
         width: 100%;
         height: auto;
         border-radius: var(--my-border-radius);
@@ -157,7 +157,7 @@
 
 @media (max-width: 768px) {
     .home {
-        button {
+        & button {
             font-size: 0.9rem;
         }
     }

@@ -1,0 +1,9 @@
+@use "@/styles/mixins.scss" as mixins;
+
+.root {
+    @include mixins.wrapper;
+}
+
+.content {
+    @include mixins.content;
+}

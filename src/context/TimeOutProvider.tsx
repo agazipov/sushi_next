@@ -15,7 +15,7 @@ const chekContext = React.createContext((time: number): boolean => true);
 export const useSetTime = () => useContext(setterContext);
 export const useChekTime = () => useContext(chekContext);
 
-const TIMEOUT = 30000;
+const TIMEOUT = 300000;
 
 export default function TimeOutProvider({ children }: {
     children: React.ReactNode

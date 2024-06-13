@@ -1,0 +1,29 @@
+.font__styles {
+    font-family: var(--font-comfortaa);
+    font-size: 0.9rem;
+  
+    h3 {
+      font-size: 3.4rem;
+      font-family: var(--font-dokdo);
+    }
+  
+    h4 {
+      font-size: 2.6rem;
+      font-family: var(--font-dokdo);
+      text-decoration-line: underline;
+    }
+  
+    h5 {
+      font-size: 2rem;
+      font-family: var(--font-dokdo);
+    }
+  
+  }
+  
+  @media (max-width: 576px) {
+    .font__styles {
+      h3 {
+        font-size: 2.4rem;
+      }
+    }
+  }

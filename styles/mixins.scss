@@ -1,0 +1,26 @@
+@mixin wrapper {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin content {
+    width: 40%;
+
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--background-grey-pour);
+    background: var(--background-pink-radial);
+    border-radius: var(--my-border-radius);
+
+    outline: 4px solid var(--bs-danger-border-subtle);
+
+    text-align: center;
+}

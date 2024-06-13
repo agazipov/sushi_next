@@ -5,11 +5,12 @@ import { selectCart } from '@/src/app/lib/features/cart/cart';
 import { useAppSelector } from '@/src/app/lib/hooks';
 import OrderList from "../OrderList/OrderList";
 import OrderForm from "../OrderForm/OrderForm";
-import styles from "./styles.module.css";
-import classNames from "classnames";
 import { useLayoutEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useChekTime } from '@/src/context/TimeOutProvider';
+import classNames from "classnames";
+import styles from "./styles.module.scss";
+import EmptyContent from '../EmptyContent/EmptyContent';
 
 export default function Order() {
     const cart = useAppSelector((state: RootState) => selectCart(state));
@@ -17,16 +18,18 @@ export default function Order() {
     const chekTimeOut = useChekTime();
 
     useLayoutEffect(() => {
-        const chek = chekTimeOut(Date.now()); 
+        const chek = chekTimeOut(Date.now());
         if (chek) {
             router.push('/order/success');
         }
     }, [chekTimeOut, router]);
-   
+
 
     if (cart.buy.length === 0) {
         return (
-            <div className={classNames(styles.order__not, "container")}>У вас пока нет заказов</div>
+            <EmptyContent>
+                У вас пока нет заказов
+            </EmptyContent>
         )
     }
 
@@ -34,7 +37,7 @@ export default function Order() {
         <section className={classNames(styles.order, "container")}>
             <h3>У вас в корзине {cart.countDishes} блюд(а) за {cart.price}₽</h3>
             <div className={styles.order__content}>
-                <OrderForm cart={cart}/>
+                <OrderForm cart={cart} />
                 <OrderList cart={cart} />
             </div>
         </section>

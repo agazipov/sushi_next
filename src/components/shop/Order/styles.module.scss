@@ -1,0 +1,26 @@
+.order {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+
+    & h3 {
+        border-radius: 6px;
+        background-color: #ffffffbd;
+        padding: 4px;
+    }
+}
+
+.order__content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+@media (max-width: 992px) {
+    .order__content {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 14px;
+    }
+}

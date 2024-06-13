@@ -1,7 +1,6 @@
 import fishes from '@/public/img_app/fishes.webp';
 import Image from 'next/image';
 import classNames from 'classnames';
-import Cart from '../Cart/Cart';
 import styles from "./styles.module.css";
 import Link from 'next/link';
 
@@ -13,7 +12,7 @@ export default function Header() {
                     <h1>Рыба & Рис</h1>
                 </div>
                 <div className={styles.header__img}>
-                    <Image width={770} height={770} src={fishes} alt="Логотип с 2 карпами" />
+                    <Image width={770} height={770} src={fishes} alt="Логотип с 2 карпами" priority={true} />
                 </div>
                 <div className={styles.header__contact}>
                     <div className={classNames(styles.header__info, styles.header__backgroud)}>
@@ -28,7 +27,6 @@ export default function Header() {
                         </Link>
                     </div>
                 </div>
-                {/* <Cart /> */}
             </div>
         </header>
     )

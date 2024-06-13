@@ -1,0 +1,24 @@
+.loading__img {
+    animation: rotateLogo;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+@keyframes rotateLogo {
+    from {
+        transform: rotate(0deg);
+    }
+
+    60% {
+        transform: rotate(0deg);
+    }
+
+    80% {
+        transform: rotate(-180deg);
+    }
+
+    to {
+        transform: rotate(-360deg);
+    }
+}
