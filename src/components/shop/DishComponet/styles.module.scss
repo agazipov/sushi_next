@@ -25,12 +25,17 @@
     outline: none;
     gap: 0;
     max-width: none;
+
+    & h4 {
+        width: 190px;
+    }
 }
 
 .dish__header {
+    height: 100%;
+
     display: flex;
     flex-direction: column;
-    height: 100%;
 }
 
 .dish__size_container {
@@ -114,13 +119,13 @@
 
     background-color: var(--bs-gray-600);
     pointer-events: none;
-}
 
-.dish__size_activ::before {
-    content: '\02764';
-    position: absolute;
-    left: -26px;
-    top: 9px;
+    &::before {
+        content: '\02764';
+        position: absolute;
+        left: -26px;
+        top: 9px;
+    }
 }
 
 .dish__stock {
@@ -154,16 +159,10 @@
         margin: auto 46px;
     }
 
-    .dish__info-wrapper {
-        font-size: medium;
-    }
-
-    .dish__desc {
-        font-size: medium;
-    }
-
-    .dish__wrapper {
-        justify-content: space-around;
+    .dish_custom {
+        & h4 {
+            width: 130px;
+        }
     }
 
     .dish__info_default {

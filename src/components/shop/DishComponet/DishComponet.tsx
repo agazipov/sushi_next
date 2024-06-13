@@ -1,6 +1,7 @@
 "use client";
 
 import type { Dish } from "@prisma/client/edge";
+import { IDishModify } from "@/src/types/reduxTypes";
 import { Button, ButtonGroup } from "react-bootstrap";
 import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/src/app/lib/hooks";
@@ -8,8 +9,7 @@ import { cartActions, selectDishAmount } from "@/src/app/lib/features/cart/cart"
 import { RootState } from "@/src/app/lib/store";
 import ImgView from "../ImgView/ImgView";
 import classNames from 'classnames';
-import styles from "./styles.module.css";
-import { IDishModify } from "@/src/types/reduxTypes";
+import styles from "./styles.module.scss";
 
 interface IDishComponent {
     dish: Dish,
@@ -22,6 +22,7 @@ const ViewVariantRoot: { [index: string]: string } = {
     custom: styles.dish_custom,
 };
 
+// проверить, УДАЛИТЬ
 const ViewVariantDishInfo: { [index: string]: string } = {
     default: styles.dish__info_default,
     custom: styles.dish__info_custom,

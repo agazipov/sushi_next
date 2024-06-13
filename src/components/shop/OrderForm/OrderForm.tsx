@@ -34,7 +34,8 @@ export default function OrderForm({ cart }: { cart: ICart }) {
             timeOut(Date.now());
             dispatch(cartActions.clearCart());
             router.push('/order/success');
-        }
+        } else {}
+        // логика для невалидного ответа
     }
 
     return (

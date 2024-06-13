@@ -11,6 +11,8 @@
       font-size: 2.6rem;
       font-family: var(--font-dokdo);
       text-decoration-line: underline;
+      line-height: 1.5rem;
+      padding-bottom: 8px;
     }
   
     h5 {
@@ -24,6 +26,11 @@
     .font__styles {
       h3 {
         font-size: 2.4rem;
+        text-wrap: wrap;
+      }
+      
+      h4 {
+        font-size: 2rem;
       }
     }
   }

@@ -3,7 +3,7 @@ import { imgNameParser } from "@/lib/imgParser";
 import { Dish } from "@prisma/client";
 import { memo } from 'react';
 import Image from "next/image";
-import styles from "./styles.module.css";
+import styles from "./styles.module.scss";
 
 interface IImgView {
     dish: Dish,
