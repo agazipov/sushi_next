@@ -14,6 +14,9 @@ const setterContext = React.createContext((cart: ICart) => { });
 export const useLastOrder = () => useContext(context);
 export const useSetLastOrder = () => useContext(setterContext);
 
+
+// провайдер для отображения последнего заказа
+// компонты: formOrder, orderSuccess
 export default function LastOrderProvider({ children }: {
     children: React.ReactNode
 }) {

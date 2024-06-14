@@ -4,7 +4,8 @@ import {
     FormLabel,
     FormGroup,
     FormControl,
-    InputGroup
+    InputGroup,
+    FormCheck
 } from 'react-bootstrap';
 import { createDish, updateDish } from "@/src/app/admin/actionDish";
 import styles from "./styles.module.css";
@@ -54,6 +55,13 @@ export default function DishForm({ dish, categorieId, setShow }: Props) {
             <InputGroup className="mb-3">
                 <FormControl type="text" placeholder="Акция" name="stock" defaultValue={dish ? (dish.stock || '') : ''} />
             </InputGroup>
+
+            <FormLabel >Выбор</FormLabel>
+            <FormCheck 
+                type="switch"
+                name="select"
+                defaultChecked={true}
+            />
 
             {dish &&
                 <input type="hidden" name="id" value={dish.id} />

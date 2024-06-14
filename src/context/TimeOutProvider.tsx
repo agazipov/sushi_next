@@ -7,16 +7,17 @@ import React, {
     useState,
 } from "react";
 
-// const context = React.createContext<boolean>(false);
 const setterContext = React.createContext((time: number) => { });
 const chekContext = React.createContext((time: number): boolean => true);
 
-// export const useTime = () => useContext(context);
 export const useSetTime = () => useContext(setterContext);
 export const useChekTime = () => useContext(chekContext);
 
 const TIMEOUT = 300000;
 
+// провайдер для таймаута запросов в 5 минут от спама запросов
+// проверяет вышло время и записывает новый таймаут при запросе
+// компоненты: order, orderForm, orderSuccess
 export default function TimeOutProvider({ children }: {
     children: React.ReactNode
 }) {   
@@ -26,7 +27,6 @@ export default function TimeOutProvider({ children }: {
         const timeOut = localStorage.getItem("timeOut");
         // если нет таймера показываем заказ
         if (timeOut === null) {
-            // setTime(false);
             return;
         }
         // если таймаут закончен показываем заказ
