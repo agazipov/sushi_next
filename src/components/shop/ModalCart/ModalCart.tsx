@@ -1,15 +1,15 @@
 "use client"
 
-import { Button, Modal, ModalHeader, ModalTitle, ModalBody, ModalFooter } from 'react-bootstrap';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'react-bootstrap';
 import { useRouter } from "next/navigation";
 import { RootState } from '@/src/app/lib/store';
 import { cartActions, selectCart } from '@/src/app/lib/features/cart/cart';
 import { useAppDispatch, useAppSelector } from '@/src/app/lib/hooks';
 import { DishComponet } from '../DishComponet/DishComponet';
-import styles from "./styles.module.scss";
 import { COUNT_VARIANT } from '@/lib/constant';
-import Link from 'next/link';
 import { useLastOrder } from '@/src/context/LastOrderProvider';
+import Link from 'next/link';
+import styles from "./styles.module.scss";
 
 interface IModalCart {
     show: boolean,

@@ -3,7 +3,7 @@
 import React, {
     useCallback,
     useContext,
-    useLayoutEffect,
+    useEffect,
     useState,
 } from "react";
 import { ICart } from "../types/reduxTypes";
@@ -19,7 +19,7 @@ export default function LastOrderProvider({ children }: {
 }) {
     const [order, setOrder] = useState<ICart | null>(null);
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         const orderStorage = localStorage.getItem("order");
         if (orderStorage) {
             setOrder(JSON.parse(orderStorage));

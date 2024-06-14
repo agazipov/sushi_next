@@ -24,22 +24,21 @@ export default function Order() {
         }
     }, [chekTimeOut, router]);
 
-
-    if (cart.buy.length === 0) {
-        return (
-            <EmptyContent>
-                У вас пока нет заказов
-            </EmptyContent>
-        )
-    }
-
     return (
         <section className={classNames(styles.order, "container")}>
-            <h3>У вас в корзине {cart.countDishes} блюд(а) за {cart.price}₽</h3>
-            <div className={styles.order__content}>
-                <OrderForm cart={cart} />
-                <OrderList cart={cart} />
-            </div>
+            {cart.buy.length === 0 ?
+                <EmptyContent>
+                    У вас пока нет заказов
+                </EmptyContent>
+                :
+                <>
+                    <h3>У вас в корзине {cart.countDishes} блюд(а) за {cart.price}₽</h3>
+                    <div className={styles.order__content}>
+                        <OrderForm cart={cart} />
+                        <OrderList cart={cart} />
+                    </div>
+                </>
+            }
         </section>
     )
 }

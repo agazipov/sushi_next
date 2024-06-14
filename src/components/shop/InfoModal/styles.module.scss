@@ -1,0 +1,11 @@
+.modal_size {
+    max-width: none !important;
+    width: 80%;
+}
+
+@media (max-width: 576px) {
+    .modal_size {
+        max-width: none !important;
+        width: 100%;
+    }
+}

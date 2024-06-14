@@ -1,6 +1,6 @@
 "use client"
 
-import type { MetricOrder, Stock } from "@prisma/client";
+import type { Stock } from "@prisma/client";
 import { useState } from "react";
 import ModalWrap from "../ModalWrap/ModalWrap";
 import { Button } from "react-bootstrap";
@@ -11,13 +11,9 @@ import { removeStock } from "@/src/app/api/auth/[...nextauth]/actionStock";
 import toast, { Toaster } from 'react-hot-toast';
 import { useRouter } from "next/navigation";
 import processResForStock from "@/lib/processResForStock";
+import Image from "next/image";
 
-type Props = {
-    stocks: Stock[];
-    metric: MetricOrder;
-};
-
-export default function StockList({ stocks, metric }: Props) {
+export default function StockList({ stocks }: { stocks: Stock[] }) {
     const [show, setShow] = useState<Stock | boolean>(false);
     const router = useRouter();
 
@@ -29,11 +25,6 @@ export default function StockList({ stocks, metric }: Props) {
 
     return (
         <div className={classNames(styles.root, "container")}>
-            <div>
-                <p>Заказано на сумму: {metric.price}</p>
-                <p>Заказано блюд: {metric.countDishes}</p>
-                <p>Всего заказов: {metric.allOrders}</p>
-            </div>
             <div className={styles.stock__header}>
                 <h3>Управление акциями</h3>
                 <Button onClick={() => setShow(true)}>Добавить акцию</Button>
@@ -44,13 +35,30 @@ export default function StockList({ stocks, metric }: Props) {
                     {stocks.map((stock) => {
                         return (
                             <div className={styles.stock__copy} key={stock.id}>
-                                <p><u>Название акции:</u> {stock.title}</p>
+                                <u>Название акции:</u>
+                                <p>{stock.title}</p>
                                 <div className={styles.stock__body}>
                                     <u>Текст акции:</u>
                                     <p>{stock.body}</p>
                                 </div>
-                                {stock.img ? <p>{stock.img}</p> : <p>Нет изображения</p>}
-                                <div><p><u>Отображение:</u> {stock.show ? "Показан" : "Скрыт"}</p></div>
+                                {stock.img ?
+                                    <div>
+                                        <u>Изображение:</u>
+                                        <p>{stock.img}</p>
+                                        <Image
+                                            width={100}
+                                            height={100}
+                                            src={`/img_stock/${stock.img}`}
+                                            alt={stock.img}
+                                        />
+                                    </div>
+                                    :
+                                    <p>Нет изображения</p>
+                                }
+                                <div>
+                                    <u>Отображение на сайте:</u>
+                                    <p> {stock.show ? "Показан" : "Скрыт"}</p>
+                                </div>
                                 <div className={styles.stock__btn_group}>
                                     <Button onClick={() => setShow(stock)} size="sm">Изменить</Button>
                                     <Button onClick={() => handleRemove(stock)} size="sm" variant="danger">Удалить</Button>

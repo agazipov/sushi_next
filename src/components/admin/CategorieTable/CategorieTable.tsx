@@ -28,8 +28,9 @@ export default function CategorieTable({ dishes, categorieId }: TCategorieTable)
                         <th>Название</th>
                         <th>Состав</th>
                         <th>Изображение</th>
-                        <th>Цена(мал)</th>
-                        <th>Цена(бол)</th>
+                        <th>Цена<br/>(мал)</th>
+                        <th>Цена<br/>(бол)</th>
+                        <th>Выбор</th>
                         <th>Опции</th>
                     </tr>
                 </thead>
@@ -42,6 +43,7 @@ export default function CategorieTable({ dishes, categorieId }: TCategorieTable)
                             <td className={styles.table__img}>{dish.img.replace(/\//g, " ")}</td>
                             <td>{dish.price_for_mid}</td>
                             <td>{dish.price_for_large}</td>
+                            <td>{dish.select}</td>
                             <td>
                                 <div className={styles.dish__btn_group}>
                                     <Button onClick={() => setShow(dish)} size="sm">Изменить</Button>

@@ -10,7 +10,8 @@ export default async function AdminNavigation() {
     return (
         <div className={classNames(styles.root, "container")}>
             <nav className={styles.nav}>
-                <Link className={styles.link} href={"/admin"}>Акции</Link>
+                <Link className={styles.link} href={"/admin"}>Главная</Link>
+                <Link className={styles.link} href={"/admin/stocks"}>Акции</Link>
                 {categories.map(categorie => (
                     <Link
                         key={categorie.id}

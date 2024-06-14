@@ -17,7 +17,8 @@ export default function OrderError({
 
     return (
         <EmptyContent>
-            <h2>Что-то пошло не так</h2>
+            <h4>Что-то пошло не так</h4>
+            <br />
             <Button variant="dark" onClick={reset}>Перезагрузить</Button>
         </EmptyContent>
     );

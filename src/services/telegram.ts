@@ -19,6 +19,7 @@ export async function fetchTelegram(message: string, chat: string, bot: string) 
         }
     }
 
+
     const response = await fetch(`https://api.telegram.org/bot${bot}/sendMessage`, {
         method: 'POST',
         headers: {

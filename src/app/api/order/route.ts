@@ -22,7 +22,7 @@ export async function POST(req: NextRequest) {
                     }
                 })
             })
-        )       
+        )
         const result = chekSumByOrder(cart.buy as IDishModify[], cart.price)
         if (!result || dishDB.includes(null)) {
             return NextResponse.json(
@@ -30,10 +30,13 @@ export async function POST(req: NextRequest) {
                 { status: 400 }
             );
         }
-        
+
         // сообщение в ТГ
         const formedOrder = parsedOrderForString(dataObj, cart);
-        await fetchTelegram(formedOrder, process.env.CHAT_ID || "", process.env.BOT_TOKEN || "");
+        const response = await fetchTelegram(formedOrder, process.env.CHAT_ID || "", process.env.BOT_TOKEN || "")
+        if (!response.ok) {
+            throw new Error('Ошибка при отправке формы');
+        }
 
         // запись метрики
         await prisma.metricOrder.update({

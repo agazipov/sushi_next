@@ -1,6 +1,7 @@
 .dish__btn_group {
     display: flex;
-    gap: 14px;
+    flex-direction: column;
+    gap: 4px;
 }
 
 .table__img {
