@@ -7,13 +7,9 @@ import classNames from 'classnames';
 import Cart from "../Cart/Cart";
 import Image from "next/image";
 import fishes from '@/public/img_app/fishes.webp';
-// import { usePathname} from 'next/navigation'
 
 export default async function Navigation() {
     const categories = await getAllCategories();
-
-    // const pathname = usePathname();
-    // console.log(pathname)
     
     return (
         <Navbar bg="dark" data-bs-theme="dark" sticky="top" className={styles.navigation}>
@@ -47,10 +43,11 @@ export default async function Navigation() {
                             )
                         })}
                     </NavDropdown>
-                    {categories.slice(3).map((categorie) => {
+                    {categories.slice(3).map((categorie, index) => {
                         return (
                             <NavLink
                                 key={categorie.id}
+                                className={styles[`nav__${index}`]}
                                 as={Link}
                                 href={`/${categorie.id}`}
                             >{categorie.name}

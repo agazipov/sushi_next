@@ -108,12 +108,3 @@ textarea:not([rows]) {
 .inter {
   font-family: var(--font-inter);
 }
-
-/* 
-@font-face {
-  font-family: 'HanZi';
-  src: url('../public/fonts/Hanzi.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-} */

@@ -13,15 +13,9 @@
     justify-content: center;
     align-items: center;
 
-    /* margin: 0 244px; */
     padding: 0 40px;
 
     height: 100%;
-
-    /* background-image: url(./carp.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover; */
 
     border-radius: var(--my-border-radius);
 }
@@ -40,16 +34,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-}
 
-.header__title>h1 {
-    font-size: 3.8rem;
-    /* font-weight: bold; */
-    text-transform: uppercase;
-    color: var(--bs-danger-border-subtle);
-    -webkit-text-stroke: 2px var(--bs-dark);
-    -moz-text-stroke: 2px var(--bs-dark);
-    text-shadow: 0 0 6px black;
+    & h1 {
+        font-size: 3.8rem;
+        text-transform: uppercase;
+        color: var(--bs-danger-border-subtle);
+        -webkit-text-stroke: 2px var(--bs-dark);
+        -moz-text-stroke: 2px var(--bs-dark);
+        text-shadow: 0 0 6px black;
+    }
 }
 
 .header__img {
@@ -59,11 +52,11 @@
     animation-duration: 16s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
-}
 
-.header__img>img {
-    width: 100%;
-    height: auto;
+    & img {
+        width: 100%;
+        height: auto;
+    }
 }
 
 .header__contact {
@@ -89,9 +82,6 @@
 
 .header__info {
     text-wrap: nowrap;
-
-    /* display: flex;
-    flex-direction: column; */
 }
 
 .header__links {
@@ -124,23 +114,6 @@
     }
 }
 
-/* @media(max-width: 1400px) {
-    .header__container {
-        margin: 0 156px;
-    }
-}
-
-@media(max-width: 1200px) {
-    .header__container {
-        margin: 0 100px;
-    }
-}
-
-@media(max-width: 992px) {
-    .header__container {
-        margin: 0 0;
-    }
-} */
 
 @media (max-width: 768px) {
     .header__contact {
@@ -149,7 +122,15 @@
         justify-content: space-between;
         padding: 14px 14px;
     }
-    .header__title>h1 {
-        font-size: 3.2em;
+    .header__title {
+        & h1 {
+            font-size: 3.2em;
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .header__contact {
+        font-size: 0.8rem;
     }
 }

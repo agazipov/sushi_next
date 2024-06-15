@@ -17,94 +17,98 @@ interface IDishComponent {
     countVariant: string[],
 }
 
-const ViewVariantRoot: { [index: string]: string } = {
-    default: styles.dish_default,
-    custom: styles.dish_custom,
-};
-
-// проверить, УДАЛИТЬ
-const ViewVariantDishInfo: { [index: string]: string } = {
-    default: styles.dish__info_default,
-    custom: styles.dish__info_custom,
-};
-
 export function DishComponet({ dish, viewVariant = 'default', countVariant }: IDishComponent) {
-    const [selectDish, setSelectDish] = useState<IDishModify>(() => ({...dish, categorieName: countVariant[0]}));
+    const [selectDish, setSelectDish] = useState<IDishModify>(() => ({ ...dish, categorieName: countVariant[0] }));
 
     const handleSize = (value: 'mid' | 'large') => setSelectDish(prev => ({ ...prev, select: value }));
 
     const dispath = useAppDispatch();
-    const count = useAppSelector((state: RootState) => selectDishAmount(state, dish));   
+    const count = useAppSelector((state: RootState) => selectDishAmount(state, dish));
 
     return (
-        <div className={classNames(styles.dish_default, ViewVariantRoot[viewVariant])}>
-            {dish.stock && dish.stock !== '' && 
+        <div className={classNames(
+            styles.dish_default,
+            viewVariant === 'custom' ? styles.dish_custom : ''
+        )}>
+            {dish.stock && dish.stock !== '' &&
                 <div className={styles.dish__stock}>{dish.stock}</div>
             }
-            <div className={styles.dish__header}>
-                <h4>{dish.name}</h4>
-                <ImgView dish={dish} mod={viewVariant}/>
-            </div>
-            <div className={styles.dish__info_default}>
-            {/* <div className={classNames(ViewVariantDishInfo[viewVariant])}> */}
-                <div className={styles.dish__size_container}>
-                    <div><u>Вариант:</u></div>
-                    <div><u>Корзина:</u></div>
-                    {!!dish.price_for_mid &&
-                        <>
-                            <div
-                                className={classNames(
-                                    styles.dish__size,
-                                    selectDish.select === 'mid' && styles.dish__size_activ
-                                )}
-                                onClick={() => handleSize('mid')}
-                            >
-                                <div>
-                                    {dish.price_for_mid}{countVariant[1]}
-                                </div>
-                            </div>
-                            <div className={styles.dish__cart_collumn}>
-                                <span className={styles.dish__size_count}>
-                                    {count ? count.countByMid : 0}
-                                </span>
-                                {countVariant[3]}
-                            </div>
-                        </>
-                    }
-                    {!!dish.price_for_large &&
-                        <>
-                            <div
-                                className={classNames(
-                                    styles.dish__size,
-                                    selectDish.select === 'large' && styles.dish__size_activ
-                                )}
-                                onClick={() => handleSize('large')}
-                            >
-                                <div >
-                                    {dish.price_for_large}{countVariant[2]}
-                                </div>
-                            </div>
-                            <div className={styles.dish__cart_collumn}>
-                                <span className={styles.dish__size_count}>
-                                    {count ? count.countByLarge : 0}
-                                </span>
-                                {countVariant[4]}
-                            </div>
-                        </>
-                    }
+            {viewVariant === 'custom' && <h4>{dish.name}</h4>}
+            <div className={classNames(
+                styles.dish__info,
+                viewVariant === 'custom' ? styles.dish__info_modify : ''
+            )}>
+                <div className={styles.dish__header}>
+                    {viewVariant === 'default' && <h4>{dish.name}</h4>}
+                    <ImgView dish={dish} mod={viewVariant} />
                 </div>
-                <ButtonGroup>
-                    <Button size="sm" variant="dark" onClick={() => dispath(cartActions.addCart(selectDish))}>+</Button>
-                    <Button
-                        size="sm"
-                        variant="dark" onClick={() => dispath(cartActions.delCart(selectDish))}
-                        disabled={
-                            (selectDish.select === 'mid' && (count ? count.countByMid! === 0 : true))
-                            ||
-                            (selectDish.select === 'large' && (count ? count.countByLarge! === 0 : true))
+
+                <div className={styles.dish__size_btn}>
+                    <div className={styles.dish__size_container}>
+                        <div><u>Вариант:</u></div>
+                        <div><u>Корзина:</u></div>
+                        {!!dish.price_for_mid &&
+                            <>
+                                <div
+                                    className={classNames(
+                                        styles.dish__size,
+                                        selectDish.select === 'mid' && styles.dish__size_activ
+                                    )}
+                                    onClick={() => handleSize('mid')}
+                                >
+                                    <div>
+                                        {dish.price_for_mid} ₽
+                                        {/* {countVariant[1]} */}
+                                    </div>
+                                </div>
+                                <div className={styles.dish__cart_collumn}>
+                                    <span className={styles.dish__size_count}>
+                                        {count ? count.countByMid : 0}
+                                    </span>
+                                    {countVariant[3]}
+                                </div>
+                            </>
                         }
-                    >-</Button>
-                </ButtonGroup>
+                        {!!dish.price_for_large &&
+                            <>
+                                <div
+                                    className={classNames(
+                                        styles.dish__size,
+                                        selectDish.select === 'large' && styles.dish__size_activ
+                                    )}
+                                    onClick={() => handleSize('large')}
+                                >
+                                    <div >
+                                        {dish.price_for_large} ₽
+                                        {/* {countVariant[2]} */}
+                                    </div>
+                                </div>
+                                <div className={styles.dish__cart_collumn}>
+                                    <span className={styles.dish__size_count}>
+                                        {count ? count.countByLarge : 0}
+                                    </span>
+                                    {countVariant[4]}
+                                </div>
+                            </>
+                        }
+                    </div>
+                    <ButtonGroup>
+                        <Button
+                            size="sm"
+                            variant="dark"
+                            onClick={() => dispath(cartActions.addCart(selectDish))}
+                        >+</Button>
+                        <Button
+                            size="sm"
+                            variant="dark" onClick={() => dispath(cartActions.delCart(selectDish))}
+                            disabled={
+                                (selectDish.select === 'mid' && (count ? count.countByMid! === 0 : true))
+                                ||
+                                (selectDish.select === 'large' && (count ? count.countByLarge! === 0 : true))
+                            }
+                        >-</Button>
+                    </ButtonGroup>
+                </div>
             </div>
         </div>
     )

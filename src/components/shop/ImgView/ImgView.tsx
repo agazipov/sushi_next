@@ -14,7 +14,7 @@ const ImgView = memo(function ImgView({ dish, mod }: IImgView) {
     const nameImgList = imgNameParser(dish);
 
     return (
-        <div className={styles.dish__wrapper}>
+        <div className={styles.dish__img_wrapper}>
             {nameImgList.length > 1 ?
                 <div className={styles.dish__caruosel}>
                     <Carousel interval={null} variant="dark">

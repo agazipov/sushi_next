@@ -1,8 +1,8 @@
 import fishes from '@/public/img_app/fishes.webp';
 import Image from 'next/image';
-import classNames from 'classnames';
-import styles from "./styles.module.css";
 import Link from 'next/link';
+import classNames from 'classnames';
+import styles from "./styles.module.scss";
 
 export default function Header() {
     return (

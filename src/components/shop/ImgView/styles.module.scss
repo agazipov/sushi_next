@@ -1,10 +1,10 @@
-.dish__wrapper {
+.dish__img_wrapper {
     height: 100%;
 
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 
     gap: 8px;
 }
@@ -16,14 +16,14 @@
 .dish__desc {
     height: 100%;
 
+    font-family: var(--font-comfortaa);
+    font-size: 0.9rem;
+
     display: flex;
     align-items: center;
-}
 
-/* .dish__img {
-    width: 50%;
-    flex-shrink: 0;
-} */
+    text-wrap: wrap;
+}
 
 .dish__img>img {
     width: 100%;
