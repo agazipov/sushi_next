@@ -1,6 +1,5 @@
 "use server"
 
-import { getSession } from "next-auth/react";
 import { prisma } from "@/lib/prisma";
 import { checkPassword, generatePassword } from "@/lib/identification";
 

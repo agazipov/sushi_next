@@ -1,11 +1,13 @@
+"use server"
+
 export async function getPicture() {
-    const response = await fetch('http://localhost:3000/api/picture')
+    const response = await fetch(`${process.env.FETCH_URL}/api/picture`)
     const result: string[] = await response.json();
     return result;
 }
 
 export async function addPicture(data: FormData) {
-    const response = await fetch('http://localhost:3000/api/picture', {
+    const response = await fetch(`${process.env.FETCH_URL}/api/picture`, {
         method: "POST",
         body: data
     })
@@ -14,7 +16,7 @@ export async function addPicture(data: FormData) {
 }
 
 export async function delPicture(img: string) {
-    const response = await fetch(`http://localhost:3000/api/picture?d=${img}`, {
+    const response = await fetch(`${process.env.FETCH_URL}/picture?d=${img}`, {
         method: "DELETE"
     })
     const result = await response.json();
