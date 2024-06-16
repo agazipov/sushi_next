@@ -3,8 +3,6 @@ import fs, { promises as fsAsync } from 'fs';
 import { pipeline } from 'stream';
 import { promisify } from 'util';
 import { Readable } from 'stream';
-import { getSession } from "next-auth/react";
-
 
 const pump = promisify(pipeline);
 
@@ -25,18 +23,6 @@ export async function GET(req: NextRequest) {
 // для добавления картинки в public
 export async function POST(req: NextRequest) {
     try {
-        // проверка на сессию
-        const cookies = req.cookies.getAll();
-
-        const mockRequest = {
-            cookies: Object.fromEntries(cookies.map(({ name, value }) => [name, value])),
-            headers: Object.fromEntries(req.headers.entries()),
-        };
-        const session = await getSession({ req: mockRequest });
-        if (!session) {
-            return NextResponse.json({ message: "Access closed" }, { status: 403 });
-        }
-
         // преобразуем реквест 
         const formData = await req.formData();
         const file = Object.fromEntries(formData) as { picture: File };
@@ -77,20 +63,8 @@ export async function POST(req: NextRequest) {
 }
 
 // для удаления картинки из public
-export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
+export async function DELETE(req: NextRequest) {   
     try {
-        // проверка на сессию
-        const cookies = req.cookies.getAll();
-
-        const mockRequest = {
-            cookies: Object.fromEntries(cookies.map(({ name, value }) => [name, value])),
-            headers: Object.fromEntries(req.headers.entries()),
-        };
-        const session = await getSession({ req: mockRequest });
-        if (!session) {
-            return NextResponse.json({ message: "Access closed" }, { status: 403 });
-        }
-
         const { searchParams } = new URL(req.url)
         const query = searchParams.get('d');
         const filePath = `./public/img_dishes/${query}`; 

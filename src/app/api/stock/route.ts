@@ -5,7 +5,6 @@ import { promisify } from 'util';
 import { Readable } from 'stream';
 import type { Stock } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
-import { getSession } from "next-auth/react";
 
 const pump = promisify(pipeline);
 
@@ -37,18 +36,8 @@ export async function GET() {
 
 //** добавление запись, если картинка существует - не записывает, иначе - записывает её
 export async function POST(req: NextRequest) {
+    console.log('Handling POST request');
     try {
-        // проверка на сессию
-        const cookies = req.cookies.getAll();
-        const mockRequest = {
-            cookies: Object.fromEntries(cookies.map(({ name, value }) => [name, value])),
-            headers: Object.fromEntries(req.headers.entries()),
-        };
-        const session = await getSession({ req: mockRequest });
-        if (!session) {
-            return NextResponse.json({ message: "Access closed" }, { status: 403 });
-        }
-
         // преобразуем реквест 
         const formData = await req.formData();
         const file = Object.fromEntries(formData) as unknown as TForm;
@@ -102,17 +91,6 @@ export async function POST(req: NextRequest) {
 //** Удаляет запись
 export async function DELETE(req: NextRequest) {
     try {
-        // проверка на сессию
-        const cookies = req.cookies.getAll();
-        const mockRequest = {
-            cookies: Object.fromEntries(cookies.map(({ name, value }) => [name, value])),
-            headers: Object.fromEntries(req.headers.entries()),
-        };
-        const session = await getSession({ req: mockRequest });
-        if (!session) {
-            return NextResponse.json({ message: "Access closed" }, { status: 403 });
-        }
-
         // уаляем из базы
         const data = await req.json();
         await prisma.stock.delete({
@@ -145,19 +123,6 @@ export async function DELETE(req: NextRequest) {
 //** обновляет запись, если картинка существует - оставляет её, иначе - записывает её
 export async function PUT(req: NextRequest) {   
     try {
-        // проверка на сессию
-        const cookies = req.cookies.getAll();
-        const mockRequest = {
-            cookies: Object.fromEntries(
-                cookies.map(({ name, value }) => [name, value])
-            ),
-            headers: Object.fromEntries(req.headers.entries()),
-        };
-        const session = await getSession({ req: mockRequest });
-        if (!session) {
-            return NextResponse.json({ message: "Access closed" }, { status: 403 });
-        }
-
         // преобразуем реквест и обновляем запись в БД
         const formData = await req.formData();
         const file = Object.fromEntries(formData) as unknown as TForm;
