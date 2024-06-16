@@ -1,3 +1,5 @@
+"use server"
+
 import type { Stock } from "@prisma/client";
 
 export async function getAllStocks() {   
