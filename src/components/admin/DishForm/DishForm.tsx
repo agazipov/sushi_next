@@ -10,6 +10,7 @@ import {
 import { createDish, updateDish } from "@/src/app/admin/actionDish";
 import styles from "./styles.module.css";
 import { Dish } from "@prisma/client";
+import { useState } from 'react';
 
 type Props = {
     dish: Dish | null;
@@ -18,6 +19,7 @@ type Props = {
 };
 
 export default function DishForm({ dish, categorieId, setShow }: Props) {
+    const [selectVariant, setSelectVariant] = useState(() => dish?.select === "large" && true);
     const handleSubmit = (data: FormData) => {
         dish ? updateDish(data) : createDish(data);
         setShow(false);
@@ -56,11 +58,12 @@ export default function DishForm({ dish, categorieId, setShow }: Props) {
                 <FormControl type="text" placeholder="Акция" name="stock" defaultValue={dish ? (dish.stock || '') : ''} />
             </InputGroup>
 
-            <FormLabel >Выбор</FormLabel>
-            <FormCheck 
+            <FormLabel >Выбор - {selectVariant ? "Большой" : "Средний"}</FormLabel>
+            <FormCheck
                 type="switch"
                 name="select"
-                defaultChecked={true}
+                defaultChecked={selectVariant}
+                onChange={() => setSelectVariant((prev) => !prev)}
             />
 
             {dish &&

@@ -12,7 +12,7 @@ interface IModalCart {
 export default function InfoModal({ show, setShow }: IModalCart) {
 
     return (
-        <Modal show={show} onHide={() => setShow(false)} dialogClassName={styles.modal_size}>
+        <Modal fullscreen="md-down" show={show} onHide={() => setShow(false)} dialogClassName={styles.modal_size}>
             <ModalHeader closeButton>
                 <h3>Пользовательская информация</h3>
             </ModalHeader>

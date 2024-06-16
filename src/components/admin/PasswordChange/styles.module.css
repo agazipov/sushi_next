@@ -1,0 +1,6 @@
+.password {
+    max-width: 200px;
+    padding: 8px;
+    border: 1px solid black;
+    border-radius: 4px;
+}

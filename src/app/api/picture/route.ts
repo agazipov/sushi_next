@@ -4,7 +4,6 @@ import { pipeline } from 'stream';
 import { promisify } from 'util';
 import { Readable } from 'stream';
 import { getSession } from "next-auth/react";
-import { headers, cookies } from 'next/headers'
 
 
 const pump = promisify(pipeline);
@@ -12,21 +11,7 @@ const pump = promisify(pipeline);
 // для получения картинок из public
 export async function GET(req: NextRequest) {
     try {
-        // проверка на сессию
-        // const cookies2 = req.cookies.getAll();
-        // console.log('cookies', cookies2);        
-
-        // const mockRequest = {
-        //     cookies: Object.fromEntries(cookies2.map(({ name, value }) => [name, value])),
-        //     headers: Object.fromEntries(req.headers.entries()),
-        // };
-        // const session = await getSession({ req: mockRequest });
-        // if (!session) {
-        //     return NextResponse.json({ message: "Access closed" }, { status: 403 });
-        // }
-
         const filePath = `./public/img_dishes/`;
-        // const publicDirectory = path.join(process.cwd(), 'public');
         const files = await fsAsync.readdir(filePath);
         return NextResponse.json(
             files,
