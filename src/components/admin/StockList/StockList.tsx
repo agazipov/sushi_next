@@ -12,9 +12,11 @@ import toast, { Toaster } from 'react-hot-toast';
 import { useRouter } from "next/navigation";
 import processResForStock from "@/lib/processResForStock";
 import Image from "next/image";
+import ConfirmDelete from "../ConfirmDelete/ConfirmDelete";
 
 export default function StockList({ stocks }: { stocks: Stock[] }) {
-    const [show, setShow] = useState<Stock | boolean>(false);
+    const [showForm, setShowForm] = useState<Stock | boolean>(false);
+    const [showDelete, setShowDelete] = useState<Stock | null>(null);
     const router = useRouter();
 
     const handleRemove = async (stock: Stock) => {
@@ -27,7 +29,7 @@ export default function StockList({ stocks }: { stocks: Stock[] }) {
         <div className={classNames(styles.root, "container")}>
             <div className={styles.stock__header}>
                 <h3>Управление акциями</h3>
-                <Button onClick={() => setShow(true)}>Добавить акцию</Button>
+                <Button onClick={() => setShowForm(true)}>Добавить акцию</Button>
             </div>
 
             {stocks ?
@@ -60,8 +62,8 @@ export default function StockList({ stocks }: { stocks: Stock[] }) {
                                     <p> {stock.show ? "Показан" : "Скрыт"}</p>
                                 </div>
                                 <div className={styles.stock__btn_group}>
-                                    <Button onClick={() => setShow(stock)} size="sm">Изменить</Button>
-                                    <Button onClick={() => handleRemove(stock)} size="sm" variant="danger">Удалить</Button>
+                                    <Button onClick={() => setShowForm(stock)} size="sm">Изменить</Button>
+                                    <Button onClick={() => setShowDelete(stock)} size="sm" variant="danger">Удалить</Button>
                                 </div>
                             </div>)
                     })
@@ -70,13 +72,18 @@ export default function StockList({ stocks }: { stocks: Stock[] }) {
                 :
                 <div>Нет акций</div>
             }
-            <ModalWrap show={show} setShow={setShow} >
+            <ModalWrap show={showForm} setShow={setShowForm} type="stock">
                 <StockForm
-                    stock={typeof show === "object" ? show : null}
-                    setShow={setShow}
+                    stock={typeof showForm === "object" ? showForm : null}
+                    setShow={setShowForm}
                     setMessage={(e) => toast(e)}
                 />
             </ModalWrap>
+            <ConfirmDelete<Stock>
+                show={showDelete}
+                setShow={setShowDelete}
+                fnDelete={handleRemove}
+            />
             <Toaster />
         </div>
     )

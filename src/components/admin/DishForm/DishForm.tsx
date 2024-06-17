@@ -7,7 +7,7 @@ import {
     InputGroup,
     FormCheck
 } from 'react-bootstrap';
-import { createDish, updateDish } from "@/src/app/admin/actionDish";
+import { createDish, updateDish } from "@/src/services/actionDish";
 import styles from "./styles.module.css";
 import { Dish } from "@prisma/client";
 import { useState } from 'react';

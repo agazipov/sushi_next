@@ -5,7 +5,7 @@ import type { Dish } from "@prisma/client";
 import { getServerSession } from "next-auth";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { authConfig } from "../api/auth/[...nextauth]/config";
+import { authConfig } from "../app/api/auth/[...nextauth]/config";
 
 export async function createDish(data: FormData) {
     const session = await getServerSession(authConfig);
@@ -59,16 +59,16 @@ export async function updateDish(data: FormData) {
     redirect(`/admin/${dish.categorieId}`);
 }
 
-export async function removeDish(id: string) {
+export async function removeDish(dish: Dish) {
     const session = await getServerSession(authConfig);
     if (!session) return;
 
-    const dish = await prisma.dish.delete({
+    const deleteDish = await prisma.dish.delete({
         where: {
-            id,
+            id: dish.id,
         },
     });
 
-    revalidatePath(`/admin/${dish.categorieId}`);
-    redirect(`/admin/${dish.categorieId}`);
+    revalidatePath(`/admin/${deleteDish.categorieId}`);
+    redirect(`/admin/${deleteDish.categorieId}`);
 }

@@ -1,17 +1,18 @@
 import { Modal, ModalHeader, ModalTitle, ModalBody } from 'react-bootstrap';
-import type { Dish, Stock } from "@prisma/client";
 
-interface IModalCart {
+interface IModalCart<T> {
     children: React.ReactNode,
-    show:  Stock | Dish | boolean,
+    show:  T | boolean,
+    type: "stock" | "dish",
     setShow: (e: boolean) => void,
 }
 
-export default function ModalWrap({ children, show, setShow }: IModalCart) {
+export default function ModalWrap<T>({ children, show, setShow, type }: IModalCart<T>) {
+    const name = type === "stock" ? "Акции" : "Блюдо"
     return (
         <Modal show={!!show} onHide={() => setShow(false)}>
             <ModalHeader closeButton>
-                <ModalTitle>{typeof show === "object" ? "Редактировать акцию" : "Создать акцию"}</ModalTitle>
+                <ModalTitle>{typeof show === "object" ? `Редактировать ${name}` : `Создать ${name}`}</ModalTitle>
             </ModalHeader>
             <ModalBody>
                 {children}
