@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import { generatePassword, generateSalt } from "@/lib/identification";
-import { CATEGORIES_LIST, SETS_LIST } from "@/lib/constant";
+import { CATEGORIES_LIST } from "@/lib/constant";
 
 const prisma = new PrismaClient();
 

@@ -33,6 +33,7 @@ export default function CategorieTable({ dishes, categorieId }: TCategorieTable)
                         <th>Цена<br/>(мал)</th>
                         <th>Цена<br/>(бол)</th>
                         <th>Выбор</th>
+                        <th>Вид</th>
                         <th>Опции</th>
                     </tr>
                 </thead>
@@ -46,6 +47,7 @@ export default function CategorieTable({ dishes, categorieId }: TCategorieTable)
                             <td>{dish.price_for_mid}</td>
                             <td>{dish.price_for_large}</td>
                             <td>{dish.select}</td>
+                            <td>{dish.show ? "Показан" : "Скрыт"}</td>
                             <td>
                                 <div className={styles.dish__btn_group}>
                                     <Button onClick={() => setShow(dish)} size="sm">Изменить</Button>

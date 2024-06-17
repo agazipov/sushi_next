@@ -11,7 +11,16 @@ export async function createDish(data: FormData) {
     const session = await getServerSession(authConfig);
     if (!session) return;
 
-    const { name, compound, price_for_large, price_for_mid, img, categorieId, stock, select } = Object.fromEntries(data) as unknown as Omit<Dish, "id">;
+    const { name, 
+        compound, 
+        price_for_large, 
+        price_for_mid, 
+        img, 
+        categorieId, 
+        stock, 
+        select,
+        show
+    } = Object.fromEntries(data) as unknown as Omit<Dish, "id">;
     const PfLToNumber = Number(price_for_large);
     const PfMToNumber = Number(price_for_mid);
 
@@ -24,7 +33,8 @@ export async function createDish(data: FormData) {
             img,
             categorieId,
             stock,
-            select: select ? "large" : "mid"
+            select: select ? "large" : "mid",
+            show
         },
     });
 
@@ -35,7 +45,7 @@ export async function updateDish(data: FormData) {
     const session = await getServerSession(authConfig);
     if (!session) return;
 
-    const { id, name, compound, price_for_large, price_for_mid, img, stock, select } = Object.fromEntries(data) as unknown as Dish;
+    const { id, name, compound, price_for_large, price_for_mid, img, stock, select, show } = Object.fromEntries(data) as unknown as Dish;
     const PfLToNumber = Number(price_for_large);
     const PfMToNumber = Number(price_for_mid);
 
@@ -51,7 +61,8 @@ export async function updateDish(data: FormData) {
             price_for_mid: PfMToNumber,
             img,
             stock,
-            select: select ? "large" : "mid"
+            select: select ? "large" : "mid",
+            show
         },
     });
 

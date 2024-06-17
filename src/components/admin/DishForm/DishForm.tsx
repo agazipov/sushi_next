@@ -20,6 +20,7 @@ type Props = {
 
 export default function DishForm({ dish, categorieId, setShow }: Props) {
     const [selectVariant, setSelectVariant] = useState(() => dish?.select === "large" && true);
+    const [showDish, setShowDish] = useState(dish?.show);
     const handleSubmit = (data: FormData) => {
         dish ? updateDish(data) : createDish(data);
         setShow(false);
@@ -64,6 +65,14 @@ export default function DishForm({ dish, categorieId, setShow }: Props) {
                 name="select"
                 defaultChecked={selectVariant}
                 onChange={() => setSelectVariant((prev) => !prev)}
+            />
+
+            <FormLabel >Вид - {selectVariant ? "Показан" : "Скрыт"}</FormLabel>
+            <FormCheck
+                type="switch"
+                name="show"
+                defaultChecked={showDish}
+                onChange={() => setShowDish((prev) => !prev)}
             />
 
             {dish &&

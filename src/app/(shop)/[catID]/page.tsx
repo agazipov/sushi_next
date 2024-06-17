@@ -25,7 +25,7 @@ export default async function CategoriePage({ params: { catID } }: Props) {
         <DishList title={categorie.name}>
             {categorie.dishes?.map((dish) => {
                 return (
-                    <DishComponet key={dish.id} dish={dish} countVariant={COUNT_VARIANT[categorie.name]} />
+                    dish.show && <DishComponet key={dish.id} dish={dish} countVariant={COUNT_VARIANT[categorie.name]} />
                 )
             })}
         </DishList>

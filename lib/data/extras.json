@@ -27,7 +27,8 @@
         "select": "mid"
     },
     {
-        "name": "Cоус ким чи 50гр",
+        "name": "Cоус ким чи",
+        "compound": "Масса - 50гр",
         "price_for_mid": 50,
         "img": "noCSPJkdXBw.webp",
         "price_for_large": 0,
@@ -36,7 +37,8 @@
         "select": "mid"
     },
     {
-        "name": "Cоус ореховый 50гр",
+        "name": "Cоус ореховый",
+        "compound": "Масса - 50гр",
         "price_for_mid": 50,
         "img": "nBOMdpbD1JQ.webp",
         "price_for_large": 0,
@@ -45,7 +47,8 @@
         "select": "mid"
     },
     {
-        "name": "Cоус спайси 50гр",
+        "name": "Cоус спайси",
+        "compound": "Масса - 50гр",
         "price_for_mid": 50,
         "img": "2H09HpIT83g.webp",
         "price_for_large": 0,
@@ -54,7 +57,8 @@
         "select": "mid"
     },
     {
-        "name": "Картофель фри с соусом 100/25гр",
+        "name": "Картофель фри с соусом",
+        "compound": "Масса - 100/25гр",
         "price_for_mid": 130,
         "img": "1-tmeDlwBuM.webp",
         "price_for_large": 0,
@@ -63,7 +67,8 @@
         "select": "mid"
     },
     {
-        "name": "Кольца кальмаров в кляре с соусом 100/25гр",
+        "name": "Кольца кальмаров в кляре с соусом",
+        "compound": "Масса - 100/25гр",
         "price_for_mid": 160,
         "img": "a3uw6ZqnKl0.webp",
         "price_for_large": 0,
@@ -72,7 +77,8 @@
         "select": "mid"
     },
     {
-        "name": "Луковые кольца с соусом 120/25гр",
+        "name": "Луковые кольца с соусом",
+        "compound": "Масса - 120/25гр",
         "price_for_mid": 140,
         "img": "WTi5yDsRICA.webp",
         "price_for_large": 0,
@@ -81,7 +87,8 @@
         "select": "mid"
     },
     {
-        "name": "Наггетсы из мяса цыпленка с соусом 8шт/25гр",
+        "name": "Наггетсы из мяса цыпленка с соусом",
+        "compound": "8шт/25гр",
         "price_for_mid": 160,
         "img": "1dec-sl9mwI.webp",
         "price_for_large": 0,
@@ -117,53 +124,8 @@
         "select": "mid"
     },
     {
-        "name": "Лапша Фунчеза с овощами 200гр",
-        "price_for_mid": 120,
-        "img": "_DD6WpjTFno.webp",
-        "price_for_large": 0,
-        "countByMid": 0,
-        "countByLarge": 0,
-        "select": "mid"
-    },
-    {
-        "name": "Лапша Удон с овощами 200гр",
-        "price_for_mid": 120,
-        "img": "_DD6WpjTFno.webp",
-        "price_for_large": 0,
-        "countByMid": 0,
-        "countByLarge": 0,
-        "select": "mid"
-    },
-    {
-        "name": "Лапша Рамэн с овощами 200гр",
-        "price_for_mid": 120,
-        "img": "_DD6WpjTFno.webp",
-        "price_for_large": 0,
-        "countByMid": 0,
-        "countByLarge": 0,
-        "select": "mid"
-    },
-    {
-        "name": "Рис Японский с овощами 200гр",
-        "price_for_mid": 120,
-        "img": "_DD6WpjTFno.webp",
-        "price_for_large": 0,
-        "countByMid": 0,
-        "countByLarge": 0,
-        "select": "mid"
-    },
-    {
-        "name": "Рис Японский с овощами 200гр",
-        "price_for_mid": 120,
-        "img": "_DD6WpjTFno.webp",
-        "price_for_large": 0,
-        "countByMid": 0,
-        "countByLarge": 0,
-        "select": "mid"
-    },
-    {
-        "name": "Фреш ролл с беконом 240гр",
-        "compound": "Мексиканская лепешка, помидор, свежий огурчик, лист салата, лук красный, моцарелла, бекон, соуса:рыба&рис, томатный",
+        "name": "Фреш ролл с беконом",
+        "compound": "Мексиканская лепешка, помидор, свежий огурчик, лист салата, лук красный, моцарелла, бекон, соуса: рыба&рис, томатный. Масса - 240гр.",
         "price_for_mid": 220,
         "img": "njkSSWE_Nk4.webp",
         "price_for_large": 0,
@@ -172,8 +134,8 @@
         "select": "mid"
     },
     {
-        "name": "Фреш ролл с креветкой 240гр",
-        "compound": "Мексиканская лепешка, помидор, свежий огурчик, лист салата, моцарелла, креветка в кляре, соус 1000остр",
+        "name": "Фреш ролл с креветкой",
+        "compound": "Мексиканская лепешка, помидор, свежий огурчик, лист салата, моцарелла, креветка в кляре, соус 1000остр. Масса - 240гр.",
         "price_for_mid": 240,
         "img": "UE-CSIjrm7A.webp",
         "price_for_large": 0,
@@ -182,8 +144,8 @@
         "select": "mid"
     },
     {
-        "name": "Фреш ролл с рыбкой 240гр",
-        "compound": "Мексиканская лепешка, помидор, свежий огурчик, лист салата, моцарелла, рыбные палочки, соус чесночный",
+        "name": "Фреш ролл с рыбкой",
+        "compound": "Мексиканская лепешка, помидор, свежий огурчик, лист салата, моцарелла, рыбные палочки, соус чесночный. Масса - 240гр",
         "price_for_mid": 200,
         "img": "PtQLcLJK1C0.webp",
         "price_for_large": 0,
@@ -229,7 +191,7 @@
     },
     {
         "name": "Запеченные Мидии",
-        "compound": "фирменная заправка, соус унаги, кунжут, лимон",
+        "compound": "Фирменная заправка, соус унаги, кунжут, лимон",
         "price_for_mid": 260,
         "price_for_large": 400,
         "img": "Gz2e5wULuKw.webp",
@@ -238,10 +200,120 @@
         "select": "mid"
     },
     {
-        "name": "Фри бокс с беконом 260гр",
-        "compound": "бекон, соус сырный, соус томатный",
+        "name": "Фри бокс с беконом",
+        "compound": "Бекон, соус сырный, соус томатный. Масса - 260гр",
         "price_for_mid": 280,
         "img": "A6hZoU6_pDM.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "mid"
+    },
+    {
+        "name": "Лапша Фунчеза с овощами",
+        "compound": "Масса - 200гр. Рекомендуем к лапше заказать топпинги",
+        "price_for_mid": 120,
+        "img": "_DD6WpjTFno.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "mid"
+    },
+    {
+        "name": "Лапша Удон с овощами",
+        "compound": "Масса - 200гр. Рекомендуем к лапше заказать топпинги",
+        "price_for_mid": 120,
+        "img": "_DD6WpjTFno.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "mid"
+    },
+    {
+        "name": "Лапша Рамэн с овощами",
+        "compound": "Масса - 200гр. Рекомендуем к лапше заказать топпинги",
+        "price_for_mid": 120,
+        "img": "_DD6WpjTFno.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "mid"
+    },
+    {
+        "name": "Рис Японский с овощами",
+        "compound": "Масса - 200гр. Рекомендуем к рису заказать топпинги",
+        "price_for_mid": 120,
+        "img": "_DD6WpjTFno.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "mid"
+    },
+    {
+        "name": "Топпин: Курочка",
+        "compound": "Масса - 100гр. Поставляется в комплекте с WOC",
+        "price_for_mid": 80,
+        "img": "topping_chiken.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "mid"
+    },
+    {
+        "name": "Топпин: Свинина",
+        "compound": "Масса - 100гр. Поставляется в комплекте с WOC",
+        "price_for_mid": 90,
+        "img": "topping_chiken.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "mid"
+    },
+    {
+        "name": "Топпин: Бекон",
+        "compound": "Масса - 50гр. Поставляется в комплекте с WOC",
+        "price_for_mid": 100,
+        "img": "topping_chiken.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "mid"
+    },
+    {
+        "name": "Топпин: Лосось",
+        "compound": "Масса - 50гр. Поставляется в комплекте с WOC",
+        "price_for_mid": 130,
+        "img": "topping_chiken.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "mid"
+    },
+    {
+        "name": "Топпин: Креветка",
+        "compound": "Масса - 50гр. Поставляется в комплекте с WOC",
+        "price_for_mid": 130,
+        "img": "topping_chiken.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "mid"
+    },
+    {
+        "name": "Топпин: Грибы",
+        "compound": "Масса - 50гр. Поставляется в комплекте с WOC",
+        "price_for_mid": 70,
+        "img": "topping_chiken.webp",
+        "price_for_large": 0,
+        "countByMid": 0,
+        "countByLarge": 0,
+        "select": "mid"
+    },
+    {
+        "name": "Топпин: Лук",
+        "compound": "Масса - 20гр. Поставляется в комплекте с WOC",
+        "price_for_mid": 30,
+        "img": "topping_chiken.webp",
         "price_for_large": 0,
         "countByMid": 0,
         "countByLarge": 0,
