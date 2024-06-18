@@ -106,6 +106,6 @@ const seedMetric = async () => {
 // testSetCategorie();
 // seedSets();
 // seedStoks();
-// seedDishes();
+seedDishes();
 // seedUsers();
-seedMetric();
+// seedMetric();
