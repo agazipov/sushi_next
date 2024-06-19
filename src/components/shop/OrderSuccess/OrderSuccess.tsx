@@ -7,7 +7,7 @@ import { useLastOrder } from "@/src/context/LastOrderProvider";
 import { useChekTime } from "@/src/context/TimeOutProvider";
 
 export default function OrderSuccess() {
-    const [chek, setChek] =useState<boolean>(false)
+    const [chek, setChek] = useState<boolean>(false)
     const lastOrder = useLastOrder();
     const chekTimeOut = useChekTime();
     useEffect(() => setChek(chekTimeOut(Date.now())), [chekTimeOut]);
@@ -25,7 +25,7 @@ export default function OrderSuccess() {
             }
             <div>
                 <p>Вы заказали:</p>
-                <ul>
+                <ul className={styles.list}>
                     {lastOrder.buy.map(dish => {
                         return (
                             <li key={dish.id}>{dish.name} - {dish.countByLarge + dish.countByMid} порции</li>

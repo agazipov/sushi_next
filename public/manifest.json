@@ -1,0 +1,18 @@
+{
+    "background_color": "#ffffff",
+    "description": "Доставка суши в городе Бакал",
+    "display": "standalone",
+    "name": "Рыба&Рис",
+    "icons": [
+        {
+            "src": "\/android-icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image\/png",
+            "density": "4.0"
+        }
+    ],
+    "short_name": "Рыба&Рис",
+    "theme_color": "#ffffff",
+    "id": "/manifest.json",
+    "start_url": "/"
+}

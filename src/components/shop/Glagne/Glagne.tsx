@@ -71,15 +71,6 @@ export default async function Home({ stocks }: { stocks: Stock[] }) {
                 </section>
             }
 
-            {/* <section className={styles.home__section}>
-                <div className={styles.home__img}>
-                    <Image width={800} height={650} src={rice} alt="Тарелка с рисом и палочки" />
-                </div>
-                <div className={styles.home__text}>
-                    <p>Для того чтобы сделать заказ, добавьте в корзину интересующие вас блюда, щёлкните на корзине справа-сверху и подтвердите заказ. В открывшейся странице заказа необходимо указать Вашу информацию и сделать запрос. Пройдёт совсем не много времени и с вами свяжется наш оператор для уточнения деталей.</p>
-                </div>
-            </section> */}
-
             <section className={styles.home__section} id="map">
                 <div className={styles.home__img_route}>
                     <h4>Схема проезда</h4>

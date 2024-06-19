@@ -34,7 +34,7 @@ export async function createDish(data: FormData) {
             categorieId,
             stock,
             select: select ? "large" : "mid",
-            show
+            show: show ? true : false
         },
     });
 
@@ -49,6 +49,8 @@ export async function updateDish(data: FormData) {
     const PfLToNumber = Number(price_for_large);
     const PfMToNumber = Number(price_for_mid);
 
+    console.log(show);
+    
 
     const dish = await prisma.dish.update({
         where: {
@@ -62,7 +64,7 @@ export async function updateDish(data: FormData) {
             img,
             stock,
             select: select ? "large" : "mid",
-            show
+            show: show ? true : false
         },
     });
 

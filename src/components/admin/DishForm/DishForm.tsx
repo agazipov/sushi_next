@@ -67,7 +67,7 @@ export default function DishForm({ dish, categorieId, setShow }: Props) {
                 onChange={() => setSelectVariant((prev) => !prev)}
             />
 
-            <FormLabel >Вид - {selectVariant ? "Показан" : "Скрыт"}</FormLabel>
+            <FormLabel >Вид - {showDish ? "Показан" : "Скрыт"}</FormLabel>
             <FormCheck
                 type="switch"
                 name="show"

@@ -1,6 +1,4 @@
 .cart {
-    /* position: fixed;
-    top: 110px; */
     position: absolute;
     right: 6px;
 
@@ -60,6 +58,5 @@
 @media (hover: hover) and (pointer: fine) {
     .cart:hover {
         outline: 6px solid var(--bs-gray-600);
-        // box-shadow: 1px 5px 5px var(--bs-gray-400);
     }
 }

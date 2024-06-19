@@ -21,8 +21,24 @@ const hanzi = localFont({
 })
 
 export const metadata: Metadata = {
-  title: "Fish&Rice",
-  description: "Test next app",
+  title: "Рыба&Рис",
+  description: "Доставка суши в городе Бакал",
+  keywords: ["РыбаРис","Суши", "Роллы", "Бакал", "Пицца", "Доставка"],
+  icons: {
+    icon: [{ url: "/favicon.ico" }],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
+  openGraph: {
+    // url: "https://localhost:3000/",
+    url: "https://fish-rice",
+    type: "website",
+    images: "@/public/img_app/fishes.webp",
+    title: "Рыба&Рис",
+    description: "Доставка суши в городе Бакал",
+  },
+  manifest: "/manifest.json",
 };
 
 export default function RootLayout({

@@ -2,21 +2,21 @@ export async function fetchTelegram(message: string, chat: string, bot: string) 
     const bodyParser = {
         chat_id: chat,
         text: message,
-        reply_markup: {
-            inline_keyboard: [
-                [
-                    {
-                        text: 'Подтвердить',
-                        callback_data: "order_success"
-                    },
-                ], [
-                    {
-                        text: 'Отменить',
-                        callback_data: "order_cancel"
-                    }
-                ]
-            ]
-        }
+        // reply_markup: {
+        //     inline_keyboard: [
+        //         [
+        //             {
+        //                 text: 'Подтвердить',
+        //                 callback_data: "order_success"
+        //             },
+        //         ], [
+        //             {
+        //                 text: 'Отменить',
+        //                 callback_data: "order_cancel"
+        //             }
+        //         ]
+        //     ]
+        // }
     }
 
 
