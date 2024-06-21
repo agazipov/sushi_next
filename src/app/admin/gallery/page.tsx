@@ -1,4 +1,3 @@
-import GalleryForm from "@/src/components/admin/GalleryForm/GalleryForm";
 import { getPicture } from "../../api/auth/[...nextauth]/actionPicture";
 import GalleryList from "@/src/components/admin/GalleryList/GalleryList";
 
@@ -10,7 +9,6 @@ export default async function GalleryPage() {
     
     return (
         <div className="container">
-            <GalleryForm/>
             <GalleryList pictures={pictures}/>
         </div>
     )
