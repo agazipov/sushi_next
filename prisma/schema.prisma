@@ -1,0 +1,62 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Categorie {
+  id     String @id @default(cuid())
+  name   String @unique
+  dishes Dish[]
+}
+
+model Dish {
+  id              String     @id @default(cuid())
+  name            String
+  compound        String?
+  price_for_mid   Int
+  price_for_large Int
+  countByMid      Int        @default(0)
+  countByLarge    Int        @default(0)
+  select          String     @default("large")
+  img             String
+  show            Boolean    @default(true)
+  stock           String?
+  Categorie       Categorie? @relation(fields: [categorieId], references: [id])
+  categorieId     String?
+}
+
+model User {
+  id           String @id @default(cuid())
+  name         String @unique
+  passwordHash String
+  salt         String
+}
+
+model Stock {
+  id    String  @id @default(cuid())
+  title String
+  body  String
+  img   String
+  show  Boolean
+}
+
+model Metric {
+  id        String   @id @default(cuid())
+  name      String
+  value     String
+  startTime DateTime
+}
+
+model MetricOrder {
+  id          String @id @default(cuid())
+  price       Int    @default(0)
+  countDishes Int    @default(0)
+  allOrders   Int    @default(0)
+}
