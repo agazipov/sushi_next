@@ -52,8 +52,8 @@ export default function StockForm({ stock, setShow, setMessage }: IFormChange) {
                 <FormControl as="textarea" rows={5} name="body" defaultValue={stock ? (stock.body || '') : ''} />
             </FormGroup>
 
+            <FormLabel >{stock ? `Текущее изображение ${stock.img}. Заменить?` : "Изображение"}</FormLabel>
             <InputGroup className="mb-3">
-                <FormLabel >{stock ? `Текущее изображение ${stock.img}. Заменить?` : "Изображение"}</FormLabel>
                 <FormControl
                     type="text"
                     placeholder="Изображение"

@@ -8,7 +8,6 @@ import {
     FormCheck
 } from 'react-bootstrap';
 import { createDish, updateDish } from "@/src/services/actionDish";
-import styles from "./styles.module.css";
 import { Dish } from "@prisma/client";
 import { useState } from 'react';
 
@@ -27,8 +26,7 @@ export default function DishForm({ dish, categorieId, setShow }: Props) {
     }
 
     return (
-        <Form className={styles.form} action={handleSubmit}>
-
+        <Form action={handleSubmit}>
             <FormLabel >Название</FormLabel>
             <InputGroup className="mb-3">
                 <FormControl type="text" placeholder="Название" required name="name" defaultValue={dish ? dish.name : ''} />

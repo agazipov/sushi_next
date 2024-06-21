@@ -5,7 +5,7 @@ import { authConfig } from "./config";
 
 export async function getPicture() {
     const response = await fetch(`${process.env.FETCH_URL}/api/picture`)
-    const result: string[] = await response.json();
+    const result = await response.json();    
     return result;
 }
 
@@ -18,6 +18,8 @@ export async function addPicture(data: FormData) {
         body: data
     })
     const result = await response.json();
+    console.log("result", result);
+
     return result;
 }
 

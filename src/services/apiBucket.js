@@ -2,7 +2,7 @@
 // DateKey
 const crypto = require('crypto');
 const dateStamp = new Date().toISOString().slice(0, 10).replace(/-/g, '');
-const keySecret = procces.env.KEY_SECRET;
+const keySecret = process.env.KEY_SECRET;
 const dateKey = crypto.createHmac('sha256', 'AWS4' + keySecret).update(dateStamp).digest();
 // DateRegionKey
 const region = "ru-central-1";
@@ -38,7 +38,8 @@ const signature = crypto.createHmac('sha256', signingKey).update(stringToSign).d
 
 // 5) Добавление подписи к запросу
 // Аутентификация через HTTP-заголовок Authorization
-const authorizationHeader = `AWS4-HMAC-SHA256 Credential=<TENANT_ID>:<KEY_ID>/${dateStamp}/${region}/${service}/aws4_request, SignedHeaders=${signedHeaders}, Signature=${signature}`;
+export const authorizationHeader = `AWS4-HMAC-SHA256 Credential=${process.env.TENANT_ID}:${process.env.KEY_ID}/${dateStamp}/${region}/${service}/aws4_request, SignedHeaders=${signedHeaders}, Signature=${signature}`;
+
 const headers = {
     "Authorization": authorizationHeader,
     "x-amz-date": amzDate,
@@ -48,7 +49,7 @@ const headers = {
 // Аутентификация через параметры query
 const queryParams = {
     "X-Amz-Algorithm": "AWS4-HMAC-SHA256",
-    "X-Amz-Credential": `${procces.env.TENANT_ID}:${procces.env.KEY_ID}/${dateStamp}/${region}/${service}/aws4_request`,
+    "X-Amz-Credential": `${process.env.TENANT_ID}:${process.env.KEY_ID}/${dateStamp}/${region}/${service}/aws4_request`,
     "X-Amz-Date": amzDate,
     "X-Amz-Expires": "86400",
     "X-Amz-SignedHeaders": signedHeaders,
