@@ -1,7 +1,7 @@
 "use server"
 
 import { NextResponse, NextRequest } from "next/server";
-const xml2js = require('xml2js');
+import  xml2js from 'xml2js';
 
 // для получения картинок из public
 export async function GET(req: NextRequest) {
