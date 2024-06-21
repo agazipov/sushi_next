@@ -49,9 +49,6 @@ export async function updateDish(data: FormData) {
     const PfLToNumber = Number(price_for_large);
     const PfMToNumber = Number(price_for_mid);
 
-    console.log(show);
-    
-
     const dish = await prisma.dish.update({
         where: {
             id,

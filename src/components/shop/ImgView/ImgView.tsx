@@ -24,7 +24,7 @@ const ImgView = memo(function ImgView({ dish, mod }: IImgView) {
                                     <Image
                                         height={140}
                                         width={140}
-                                        src={`/img_dishes/${img.url}`}
+                                        src={`https://fish-rice-bucket.s3.cloud.ru/${img.url}`}
                                         alt={img.name}
                                     />
                                 </div>
@@ -40,7 +40,7 @@ const ImgView = memo(function ImgView({ dish, mod }: IImgView) {
                     <Image
                         height={112}
                         width={112}
-                        src={`/img_dishes/${nameImgList[0].url}`}
+                        src={`https://fish-rice-bucket.s3.cloud.ru/${nameImgList[0].url}`}
                         alt={nameImgList[0].name}
                     />
                 </div>

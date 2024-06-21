@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     // url: "https://localhost:3000/",
     url: "https://fish-rice",
     type: "website",
-    images: "@/public/img_app/fishes.webp",
+    images: "/img_app/fishes.webp",
     title: "Рыба&Рис",
     description: "Доставка суши в городе Бакал",
   },

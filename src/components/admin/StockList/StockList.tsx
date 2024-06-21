@@ -50,7 +50,7 @@ export default function StockList({ stocks }: { stocks: Stock[] }) {
                                         <Image
                                             width={100}
                                             height={100}
-                                            src={`/img_stock/${stock.img}`}
+                                            src={`https://fish-rice-bucket.s3.cloud.ru/${stock.img}`}
                                             alt={stock.img}
                                         />
                                     </div>

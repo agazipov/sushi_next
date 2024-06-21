@@ -46,7 +46,7 @@ export default async function Home({ stocks }: { stocks: Stock[] }) {
                 </div>
             </section>
 
-            {stocks &&
+            {stocks.length !== 0 &&
                 <section className={classNames(styles.home__section, styles.discription)}>
                     <div className={styles.home__stocks}>
                         <h3>АКЦИИ</h3>
@@ -60,7 +60,7 @@ export default async function Home({ stocks }: { stocks: Stock[] }) {
                                         </div>
                                         {stock.img &&
                                             <div className={styles.home__stock_img}>
-                                                <Image width={400} height={400} src={`/img_stock/${stock.img}`} alt="Акция" />
+                                                <Image width={400} height={400} src={`https://fish-rice-bucket.s3.cloud.ru/${stock.img}`} alt="Акция" />
                                             </div>
                                         }
                                     </div>

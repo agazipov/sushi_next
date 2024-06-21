@@ -36,7 +36,6 @@ export async function GET() {
 
 //** добавление запись, если картинка существует - не записывает, иначе - записывает её
 export async function POST(req: NextRequest) {
-    console.log('Handling POST request');
     try {
         // преобразуем реквест 
         const formData = await req.formData();

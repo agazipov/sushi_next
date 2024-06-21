@@ -38,7 +38,7 @@ export default function StockForm({ stock, setShow, setMessage }: IFormChange) {
         router.refresh();
         setShow(false);
     }
-    
+
     return (
         <Form action={handleSubmit}>
 
@@ -52,10 +52,21 @@ export default function StockForm({ stock, setShow, setMessage }: IFormChange) {
                 <FormControl as="textarea" rows={5} name="body" defaultValue={stock ? (stock.body || '') : ''} />
             </FormGroup>
 
-            <FormGroup className="mb-3">
+            <InputGroup className="mb-3">
+                <FormLabel >{stock ? `Текущее изображение ${stock.img}. Заменить?` : "Изображение"}</FormLabel>
+                <FormControl
+                    type="text"
+                    placeholder="Изображение"
+                    required={stock ? false : true}
+                    name="img"
+                    defaultValue={stock ? stock.img : ''}
+                />
+            </InputGroup>
+
+            {/* <FormGroup className="mb-3">
                 <FormLabel>{stock ? `Текущее изображение ${stock.img}. Заменить?` : "Изображение"}</FormLabel>
-                <FormControl type="file" name="picture" required={stock ? false : true}/>
-            </FormGroup>
+                <FormControl type="file" name="picture" required={stock ? false : true} />
+            </FormGroup> */}
 
             <FormLabel >Отображение</FormLabel>
             <FormGroup className="mb-3">

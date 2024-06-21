@@ -25,7 +25,7 @@ export default function GalleryList({ pictures }: { pictures: string[] }) {
             {pictures.map(img => {
                 return (
                     <div className={styles.gallery__img} key={img}>
-                        <Image width={150} height={150} src={`/img_dishes/${img}`} alt={img} />
+                        <Image width={150} height={150} src={`https://fish-rice-bucket.s3.cloud.ru/${img}`} alt={img} />
                         <p>{img}</p>
                         <Button size="sm" variant="danger" onClick={() => setShowDelete(img)}>Удалить</Button>
                     </div>

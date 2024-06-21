@@ -4,6 +4,8 @@ import { pipeline } from 'stream';
 import { promisify } from 'util';
 import { Readable } from 'stream';
 
+import path from 'path';
+
 const pump = promisify(pipeline);
 
 // для получения картинок из public
@@ -21,46 +23,88 @@ export async function GET(req: NextRequest) {
 }
 
 // для добавления картинки в public
+// export async function POST(req: NextRequest) {
+//     try {
+//         // преобразуем реквест 
+//         const formData = await req.formData();
+//         const file = Object.fromEntries(formData) as { picture: File };
+
+//         const filePath = `./public/img_dishes/${file.picture.name}`;
+
+//         // ищем файл и проверяем наличие картинки
+//         const fileExist = fs.existsSync(filePath);
+//         if (!fileExist) {
+//             try {
+//                 // добавляем картинку в publick
+//                 const blob = await file.picture!.arrayBuffer();
+//                 const readableStream = new Readable();
+//                 readableStream.push(Buffer.from(blob));
+//                 readableStream.push(null);
+
+//                 await pump(readableStream, fs.createWriteStream(filePath));
+
+//                 return NextResponse.json(
+//                     { message: "picture added" },
+//                     { status: 200 }
+//                 );
+//             } catch (error: any) {
+//                 return NextResponse.json(
+//                     { message: "picture not added", error: error.message },
+//                     { status: 500 }
+//                 )
+//             }
+//         }
+//         return NextResponse.json(
+//             { message: "picture name is taken" },
+//             { status: 400 }
+//         );
+//     }
+//     catch (e) {
+//         return NextResponse.json({ message: "request processing error", data: e }, { status: 500 })
+//     }
+// }
+
+// ------------------------------ //
 export async function POST(req: NextRequest) {
     try {
         // преобразуем реквест 
         const formData = await req.formData();
         const file = Object.fromEntries(formData) as { picture: File };
 
-        const filePath = `./public/img_dishes/${file.picture.name}`;
+        const filePath = path.join(process.cwd(), 'public', 'img_dishes', file.picture.name);
 
         // ищем файл и проверяем наличие картинки
-        const fileExist = fs.existsSync(filePath);
-        if (!fileExist) {
-            try {
-                // добавляем картинку в publick
-                const blob = await file.picture!.arrayBuffer();
-                const readableStream = new Readable();
-                readableStream.push(Buffer.from(blob));
-                readableStream.push(null);
-
-                await pump(readableStream, fs.createWriteStream(filePath));
-
-                return NextResponse.json(
-                    { message: "picture added" },
-                    { status: 200 }
-                );
-            } catch (error: any) {
-                return NextResponse.json(
-                    { message: "picture not added", error: error.message },
-                    { status: 500 }
-                )
-            }
+        try {
+            await fsAsync.access(filePath);
+            return NextResponse.json(
+                { message: "picture name is taken" },
+                { status: 400 }
+            );
+        } catch (error) {
+            // файл не существует, продолжаем
         }
-        return NextResponse.json(
-            { message: "picture name is taken" },
-            { status: 400 }
-        );
-    }
-    catch (e) {
-        return NextResponse.json({ message: "request processing error", data: e }, { status: 500 })
+
+        try {
+            // добавляем картинку в public
+            const buffer = await file.picture.arrayBuffer();
+            await fsAsync.writeFile(filePath, Buffer.from(buffer));
+
+            return NextResponse.json(
+                { message: "picture added" },
+                { status: 200 }
+            );
+        } catch (error: any) {
+            return NextResponse.json(
+                { message: "picture not added", error: error.message },
+                { status: 500 }
+            );
+        }
+    } catch (e) {
+        return NextResponse.json({ message: "request processing error", data: e }, { status: 500 });
     }
 }
+//--------------------------//
+
 
 // для удаления картинки из public
 export async function DELETE(req: NextRequest) {   

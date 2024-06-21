@@ -6,7 +6,7 @@ export const dynamic = 'error';
 export const revalidate = 0;
 
 export default async function GalleryPage() {
-    const pictures = await getPicture();
+    const pictures = await getPicture();   
     
     return (
         <div className="container">
