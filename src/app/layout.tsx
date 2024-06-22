@@ -31,10 +31,16 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    // url: "https://localhost:3000/",
-    url: "https://fish-rice",
+    url: "https://fish-rice.com",
     type: "website",
-    images: "/img_app/fishes.webp",
+    images: [
+      {
+        url: "/opengraf.webp",
+        width: 600,
+        height: 300,
+        type: "image/webp"
+      }
+    ],
     title: "Рыба&Рис",
     description: "Доставка суши в городе Бакал",
   },

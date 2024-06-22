@@ -6,6 +6,8 @@ import Header from "@/src/components/shop/Header/Header";
 import Navigation from "@/src/components/shop/Navigation/Navigation";
 import Footer from "@/src/components/shop/Footer/Footer";
 import styles from "@/styles/shop.module.scss";
+import { Suspense } from "react";
+import { Metric } from "@/src/components/shop/Metric/Metric";
 
 export default function MainLayout({
     children,
@@ -17,6 +19,9 @@ export default function MainLayout({
             <TimeOutProvider>
                 <LastOrderProvider>
                     <Background />
+                    <Suspense>
+                        <Metric />
+                    </Suspense>
                     <div className={styles.font__styles}>
                         <Header />
                         <Navigation />
