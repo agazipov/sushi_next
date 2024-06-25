@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    url: "https://fish-rice.com",
+    url: "https://fish-rice.ru",
     type: "website",
     images: [
       {

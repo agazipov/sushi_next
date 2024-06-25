@@ -79,7 +79,7 @@ export default function DishForm({ dish, categorieId, setShow }: Props) {
             {categorieId &&
                 <input type="hidden" name="categorieId" value={categorieId} />
             }
-            <Button variant="primary" type="submit">{dish ? "Сохранить изменения" : "Добавить акцию"}</Button>
+            <Button variant="primary" type="submit">{dish ? "Сохранить изменения" : "Добавить блюдо"}</Button>
         </Form>
     )
 }

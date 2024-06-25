@@ -34,6 +34,7 @@ export default function OrderSuccess() {
                 </ul>
             </div>
             <p>на сумму {lastOrder.price}₽</p>
+            {lastOrder.discount && <p>Для вас действует скидка {lastOrder.discount} %</p>}
             {chek && <p>Вы сможете сделать повторный заказ через 5 минут</p>}
         </div>
     )

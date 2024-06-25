@@ -31,6 +31,18 @@ export async function POST(req: NextRequest) {
             );
         }
 
+        // скидка скилька
+        const discount = await prisma.discount.findUnique({
+            where: {
+                phone: dataObj.phone,
+            }
+        })
+        
+        if (discount) {
+            cart.price = cart.price * ((100 - discount.discount) / 100);
+            cart.discount = discount.discount;
+        }
+
         // сообщение в ТГ
         const formedOrder = parsedOrderForString(dataObj, cart);
         const response = await fetchTelegram(formedOrder, process.env.CHAT_ID || "", process.env.BOT_TOKEN || "")
@@ -57,7 +69,7 @@ export async function POST(req: NextRequest) {
         });
 
         return NextResponse.json(
-            { message: "order success" },
+            { message: "order success", body: cart },
             { status: 200 }
         );
     } catch (error: any) {

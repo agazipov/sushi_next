@@ -2,13 +2,12 @@
 
 import Image from "next/image";
 import styles from "./styles.module.css";
-import { useRouter } from 'next/navigation';
 
 export default function GalleryList({ pictures }: { pictures: string[] }) {
-    const router = useRouter();
 
     return (
         <div className={styles.gallery__list}>
+            <h3>Галерея</h3>
             {pictures.map(img => {
                 return (
                     <div className={styles.gallery__img} key={img}>

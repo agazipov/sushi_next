@@ -18,7 +18,7 @@ export default async function Categorie({ params: { id } }: Props) {
 
     return (
         <div className={classNames(styles.root, "container")}>
-            <h2 className={styles.header}>{categorie.name}</h2>
+            <h3 className={styles.header}>{categorie.name}</h3>
             <CategorieTable dishes={categorie.dishes} categorieId={id}/>
         </div>
     )

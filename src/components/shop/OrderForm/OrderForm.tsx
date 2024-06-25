@@ -20,6 +20,7 @@ import { IResult } from '@/src/types/commonTypes';
 import { useSetLastOrder } from '@/src/context/LastOrderProvider';
 import { useSetTime } from '@/src/context/TimeOutProvider';
 import toast, { Toaster } from 'react-hot-toast';
+import { useMask } from '@react-input/mask';
 
 export default function OrderForm({ cart }: { cart: ICart }) {
     const [viewDelivery, setViewDelivery] = useState(false);
@@ -28,10 +29,16 @@ export default function OrderForm({ cart }: { cart: ICart }) {
     const lastOrder = useSetLastOrder();
     const timeOut = useSetTime();
 
+    const inputRef = useMask({
+        mask: "+7 (___) ___-__-__",
+        replacement: { _: /\d/ },
+        showMask: true,
+    });
+
     const handleSubmit = async (data: FormData) => {
         const result: IResult = await sendOrder(cart, data);
         if (result.message === "order success") {
-            lastOrder(cart);
+            lastOrder(result.body!);
             timeOut(Date.now());
             dispatch(cartActions.clearCart());
             router.push('/order/success');
@@ -51,14 +58,15 @@ export default function OrderForm({ cart }: { cart: ICart }) {
                         placeholder="Имя"
                         required
                         name="name"
-                        defaultChecked
+                        
                     />
                     <FormControl
+                        ref={inputRef}
                         type="text"
-                        placeholder="Телефон"
+                        placeholder="+7 (___) ___-__-__"
                         required
                         name="phone"
-                        defaultChecked
+                        
                     />
                 </InputGroup>
                 <FormLabel >Доставка</FormLabel>
@@ -99,27 +107,27 @@ export default function OrderForm({ cart }: { cart: ICart }) {
                             placeholder="Улица"
                             required
                             name="street"
-                            defaultChecked
+                            
                         />
                         <FormControl
                             placeholder="Дом"
                             type="number"
                             required
                             name="house"
-                            defaultChecked
+                            
                         />
                         <FormControl
                             placeholder="Кв"
                             type="number"
                             required
                             name="apartment"
-                            defaultChecked
+                            
                         />
                     </InputGroup>
                 }
                 <FormGroup className="mb-3" >
                     <Form.Label>Коментарий к заказу</Form.Label>
-                    <FormControl as="textarea" rows={3} name="comment" defaultChecked />
+                    <FormControl as="textarea" rows={3} name="comment"  />
                 </FormGroup>
                 <Button variant="primary" type="submit">
                     Заказать

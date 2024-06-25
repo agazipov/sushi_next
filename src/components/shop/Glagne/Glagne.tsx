@@ -46,7 +46,7 @@ export default async function Home({ stocks }: { stocks: Stock[] }) {
                 </div>
             </section>
 
-            {stocks.filter(stock => stock.show).length !== 0 &&
+            {stocks.some(stock => stock.show) &&
                 <section className={classNames(styles.home__section, styles.discription)}>
                     <div className={styles.home__stocks}>
                         <h3>АКЦИИ</h3>

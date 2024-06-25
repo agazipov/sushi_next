@@ -8,4 +8,5 @@ export interface ICart {
     price: number,
     countDishes: number,
     buy: IDishModify[],
+    discount?: number
 }

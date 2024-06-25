@@ -60,3 +60,10 @@ model MetricOrder {
   countDishes Int    @default(0)
   allOrders   Int    @default(0)
 }
+
+model Discount {
+  id       String @id @default(cuid())
+  name     String
+  phone    String @unique
+  discount Int    @default(0)
+}

@@ -6,6 +6,10 @@ export const dynamic = 'force-dynamic';
 export default async function AdminPage() {
     const metric = await getMetrickOrder();
 
+    if (!metric) {
+        return <div>Нет метрик</div>
+    }
+
     return (
         <AdminHome metric={metric[0]} />
     );
