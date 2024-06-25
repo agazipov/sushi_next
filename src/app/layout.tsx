@@ -30,6 +30,7 @@ export const metadata: Metadata = {
       { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
     ],
   },
+  metadataBase: new URL("https://fish-rice.ru"),
   openGraph: {
     url: "https://fish-rice.ru",
     type: "website",
