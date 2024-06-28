@@ -23,7 +23,7 @@ export default function PasswordChange({ setView }: { setView: (e: string) => vo
                 <InputGroup className="mb-3" size='sm'>
                     <FormControl type="text" placeholder="Новый пароль" required name="newpass" />
                 </InputGroup>
-                <Button variant="primary" onClick={() => setView('')}>Сменить пароль</Button>
+                <Button variant="primary">Сменить пароль</Button>
             </Form>
             <Toaster />
         </div>

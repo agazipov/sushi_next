@@ -14,7 +14,7 @@ export default function MapService({ apikey }: { apikey: string }) {
                     controls: [],
                 }}
             >
-                <Placemark geometry={[54.93826397022342, 58.810362973796764]} />
+                <Placemark geometry={[54.938389, 58.810628]} />
                 <ZoomControl options={{ float: "right" } as any} />
             </Map>
         </YMaps>

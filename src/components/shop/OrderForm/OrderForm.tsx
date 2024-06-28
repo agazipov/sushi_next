@@ -126,7 +126,7 @@ export default function OrderForm({ cart }: { cart: ICart }) {
                     </InputGroup>
                 }
                 <FormGroup className="mb-3" >
-                    <Form.Label>Коментарий к заказу</Form.Label>
+                    <Form.Label>Комментарий к заказу</Form.Label>
                     <FormControl as="textarea" rows={3} name="comment"  />
                 </FormGroup>
                 <Button variant="primary" type="submit">
