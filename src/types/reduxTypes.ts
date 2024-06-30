@@ -8,5 +8,7 @@ export interface ICart {
     price: number,
     countDishes: number,
     buy: IDishModify[],
-    discount?: number
+    discount?: number,
+    paidDelivery: boolean,
+    delivery: boolean
 }

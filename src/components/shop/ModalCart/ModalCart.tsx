@@ -36,6 +36,7 @@ export default function ModalCart({ show, setShow }: IModalCart) {
         <Modal className={styles.modal__font} show={show} onHide={() => setShow(false)}>
             <ModalHeader className={styles.header__modify}>
                 <h3>Корзина: {cart.countDishes} блюд(а) за {cart.price}₽</h3>
+                {cart.delivery && cart.paidDelivery && <p>+100₽ за доставку на сумму менее 600₽</p>}
                 <div className={styles.header__btnGrp}>
                     {lastOrder &&
                         <Link href="/order/success">

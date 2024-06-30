@@ -14,6 +14,7 @@ export function parsedOrderForString(
         return `Блюдо - ${dish.name} (${portions.join(', ')})`;
     }).join('\n');
 
+    const paidDeliveryString = deliveryChek ? '' : cart.paidDelivery ? 'Платная доставка' : 'Бесплатная доставка';
     const addressString = deliveryChek ? '' : `Адрес: ул. ${formState.street}, дом ${formState.house}, квартира ${formState.apartment}\n`;
     const commentString = formState.comment ? `Коментарий: ${formState.comment}\n` : '';
 
@@ -23,5 +24,6 @@ export function parsedOrderForString(
         + `На сумму: ${cart.price}₽${cart.discount ? ` скидка ${cart.discount}%` : ''}\n`
         + `Доставка: ${deliveryChek ? 'самовывоз' : 'на адрес'}\n`
         + addressString
+        +`${paidDeliveryString}\n`
         + commentString;
 }

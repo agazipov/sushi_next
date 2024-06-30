@@ -33,7 +33,8 @@ export default function OrderSuccess() {
                     })}
                 </ul>
             </div>
-            <p>на сумму {lastOrder.price}₽</p>
+            <p>на сумму {lastOrder.price}₽ {lastOrder.paidDelivery && "с учетом доставки"}</p>
+            
             {lastOrder.discount && <p>Для вас действует скидка {lastOrder.discount} %</p>}
             {chek && <p>Вы сможете сделать повторный заказ через 5 минут</p>}
         </div>

@@ -22,7 +22,7 @@ export function DishComponet({ dish, viewVariant = 'default', countVariant }: ID
 
     const handleSize = (value: 'mid' | 'large') => setSelectDish(prev => ({ ...prev, select: value }));
 
-    const dispath = useAppDispatch();
+    const dispatch = useAppDispatch();
     const count = useAppSelector((state: RootState) => selectDishAmount(state, dish));
 
     return (
@@ -96,11 +96,11 @@ export function DishComponet({ dish, viewVariant = 'default', countVariant }: ID
                         <Button
                             size="sm"
                             variant="dark"
-                            onClick={() => dispath(cartActions.addCart(selectDish))}
+                            onClick={() => dispatch(cartActions.addCart(selectDish))}
                         >+</Button>
                         <Button
                             size="sm"
-                            variant="dark" onClick={() => dispath(cartActions.delCart(selectDish))}
+                            variant="dark" onClick={() => dispatch(cartActions.delCart(selectDish))}
                             disabled={
                                 (selectDish.select === 'mid' && (count ? count.countByMid! === 0 : true))
                                 ||

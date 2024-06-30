@@ -23,7 +23,7 @@ export async function POST(req: NextRequest) {
                 })
             })
         )
-        const result = chekSumByOrder(cart.buy as IDishModify[], cart.price)
+        const result = chekSumByOrder(cart.buy as IDishModify[], cart.price, cart.paidDelivery)
         if (!result || dishDB.includes(null)) {
             return NextResponse.json(
                 { message: "Bad Request" },
