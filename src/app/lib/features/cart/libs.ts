@@ -32,8 +32,8 @@ export function delBuyForCart(state: ICart, payload: Dish, check: boolean) {
         } else {
             state.buy[indexBySelectDish].countByLarge! -= 1;
         }
-        state.price = check ? state.price - payload.price_for_mid! : state.price - payload.price_for_large!;
-        state.countDishes = state.countDishes - 1;
+        state.price -= check ? payload.price_for_mid! : payload.price_for_large!;
+        state.countDishes -= 1;
 
         if (state.buy[indexBySelectDish].countByLarge === 0 && state.buy[indexBySelectDish].countByMid === 0) {
             // иначе удаляем

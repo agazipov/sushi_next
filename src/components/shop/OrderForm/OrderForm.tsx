@@ -17,10 +17,10 @@ import { useRouter } from 'next/navigation';
 import { cartActions } from '@/src/app/lib/features/cart/cart';
 import { sendOrder } from './action';
 import { IResult } from '@/src/types/commonTypes';
-import { useSetLastOrder } from '@/src/context/LastOrderProvider';
-import { useSetTime } from '@/src/context/TimeOutProvider';
 import toast, { Toaster } from 'react-hot-toast';
 import { useMask } from '@react-input/mask';
+import { useSetTime } from '@/src/context/timeOut/useContext';
+import { useSetLastOrder } from '@/src/context/lastOrder/useContext';
 
 export default function OrderForm({ cart }: { cart: ICart }) {
     const [viewDelivery, setViewDelivery] = useState(() => cart.delivery && true);

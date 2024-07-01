@@ -3,8 +3,8 @@
 import {useEffect, useState } from "react";
 import styles from "./styles.module.css";
 import classNames from "classnames";
-import { useLastOrder } from "@/src/context/LastOrderProvider";
-import { useChekTime } from "@/src/context/TimeOutProvider";
+import { useChekTime } from "@/src/context/timeOut/useContext";
+import { useLastOrder } from "@/src/context/lastOrder/useContext";
 
 export default function OrderSuccess() {
     const [chek, setChek] = useState<boolean>(false)

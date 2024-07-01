@@ -7,10 +7,10 @@ import OrderList from "../OrderList/OrderList";
 import OrderForm from "../OrderForm/OrderForm";
 import { useLayoutEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { useChekTime } from '@/src/context/TimeOutProvider';
 import classNames from "classnames";
 import styles from "./styles.module.scss";
 import EmptyContent from '../EmptyContent/EmptyContent';
+import { useChekTime } from '@/src/context/timeOut/useContext';
 
 export default function Order() {
     const cart = useAppSelector((state: RootState) => selectCart(state));

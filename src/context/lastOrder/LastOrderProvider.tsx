@@ -2,18 +2,12 @@
 
 import React, {
     useCallback,
-    useContext,
     useEffect,
+    useMemo,
     useState,
 } from "react";
-import { ICart } from "../types/reduxTypes";
-
-const context = React.createContext<ICart | null>(null);
-const setterContext = React.createContext((cart: ICart) => { });
-
-export const useLastOrder = () => useContext(context);
-export const useSetLastOrder = () => useContext(setterContext);
-
+import { ICart } from "../../types/reduxTypes";
+import { LastOrderContext } from "./context";
 
 // провайдер для отображения последнего заказа
 // компонты: formOrder, orderSuccess
@@ -27,18 +21,21 @@ export default function LastOrderProvider({ children }: {
         if (orderStorage) {
             setOrder(JSON.parse(orderStorage));
         }
-    }, [])
+    }, []);
 
     const writeOrder = useCallback((cart: ICart) => {
         setOrder(cart);
         localStorage.setItem("order", JSON.stringify(cart));
-    }, [])
+    }, []);
+
+    const contextValue = useMemo(() => ({
+        order,
+        setOrder: writeOrder,
+    }), [order, writeOrder]);
 
     return (
-        <context.Provider value={order}>
-            <setterContext.Provider value={writeOrder}>
-                {children}
-            </setterContext.Provider>
-        </context.Provider>
+        <LastOrderContext.Provider value={contextValue}>
+            {children}
+        </LastOrderContext.Provider>
     )
 }

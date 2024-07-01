@@ -1,4 +1,8 @@
-.font__styles {
+.root {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+  
     font-family: var(--font-comfortaa);
     font-size: 0.9rem;
   
@@ -21,6 +25,10 @@
       font-family: var(--font-dokdo);
     }
   
+  }
+
+  .main {
+    flex: 1 1 auto;
   }
   
   @media (max-width: 576px) {

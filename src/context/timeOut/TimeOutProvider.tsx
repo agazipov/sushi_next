@@ -2,18 +2,11 @@
 
 import React, {
     useCallback,
-    useContext,
     useEffect,
-    useState,
+    useMemo,
 } from "react";
-
-const setterContext = React.createContext((time: number) => { });
-const chekContext = React.createContext((time: number): boolean => true);
-
-export const useSetTime = () => useContext(setterContext);
-export const useChekTime = () => useContext(chekContext);
-
-const TIMEOUT = 300000;
+import { TimeOutContext } from "./context";
+import { TIMEOUT } from "@/lib/constant";
 
 // провайдер для таймаута запросов в 5 минут от спама запросов
 // проверяет вышло время и записывает новый таймаут при запросе
@@ -36,7 +29,7 @@ export default function TimeOutProvider({ children }: {
     }, []);
 
     // скрываем заказ только при оформлении
-    const writeTimout = useCallback((time: number) => {
+    const setTimout = useCallback((time: number) => {
         localStorage.setItem("timeOut", time.toString());
     }, []);
 
@@ -56,11 +49,14 @@ export default function TimeOutProvider({ children }: {
         }       
     }, []);
 
+    const contextValue = useMemo(() => ({
+        setTimout,
+        chekTimout
+    }), [setTimout, chekTimout]);
+
     return (
-            <setterContext.Provider value={writeTimout}>
-                <chekContext.Provider value={chekTimout}>
-                    {children}
-                </chekContext.Provider>
-            </setterContext.Provider>
+        <TimeOutContext.Provider value={contextValue}>
+            {children}
+        </TimeOutContext.Provider>
     )
 }

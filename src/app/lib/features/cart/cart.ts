@@ -21,14 +21,13 @@ const cartSlice = createSlice({
         addCart: (state, { payload }: PayloadAction<IDishModify>) => { //добавить счетчик общего прайса в функцию**
             // общая цена в зависимости от порции
             const checkSize = payload.select === 'mid';
-            state.price = checkSize ? state.price + payload.price_for_mid! : state.price + payload.price_for_large!;
+            state.price += checkSize ? payload.price_for_mid! : payload.price_for_large!;
             // пострелизный костыль для доп фичи (бесплатная доставка от 600)
             if (state.paidDelivery && state.price >= 700) {
                 state.paidDelivery = false;
                 state.price -= 100;
             }
             addBuyForCart(state, payload, checkSize);
-            localStorage.setItem("cart", JSON.stringify(state));
         },
         delCart: (state, { payload }: PayloadAction<Dish>) => {
             // общая цена в зависимости от порции
@@ -39,14 +38,12 @@ const cartSlice = createSlice({
                 state.price = 0;
                 state.paidDelivery = false;
                 state.delivery = false;
-                localStorage.setItem("cart", JSON.stringify(state));
                 return;
             }
             if (state.delivery && !state.paidDelivery && state.price < 600) {
                 state.paidDelivery = true;
                 state.price += 100;
             }
-            localStorage.setItem("cart", JSON.stringify(state));
         },
         delivery: (state, { payload }: PayloadAction<boolean>) => {
             if (payload) {
@@ -66,7 +63,6 @@ const cartSlice = createSlice({
             }
         },
         clearCart: () => {
-            localStorage.removeItem("cart");
             return initialState;
         },
     }

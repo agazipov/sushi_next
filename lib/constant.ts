@@ -7,6 +7,8 @@ import pizzas from "./data/pizzas.json";
 import tortillas from "./data/tortillas.json";
 import sets from "./data/sets.json";
 
+export const TIMEOUT = 300000;
+
 export const COUNT_VARIANT: { [index: string]: string[] } = {
     "Холодные роллы": ["Холодные роллы", "₽ за 4 ролла", "₽ за 8 роллов", "порции по 4 ролла", "порции по 8 роллов"],
     "Печеные роллы": ["Печеные роллы", "₽ за 4 ролла", "₽ за 8 роллов", "порции по 4 ролла", "порции по 8 роллов"],

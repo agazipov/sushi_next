@@ -7,7 +7,7 @@ import { cartActions, selectCart } from '@/src/app/lib/features/cart/cart';
 import { useAppDispatch, useAppSelector } from '@/src/app/lib/hooks';
 import { DishComponet } from '../DishComponet/DishComponet';
 import { COUNT_VARIANT } from '@/lib/constant';
-import { useLastOrder } from '@/src/context/LastOrderProvider';
+import { useLastOrder } from '@/src/context/lastOrder/useContext';
 import Link from 'next/link';
 import styles from "./styles.module.scss";
 
