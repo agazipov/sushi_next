@@ -3,7 +3,8 @@ export type TOrder = {
     phone: string
     delivery: string
     street?: string
-    house?: number
+    house?: string
     apartment?: number
-    comment?: string
+    comment?: string,
+    payVariant: string
 }

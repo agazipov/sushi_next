@@ -74,6 +74,7 @@ export default function OrderForm({ cart }: { cart: ICart }) {
 
                     />
                 </InputGroup>
+
                 <FormLabel>Способ получения <br />(Доставка по городу - 100₽, при заказе от 600₽ - бесплатно)</FormLabel>
                 <FormGroup className="mb-3">
                     <FormCheck
@@ -105,6 +106,39 @@ export default function OrderForm({ cart }: { cart: ICart }) {
                         <FormCheckLabel>Доставка</FormCheckLabel>
                     </FormCheck>
                 </FormGroup>
+
+                <FormLabel>Форма расчета</FormLabel>
+                <FormGroup className="mb-3">
+                    <FormCheck
+                        inline
+                        type="radio"
+                        label="1"
+                    >
+                        <FormCheckInput
+                            type="radio"
+                            value='false'
+                            name="payVariant"
+                            // checked={!viewDelivery}
+                            // onChange={() => handleSelect(false)}
+                            defaultChecked
+                        />
+                        <FormCheckLabel>Наличная</FormCheckLabel>
+                    </FormCheck>
+                    <FormCheck
+                        inline
+                        type="radio"
+                        label="2"
+                    >
+                        <FormCheckInput
+                            type="radio"
+                            value='true'
+                            name="payVariant"
+                            // checked={viewDelivery}
+                            // onChange={() => handleSelect(true)}
+                        />
+                        <FormCheckLabel>Безналичная</FormCheckLabel>
+                    </FormCheck>
+                </FormGroup>
                 {viewDelivery &&
                     <>
                         <p className="mb-3">Цена доставки: {cart.paidDelivery ? "100₽" : "бесплатно"}</p>
@@ -115,22 +149,24 @@ export default function OrderForm({ cart }: { cart: ICart }) {
                                 placeholder="Улица"
                                 required
                                 name="street"
-
                             />
                             <FormControl
                                 placeholder="Дом"
-                                type="number"
+                                type="text"
                                 required
                                 name="house"
-
                             />
                             <FormControl
                                 placeholder="Кв"
                                 type="number"
                                 required
                                 name="apartment"
-
                             />
+                            {/* <FormControl
+                                placeholder="*"
+                                type="text"
+                                name="index"
+                            /> */}
                         </InputGroup>
                     </>
                 }

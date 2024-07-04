@@ -6,6 +6,7 @@ export function parsedOrderForString(
     cart: ICart,
 ): string {
     const deliveryChek = formState.delivery === "false";
+    const payChek = formState.payVariant === "false" ? "Наличная" : "Безналичная";
 
     const dishesString = cart.buy.map((dish) => {
         const portions = [];
@@ -14,7 +15,7 @@ export function parsedOrderForString(
         return `Блюдо - ${dish.name} (${portions.join(', ')})`;
     }).join('\n');
 
-    const paidDeliveryString = deliveryChek ? '' : cart.paidDelivery ? 'Платная доставка' : 'Бесплатная доставка';
+    const paidDeliveryString = deliveryChek ? '' : cart.paidDelivery ? 'Платная доставка\n' : 'Бесплатная доставка\n';
     const addressString = deliveryChek ? '' : `Адрес: ул. ${formState.street}, дом ${formState.house}, квартира ${formState.apartment}\n`;
     const commentString = formState.comment ? `Коментарий: ${formState.comment}\n` : '';
 
@@ -24,6 +25,7 @@ export function parsedOrderForString(
         + `На сумму: ${cart.price}₽${cart.discount ? ` скидка ${cart.discount}%` : ''}\n`
         + `Доставка: ${deliveryChek ? 'самовывоз' : 'на адрес'}\n`
         + addressString
-        +`${paidDeliveryString}\n`
+        + paidDeliveryString
+        + `Форма расчета: ${payChek}\n`
         + commentString;
 }
