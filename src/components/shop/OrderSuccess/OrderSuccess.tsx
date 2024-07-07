@@ -36,6 +36,7 @@ export default function OrderSuccess() {
             <p>на сумму {lastOrder.price}₽ {lastOrder.paidDelivery && "с учетом доставки"}</p>
             
             {lastOrder.discount && <p>Для вас действует скидка {lastOrder.discount} %</p>}
+            {lastOrder.delivery && <p>Доставка: {lastOrder.paidDelivery ? "100₽" : "Бесплатно"}</p>}
             {chek && <p>Вы сможете сделать повторный заказ через 5 минут</p>}
         </div>
     )

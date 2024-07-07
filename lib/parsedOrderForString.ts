@@ -15,7 +15,7 @@ export function parsedOrderForString(
         return `Блюдо - ${dish.name} (${portions.join(', ')})`;
     }).join('\n');
 
-    const paidDeliveryString = deliveryChek ? '' : cart.paidDelivery ? 'Платная доставка\n' : 'Бесплатная доставка\n';
+    const paidDeliveryString = deliveryChek ? '' : cart.paidDelivery ? 'Платная доставка +100₽\n' : 'Бесплатная доставка\n';
     const addressString = deliveryChek ? '' : `Адрес: ул. ${formState.street}, дом ${formState.house}, квартира ${formState.apartment}\n`;
     const commentString = formState.comment ? `Коментарий: ${formState.comment}\n` : '';
 

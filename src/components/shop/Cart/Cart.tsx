@@ -7,6 +7,7 @@ import { useAppSelector } from "@/src/app/lib/hooks";
 import ModalCart from "../ModalCart/ModalCart";
 import styles from "./styles.module.scss";
 import classNames from "classnames";
+import { DELIVERY_PRICE } from "@/lib/constant";
 
 
 
@@ -23,6 +24,7 @@ export default function Cart() {
                 <div className={styles.cart__info}>
                     <span>Кол-во: {cart.countDishes}</span>
                     <span>Цена: {cart.price}</span>
+                    {cart.paidDelivery && <span>Дост: {DELIVERY_PRICE}</span>}
                 </div>
             </button>
             <ModalCart show={show} setShow={setShow} />

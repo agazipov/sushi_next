@@ -5,10 +5,11 @@ import { NextResponse, NextRequest } from "next/server";
 import { ICart, IDishModify } from "@/src/types/reduxTypes";
 import { TOrder } from "@/src/types/orderTypes";
 import { chekSumByOrder } from "@/lib/chekSumByOrder";
+import { IReqFindNumber } from "@/src/types/commonTypes";
 
 export async function POST(req: NextRequest) {
     try {
-        const { cart, dataObj }: { cart: ICart, dataObj: TOrder } = await req.json();
+        const { cart, dataObj }: { cart: ICart, dataObj: TOrder } = await req.json();       
 
         // проверка на подмену URL
         const dishDB = await prisma.$transaction(
@@ -23,24 +24,23 @@ export async function POST(req: NextRequest) {
                 })
             })
         )
-        const result = chekSumByOrder(cart.buy as IDishModify[], cart.price, cart.paidDelivery)
+        // проверка скидки
+        if (cart.discount) {
+            const discount: IReqFindNumber = await prisma.discount.findUnique({
+                where: {
+                    phone: dataObj.phone,
+                }
+            })
+            if (!discount) {
+                throw new Error('Скидка не найдена');
+            }
+        }
+        const result = chekSumByOrder(cart);        
         if (!result || dishDB.includes(null)) {
             return NextResponse.json(
                 { message: "Bad Request" },
                 { status: 400 }
             );
-        }
-
-        // скидка скилька
-        const discount = await prisma.discount.findUnique({
-            where: {
-                phone: dataObj.phone,
-            }
-        })
-        
-        if (discount) {
-            cart.price = cart.price * ((100 - discount.discount) / 100);
-            cart.discount = discount.discount;
         }
 
         // сообщение в ТГ

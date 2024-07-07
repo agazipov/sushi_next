@@ -7,6 +7,8 @@ import pizzas from "./data/pizzas.json";
 import tortillas from "./data/tortillas.json";
 import sets from "./data/sets.json";
 
+export const DELIVERY_PRICE = 100;
+
 export const TIMEOUT = 300000;
 
 export const COUNT_VARIANT: { [index: string]: string[] } = {

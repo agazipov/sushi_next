@@ -9,21 +9,22 @@ import {
 } from 'react-bootstrap';
 import FormCheckLabel from "react-bootstrap/FormCheckLabel";
 import FormCheckInput from "react-bootstrap/FormCheckInput";
-import { useState } from "react";
 import styles from "./styles.module.css";
-import { ICart, IDishModify } from '@/src/types/reduxTypes';
-import { useAppDispatch } from '@/src/app/lib/hooks';
+import { ICart } from '@/src/types/reduxTypes';
+import { useAppDispatch, useAppSelector } from '@/src/app/lib/hooks';
 import { useRouter } from 'next/navigation';
-import { cartActions } from '@/src/app/lib/features/cart/cart';
+import { cartActions, selectCart } from '@/src/app/lib/features/cart/cart';
 import { sendOrder } from './action';
 import { IResult } from '@/src/types/commonTypes';
 import toast, { Toaster } from 'react-hot-toast';
 import { useMask } from '@react-input/mask';
 import { useSetTime } from '@/src/context/timeOut/useContext';
 import { useSetLastOrder } from '@/src/context/lastOrder/useContext';
+import { fetchDiscount } from '@/src/app/lib/features/cart/thunk/fetchDiscount';
+import { RootState } from '@/src/app/lib/store';
 
 export default function OrderForm({ cart }: { cart: ICart }) {
-    const [viewDelivery, setViewDelivery] = useState(() => cart.delivery && true);
+    const cartState = useAppSelector((state: RootState) => selectCart(state));
     const dispatch = useAppDispatch();
     const router = useRouter();
     const lastOrder = useSetLastOrder();
@@ -33,6 +34,9 @@ export default function OrderForm({ cart }: { cart: ICart }) {
         mask: "+7 (___) ___-__-__",
         replacement: { _: /\d/ },
         showMask: true,
+        onMask: (event) => {           
+            event.detail.input.length === 10 && dispatch(fetchDiscount(event.detail.value));
+        },
     });
 
     const handleSubmit = async (data: FormData) => {
@@ -47,11 +51,6 @@ export default function OrderForm({ cart }: { cart: ICart }) {
         }
     }
 
-    const handleSelect = (value: boolean) => {
-        dispatch(cartActions.delivery(value));
-        setViewDelivery(value);
-    }
-
     return (
         <>
             <Toaster />
@@ -63,7 +62,6 @@ export default function OrderForm({ cart }: { cart: ICart }) {
                         placeholder="Имя"
                         required
                         name="name"
-
                     />
                     <FormControl
                         ref={inputRef}
@@ -71,9 +69,9 @@ export default function OrderForm({ cart }: { cart: ICart }) {
                         placeholder="+7 (___) ___-__-__"
                         required
                         name="phone"
-
                     />
                 </InputGroup>
+                {cartState.discount && <div className="mb-3">Для вашего номера действует скидка {cartState.discount}%</div>}
 
                 <FormLabel>Способ получения <br />(Доставка по городу - 100₽, при заказе от 600₽ - бесплатно)</FormLabel>
                 <FormGroup className="mb-3">
@@ -83,11 +81,11 @@ export default function OrderForm({ cart }: { cart: ICart }) {
                         label="1"
                     >
                         <FormCheckInput
-                            checked={!viewDelivery}
+                            checked={!cartState.delivery}
                             type="radio"
                             value='false'
                             name="delivery"
-                            onChange={() => handleSelect(false)}
+                            onChange={() => dispatch(cartActions.delivery(false))}
                         />
                         <FormCheckLabel>Самовывоз</FormCheckLabel>
                     </FormCheck>
@@ -97,11 +95,11 @@ export default function OrderForm({ cart }: { cart: ICart }) {
                         label="2"
                     >
                         <FormCheckInput
-                            checked={viewDelivery}
+                            checked={cartState.delivery}
                             type="radio"
                             value='true'
                             name="delivery"
-                            onChange={() => handleSelect(true)}
+                            onChange={() => dispatch(cartActions.delivery(true))}
                         />
                         <FormCheckLabel>Доставка</FormCheckLabel>
                     </FormCheck>
@@ -118,8 +116,6 @@ export default function OrderForm({ cart }: { cart: ICart }) {
                             type="radio"
                             value='false'
                             name="payVariant"
-                            // checked={!viewDelivery}
-                            // onChange={() => handleSelect(false)}
                             defaultChecked
                         />
                         <FormCheckLabel>Наличная</FormCheckLabel>
@@ -133,15 +129,13 @@ export default function OrderForm({ cart }: { cart: ICart }) {
                             type="radio"
                             value='true'
                             name="payVariant"
-                            // checked={viewDelivery}
-                            // onChange={() => handleSelect(true)}
                         />
                         <FormCheckLabel>Безналичная</FormCheckLabel>
                     </FormCheck>
                 </FormGroup>
-                {viewDelivery &&
+                {cartState.delivery &&
                     <>
-                        <p className="mb-3">Цена доставки: {cart.paidDelivery ? "100₽" : "бесплатно"}</p>
+                        <div className="mb-3">Цена доставки: {cart.paidDelivery ? "100₽" : "бесплатно"}</div>
                         <InputGroup className="mb-3">
                             <FormControl
                                 className={styles.formOrder__imput_mod}
@@ -162,11 +156,6 @@ export default function OrderForm({ cart }: { cart: ICart }) {
                                 required
                                 name="apartment"
                             />
-                            {/* <FormControl
-                                placeholder="*"
-                                type="text"
-                                name="index"
-                            /> */}
                         </InputGroup>
                     </>
                 }
