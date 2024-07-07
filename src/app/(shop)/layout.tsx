@@ -23,9 +23,9 @@ export default function MainLayout({
                         <meta data-meta="ssr" data-vmid="title" name="title" content="РыбаРис доставка суши и пиццы в городе Бакал" />
                     </Head>
                     <Background />
-                    {/* <Suspense>
+                    <Suspense>
                         <Metric />
-                    </Suspense> */}
+                    </Suspense>
                     <div className={styles.root}>
                         <Header />
                         <Navigation />

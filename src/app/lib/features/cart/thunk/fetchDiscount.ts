@@ -6,7 +6,7 @@ export const fetchDiscount = createAsyncThunk(
     'cart/fetchDiscount',
     async (number: string, { dispatch }) => {
         try {
-            const response = await axios.get(`http://localhost:3000/api/discount?number=${number}`);
+            const response = await axios.get(`https://fish-rice.ru/api/discount?number=${number}`);
             const discount = response.data.body;
             if (!discount) {
                 dispatch(cartActions.removeDiscount());
