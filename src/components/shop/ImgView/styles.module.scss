@@ -38,4 +38,8 @@
     background-color: #f8d7da96;
     padding: 2px 6px;
     border-radius: 4px;
+    text-wrap: wrap;
+    display: block;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }

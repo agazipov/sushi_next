@@ -26,21 +26,32 @@ export function delBuyForCart(state: ICart, payload: Dish, checkSize: boolean) {
     // Находим блюдо в корзине по id
     const dishInCart = state.buy.find((dish) => dish.id === payload.id);
 
-    // если элемент найден то:
-    if (dishInCart) {
-        // если не последний по количеству элемент то уменьшаем счетчик в зависимости от порции
-        if (checkSize) {
-            dishInCart.countByMid! -= 1;
+    if (!dishInCart) return; // Проверка на наличие блюда в корзине
+
+    if (checkSize) {
+        dishInCart.countByMid! -= 1;
+    } else {
+        dishInCart.countByLarge! -= 1;
+    }
+
+    if (dishInCart.countByLarge === 0 && dishInCart.countByMid === 0) {
+        state.buy = state.buy.filter(dish => dish.id !== payload.id);
+    }
+
+    state.countDishes -= 1;
+}
+
+
+export const calculatePriceWithDiscount = (price: number, discount: number): number => {
+    return Math.round(price * ((100 - discount) / 100));
+}
+
+export const checkFreeDelivery = (state: ICart) => {
+    if (state.delivery) {
+        if (state.price >= 600) {
+            state.paidDelivery = false;
         } else {
-            dishInCart.countByLarge! -= 1;
+            state.paidDelivery = true;
         }
-        
-        // иначе удаляем
-        if (dishInCart.countByLarge === 0 && dishInCart.countByMid === 0) {
-            state.buy = state.buy.filter(dish => dish.id !== payload.id);
-        }
-        
-        // Обновляем общий счетчик блюд
-        state.countDishes -= 1;
     }
 }
