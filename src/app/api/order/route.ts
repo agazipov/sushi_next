@@ -6,6 +6,7 @@ import { ICart, IDishModify } from "@/src/types/reduxTypes";
 import { TOrder } from "@/src/types/orderTypes";
 import { chekSumByOrder } from "@/lib/chekSumByOrder";
 import { IReqFindNumber } from "@/src/types/commonTypes";
+import { fetchWhatsApp } from "@/src/services/whatsapp";
 
 export async function POST(req: NextRequest) {
     try {
@@ -43,10 +44,25 @@ export async function POST(req: NextRequest) {
             );
         }
 
-        // сообщение в ТГ
+        // парсим сообщение
         const formedOrder = parsedOrderForString(dataObj, cart);
-        const response = await fetchTelegram(formedOrder, process.env.CHAT_ID || "", process.env.BOT_TOKEN || "")
-        if (!response.ok) {
+        // сообщение в ТГ
+        const responseTG = await fetchTelegram(formedOrder, process.env.CHAT_ID || "", process.env.BOT_TOKEN || "")
+        // if (!responseTG.ok) {
+        //     throw new Error('Ошибка при отправке формы');
+        // }
+
+        // сообщение в whatsapp
+        const responseWA = await fetchWhatsApp(
+            formedOrder,
+            process.env.CHAT_WA || "",
+            process.env.API_URL_WA || "",
+            process.env.ID_INSTANCE_WA || "",
+            process.env.API_TOKEN_INSTANCE_WA || "",
+        )
+        console.log('responseWA', responseWA);
+        
+        if (!responseWA.idMessage) {
             throw new Error('Ошибка при отправке формы');
         }
 

@@ -6,6 +6,18 @@ import friedRolls from "./data/friedRolls.json";
 import pizzas from "./data/pizzas.json";
 import tortillas from "./data/tortillas.json";
 import sets from "./data/sets.json";
+import { ICart } from "@/src/types/reduxTypes";
+
+export const INITIAL_STATE: ICart = {
+    price: 0,
+    countDishes: 0,
+    delivery: false,
+    paidDelivery: false,
+    discount: null,
+    buy: [],
+    loading: false,
+    error: null,
+};
 
 export const DELIVERY_PRICE = 100;
 

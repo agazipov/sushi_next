@@ -5,21 +5,11 @@ import { Dish } from "@prisma/client";
 import { addBuyForCart, calculatePriceWithDiscount, checkFreeDelivery, delBuyForCart } from './libs';
 import { RootState } from '../../store';
 import { fetchDiscount } from './thunk/fetchDiscount';
-
-const initialState: ICart = {
-    price: 0,
-    countDishes: 0,
-    delivery: false,
-    paidDelivery: false,
-    discount: null,
-    buy: [],
-    loading: false,
-    error: null,
-}
+import { INITIAL_STATE } from '@/lib/constant';
 
 const cartSlice = createSlice({
     name: 'cart',
-    initialState,
+    initialState: INITIAL_STATE,
     reducers: {
         hydration: (_state, { payload }: PayloadAction<ICart>) => payload,
         addCart: (state, { payload }: PayloadAction<IDishModify>) => {
@@ -32,7 +22,7 @@ const cartSlice = createSlice({
                 state.price += priceToAdd;
             }
 
-            if (state.paidDelivery && state.price >= 600) {
+            if (state.delivery && state.paidDelivery && state.price >= 600) {
                 state.paidDelivery = false;
             }
 
@@ -48,7 +38,12 @@ const cartSlice = createSlice({
                 state.delivery = false;
                 state.discount = null;
                 return;
-            }            
+                // return {
+                //     ...INITIAL_STATE,
+                //     loading: state.loading,
+                //     error: state.error
+                // };
+            }
 
             const priceToSubtract = checkSize ? payload.price_for_mid! : payload.price_for_large!;
 
@@ -87,7 +82,7 @@ const cartSlice = createSlice({
             checkFreeDelivery(state);
         },
         clearCart: () => {
-            return initialState;
+            return INITIAL_STATE;
         },
     },
     extraReducers: (builder) => {
