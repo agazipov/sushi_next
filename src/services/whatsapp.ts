@@ -7,7 +7,6 @@ export async function fetchWhatsApp(
 ) {
     const bodyParser = {
         chatId: `${chat}@g.us`,
-        // chatId: `${chat}@c.us`,
         message: message,
     }
     console.log('chat', chat);

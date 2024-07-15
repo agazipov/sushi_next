@@ -48,6 +48,7 @@ export async function POST(req: NextRequest) {
         const formedOrder = parsedOrderForString(dataObj, cart);
         // сообщение в ТГ
         const responseTG = await fetchTelegram(formedOrder, process.env.CHAT_ID || "", process.env.BOT_TOKEN || "")
+        
         // if (!responseTG.ok) {
         //     throw new Error('Ошибка при отправке формы');
         // }
@@ -60,11 +61,10 @@ export async function POST(req: NextRequest) {
             process.env.ID_INSTANCE_WA || "",
             process.env.API_TOKEN_INSTANCE_WA || "",
         )
-        console.log('responseWA', responseWA);
         
-        if (!responseWA.idMessage) {
-            throw new Error('Ошибка при отправке формы');
-        }
+        // if (!responseWA.idMessage) {
+        //     throw new Error('Ошибка при отправке формы');
+        // }
 
         // запись метрики
         await prisma.metricOrder.update({
