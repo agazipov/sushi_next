@@ -22,6 +22,7 @@ import { useSetTime } from '@/src/context/timeOut/useContext';
 import { useSetLastOrder } from '@/src/context/lastOrder/useContext';
 import { fetchDiscount } from '@/src/app/lib/features/cart/thunk/fetchDiscount';
 import { RootState } from '@/src/app/lib/store';
+import { TOrder } from '@/src/types/orderTypes';
 
 export default function OrderForm({ cart }: { cart: ICart }) {
     const cartState = useAppSelector((state: RootState) => selectCart(state));
@@ -40,7 +41,17 @@ export default function OrderForm({ cart }: { cart: ICart }) {
     });
 
     const handleSubmit = async (data: FormData) => {
-        const result: IResult = await sendOrder(cart, data);
+        // const result: IResult = await sendOrder(cart, data);
+	const dataObj = Object.fromEntries(data) as unknown as TOrder;
+        const response = await fetch(`https://fish-rice.ru/api/order`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ cart, dataObj })
+        });
+	const result: IResult = await response.json();
+
         if (result.message === "order success") {
             lastOrder(result.body!);
             timeOut(Date.now());

@@ -9,9 +9,10 @@ import { IReqFindNumber } from "@/src/types/commonTypes";
 import { fetchWhatsApp } from "@/src/services/whatsapp";
 
 export async function POST(req: NextRequest) {
+    console.log('requst', req);
     try {
         const { cart, dataObj }: { cart: ICart, dataObj: TOrder } = await req.json();       
-
+	console.log('cart!!!', cart);
         // проверка на подмену URL
         const dishDB = await prisma.$transaction(
             cart.buy.map(product => {
@@ -91,7 +92,7 @@ export async function POST(req: NextRequest) {
     } catch (error: any) {
         return NextResponse.json(
             { message: error.message },
-            { status: 500 }
+            { status: 501 }
         );
     }
 }
