@@ -12,10 +12,10 @@ import {
 import FormCheckLabel from "react-bootstrap/FormCheckLabel";
 import FormCheckInput from "react-bootstrap/FormCheckInput";
 import type { Stock } from "@prisma/client";
-import { createStock, updateStock } from '@/src/app/api/auth/[...nextauth]/actionStock';
 import { useRouter } from 'next/navigation';
 import processResForStock from '@/lib/processResForStock';
 import { IResult } from '@/src/types/commonTypes';
+import { createStockFromPrisma, updateStockFromPrisma } from '@/src/services/stock';
 
 interface IFormChange {
     stock: Stock | null
@@ -29,9 +29,9 @@ export default function StockForm({ stock, setShow, setMessage }: IFormChange) {
     const handleSubmit = async (data: FormData) => {
         let result: IResult;
         if (stock) {
-            result = await updateStock(data)
+            result = await updateStockFromPrisma(data)
         } else {
-            result = await createStock(data)
+            result = await createStockFromPrisma(data)
         }
         setMessage(processResForStock(result.message));
 

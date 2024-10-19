@@ -1,11 +1,10 @@
-import { getAllStocks } from "@/src/app/api/auth/[...nextauth]/actionStock";
 import StockList from "@/src/components/admin/StockList/StockList";
+import { getAllStocksFromPrisma } from "@/src/services/stock";
 
-export const dynamic = 'error';
-export const revalidate = 0;
+export const dynamic = 'force-dynamic';
 
 export default async function AdminPage() {
-    const stocks = await getAllStocks();
+    const stocks = await getAllStocksFromPrisma();
 
     return (
         <StockList stocks={stocks} />

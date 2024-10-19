@@ -5,10 +5,17 @@ import { getServerSession } from "next-auth";
 import { authConfig } from "./config";
 
 export async function getAllStocks() {
-    const response = await fetch(`https://localhost:3000/api/stock`
-    );
-    const result: Stock[] = await response.json();
-    return result;
+    try {
+        const response = await fetch(`${process.env.FETCH_URL}/api/stock`);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const result: Stock[] = await response.json();
+        return result;
+    } catch (error) {
+        console.error("Error fetching stocks:", error);
+        throw error; // Передаем ошибку дальше, чтобы ее можно было обработать в вызывающем коде
+    }
 }
 
 export async function createStock(data: FormData) {

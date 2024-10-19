@@ -7,20 +7,20 @@ import { Button } from "react-bootstrap";
 import styles from "./styles.module.css";
 import classNames from "classnames";
 import StockForm from "../StockForm/StockForm";
-import { removeStock } from "@/src/app/api/auth/[...nextauth]/actionStock";
 import toast, { Toaster } from 'react-hot-toast';
 import { useRouter } from "next/navigation";
 import processResForStock from "@/lib/processResForStock";
 import Image from "next/image";
 import ConfirmDelete from "../ConfirmDelete/ConfirmDelete";
+import { removeStockFromPrisma } from "@/src/services/stock";
 
-export default function StockList({ stocks }: { stocks: Stock[] }) {
+export default function StockList({ stocks }: { stocks: Stock[] | undefined }) {
     const [showForm, setShowForm] = useState<Stock | boolean>(false);
     const [showDelete, setShowDelete] = useState<Stock | null>(null);
     const router = useRouter();
 
     const handleRemove = async (stock: Stock) => {
-        const result = await removeStock(stock);
+        const result = await removeStockFromPrisma(stock);
         toast(processResForStock(result.message));
         router.refresh();
     }

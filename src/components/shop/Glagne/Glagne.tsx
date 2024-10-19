@@ -7,7 +7,7 @@ import japan_girl from '@/public/img_app/art_girl.webp';
 import classNames from 'classnames';
 import styles from "./styles.module.scss";
 
-export default async function Home({ stocks }: { stocks: Stock[] }) {
+export default async function Home({ stocks }: { stocks: Stock[] | undefined }) {
 
     return (
         <div className={classNames(styles.home, "container")}>
@@ -46,7 +46,7 @@ export default async function Home({ stocks }: { stocks: Stock[] }) {
                 </div>
             </section>
 
-            {stocks.some(stock => stock.show) &&
+            {stocks && stocks.some(stock => stock.show) &&
                 <section className={classNames(styles.home__section, styles.discription)}>
                     <div className={styles.home__stocks}>
                         <h3>АКЦИИ</h3>
