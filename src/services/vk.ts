@@ -7,6 +7,8 @@ export async function fetchVK(message: string, userId: string, accessToken: stri
         v: '5.199' // версия API
     }
 
+    console.log('bodyParser', bodyParser);
+
     const response = await fetch(`https://api.vk.com/method/messages.send`, {
         method: 'POST',
         headers: {
