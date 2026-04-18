@@ -7,12 +7,14 @@ import { TOrder } from "@/src/types/orderTypes";
 import { chekSumByOrder } from "@/lib/chekSumByOrder";
 import { IReqFindNumber } from "@/src/types/commonTypes";
 import { fetchWhatsApp } from "@/src/services/whatsapp";
+import { fetchVK } from "@/src/services/vk";
 
 export async function POST(req: NextRequest) {
     console.log('requst', req);
     try {
         const { cart, dataObj }: { cart: ICart, dataObj: TOrder } = await req.json();       
-	console.log('cart!!!', cart);
+
+	console.log('cart!!!', cart);
         // проверка на подмену URL
         const dishDB = await prisma.$transaction(
             cart.buy.map(product => {
@@ -66,6 +68,12 @@ export async function POST(req: NextRequest) {
         // if (!responseWA.idMessage) {
         //     throw new Error('Ошибка при отправке формы');
         // }
+
+        const vkUserId = Number(process.env.VK_USER_ID);
+        const vkToken = process.env.VK_ACCESS_TOKEN || "";
+        if (Number.isFinite(vkUserId) && vkToken) {
+            await fetchVK(formedOrder, vkUserId, vkToken);
+        }
 
         // запись метрики
         await prisma.metricOrder.update({
