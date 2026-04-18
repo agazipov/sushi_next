@@ -1,20 +1,20 @@
 export async function fetchVK(message: string, userId: string, accessToken: string) {
-    const bodyParser = {
+    // VK API принимает параметры как application/x-www-form-urlencoded, не JSON.
+    // Иначе сервер не разбирает тело и возвращает ошибку (в Postman часто уже выбран нужный тип).
+    const body = new URLSearchParams({
         access_token: accessToken,
-        user_id: userId,
-        message: message,
-        random_id: Date.now(), // уникальный ID для предотвращения дублей
-        v: '5.199' // версия API
-    }
+        user_id: String(userId),
+        message,
+        random_id: String(Date.now()),
+        v: '5.199',
+    });
 
-    console.log('bodyParser', bodyParser);
-
-    const response = await fetch(`https://api.vk.com/method/messages.send`, {
+    const response = await fetch('https://api.vk.com/method/messages.send', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json;charset=utf-8',
+            'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
         },
-        body: JSON.stringify(bodyParser)
+        body: body.toString(),
     });
     
     const result = await response.json();
