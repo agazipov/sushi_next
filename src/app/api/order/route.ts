@@ -12,9 +12,9 @@ import { fetchVK } from "@/src/services/vk";
 export async function POST(req: NextRequest) {
     console.log('requst', req);
     try {
-        const { cart, dataObj }: { cart: ICart, dataObj: TOrder } = await req.json();       
+        const { cart, dataObj }: { cart: ICart, dataObj: TOrder } = await req.json();
 
-	console.log('cart!!!', cart);
+        console.log('cart!!!', cart);
         // проверка на подмену URL
         const dishDB = await prisma.$transaction(
             cart.buy.map(product => {
@@ -39,7 +39,7 @@ export async function POST(req: NextRequest) {
                 throw new Error('Скидка не найдена');
             }
         }
-        const result = chekSumByOrder(cart);        
+        const result = chekSumByOrder(cart);
         if (!result || dishDB.includes(null)) {
             return NextResponse.json(
                 { message: "Bad Request" },
@@ -51,7 +51,7 @@ export async function POST(req: NextRequest) {
         const formedOrder = parsedOrderForString(dataObj, cart);
         // сообщение в ТГ
         const responseTG = await fetchTelegram(formedOrder, process.env.CHAT_ID || "", process.env.BOT_TOKEN || "")
-        
+
         // if (!responseTG.ok) {
         //     throw new Error('Ошибка при отправке формы');
         // }
@@ -64,16 +64,14 @@ export async function POST(req: NextRequest) {
             process.env.ID_INSTANCE_WA || "",
             process.env.API_TOKEN_INSTANCE_WA || "",
         )
-        
+
         // if (!responseWA.idMessage) {
         //     throw new Error('Ошибка при отправке формы');
         // }
 
-        const vkUserId = Number(process.env.VK_USER_ID);
+        const vkUserId = process.env.VK_USER_ID || "";
         const vkToken = process.env.VK_ACCESS_TOKEN || "";
-        if (Number.isFinite(vkUserId) && vkToken) {
-            await fetchVK(formedOrder, vkUserId, vkToken);
-        }
+        await fetchVK(formedOrder, vkUserId, vkToken);
 
         // запись метрики
         await prisma.metricOrder.update({

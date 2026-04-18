@@ -1,4 +1,4 @@
-export async function fetchVK(message: string, userId: number, accessToken: string) {
+export async function fetchVK(message: string, userId: string, accessToken: string) {
     const bodyParser = {
         access_token: accessToken,
         user_id: userId,
