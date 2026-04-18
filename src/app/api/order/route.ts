@@ -50,20 +50,20 @@ export async function POST(req: NextRequest) {
         // парсим сообщение
         const formedOrder = parsedOrderForString(dataObj, cart);
         // сообщение в ТГ
-        const responseTG = await fetchTelegram(formedOrder, process.env.CHAT_ID || "", process.env.BOT_TOKEN || "")
+        // const responseTG = await fetchTelegram(formedOrder, process.env.CHAT_ID || "", process.env.BOT_TOKEN || "")
 
         // if (!responseTG.ok) {
         //     throw new Error('Ошибка при отправке формы');
         // }
 
         // сообщение в whatsapp
-        const responseWA = await fetchWhatsApp(
-            formedOrder,
-            process.env.CHAT_WA || "",
-            process.env.API_URL_WA || "",
-            process.env.ID_INSTANCE_WA || "",
-            process.env.API_TOKEN_INSTANCE_WA || "",
-        )
+        // const responseWA = await fetchWhatsApp(
+        //     formedOrder,
+        //     process.env.CHAT_WA || "",
+        //     process.env.API_URL_WA || "",
+        //     process.env.ID_INSTANCE_WA || "",
+        //     process.env.API_TOKEN_INSTANCE_WA || "",
+        // )
 
         // if (!responseWA.idMessage) {
         //     throw new Error('Ошибка при отправке формы');
@@ -71,7 +71,8 @@ export async function POST(req: NextRequest) {
 
         const vkUserId = process.env.VK_USER_ID || "";
         const vkToken = process.env.VK_ACCESS_TOKEN || "";
-        await fetchVK(formedOrder, vkUserId, vkToken);
+        const resultVK = await fetchVK(formedOrder, vkUserId, vkToken);
+
 
         // запись метрики
         await prisma.metricOrder.update({
