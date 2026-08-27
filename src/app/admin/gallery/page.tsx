@@ -11,11 +11,14 @@ export default function GalleryPage() {
     useEffect(() => {
         async function fetchStocks() {
             try {
-                const response = await fetch(`https://fish-rice.ru/api/picture`);
+                const response = await fetch(`/api/picture`);
+                const result = await response.json();
                 if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+                    throw new Error(result.message || `HTTP error! status: ${response.status}`);
                 }
-                const result: string[] = await response.json();
+                if (!Array.isArray(result)) {
+                    throw new Error(result.message || "Некорректный ответ галереи");
+                }
                 setPicture(result);
             } catch (error: any) {
                 console.error("Error fetching stocks:", error);

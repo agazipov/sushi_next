@@ -6,6 +6,7 @@ import MapService from "../Map/Map";
 import japan_girl from '@/public/img_app/art_girl.webp';
 import classNames from 'classnames';
 import styles from "./styles.module.scss";
+import { s3ImageUrl } from "@/lib/storage";
 
 export default async function Home({ stocks }: { stocks: Stock[] | undefined }) {
 
@@ -60,7 +61,7 @@ export default async function Home({ stocks }: { stocks: Stock[] | undefined }) 
                                         </div>
                                         {stock.img &&
                                             <div className={styles.home__stock_img}>
-                                                <Image width={400} height={400} src={`https://fish-rice-bucket.s3.cloud.ru/${stock.img}`} alt="Акция" />
+                                                <Image width={400} height={400} src={s3ImageUrl(stock.img)} alt="Акция" />
                                             </div>
                                         }
                                     </div>

@@ -10,6 +10,7 @@ import {
 import { createDish, updateDish } from "@/src/services/actionDish";
 import { Dish } from "@prisma/client";
 import { useState } from 'react';
+import ImageUploadField from "../ImageUploadField/ImageUploadField";
 
 type Props = {
     dish: Dish | null;
@@ -47,10 +48,12 @@ export default function DishForm({ dish, categorieId, setShow }: Props) {
                 <FormControl type="text" placeholder="Цена(бол)" required name="price_for_large" defaultValue={dish ? dish.price_for_large : "0"} />
             </InputGroup>
 
-            <FormLabel >Изображение</FormLabel>
-            <InputGroup className="mb-3">
-                <FormControl type="text" placeholder="Изображение" required name="img" defaultValue={dish ? dish.img : ''} />
-            </InputGroup>
+            <ImageUploadField
+                defaultValue={dish ? dish.img : ''}
+                multiple
+                required={!dish}
+                label="Изображение"
+            />
 
             <FormLabel >Акция</FormLabel>
             <InputGroup className="mb-3">

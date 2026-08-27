@@ -3,6 +3,7 @@ import { imgNameParser } from "@/lib/imgParser";
 import { Dish } from "@prisma/client";
 import { memo } from 'react';
 import Image from "next/image";
+import { s3ImageUrl } from "@/lib/storage";
 import styles from "./styles.module.scss";
 
 interface IImgView {
@@ -24,7 +25,7 @@ const ImgView = memo(function ImgView({ dish, mod }: IImgView) {
                                     <Image
                                         height={140}
                                         width={140}
-                                        src={`https://fish-rice-bucket.s3.cloud.ru/${img.url}`}
+                                        src={s3ImageUrl(img.url)}
                                         alt={img.name}
                                     />
                                 </div>
@@ -40,7 +41,7 @@ const ImgView = memo(function ImgView({ dish, mod }: IImgView) {
                     <Image
                         height={112}
                         width={112}
-                        src={`https://fish-rice-bucket.s3.cloud.ru/${nameImgList[0].url}`}
+                        src={s3ImageUrl(nameImgList[0].url)}
                         alt={nameImgList[0].name}
                     />
                 </div>

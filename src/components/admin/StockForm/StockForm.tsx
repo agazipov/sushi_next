@@ -16,6 +16,7 @@ import { useRouter } from 'next/navigation';
 import processResForStock from '@/lib/processResForStock';
 import { IResult } from '@/src/types/commonTypes';
 import { createStockFromPrisma, updateStockFromPrisma } from '@/src/services/stock';
+import ImageUploadField from '../ImageUploadField/ImageUploadField';
 
 interface IFormChange {
     stock: Stock | null
@@ -52,21 +53,11 @@ export default function StockForm({ stock, setShow, setMessage }: IFormChange) {
                 <FormControl as="textarea" rows={5} name="body" defaultValue={stock ? (stock.body || '') : ''} />
             </FormGroup>
 
-            <FormLabel >{stock ? `Текущее изображение ${stock.img}. Заменить?` : "Изображение"}</FormLabel>
-            <InputGroup className="mb-3">
-                <FormControl
-                    type="text"
-                    placeholder="Изображение"
-                    required={stock ? false : true}
-                    name="img"
-                    defaultValue={stock ? stock.img : ''}
-                />
-            </InputGroup>
-
-            {/* <FormGroup className="mb-3">
-                <FormLabel>{stock ? `Текущее изображение ${stock.img}. Заменить?` : "Изображение"}</FormLabel>
-                <FormControl type="file" name="picture" required={stock ? false : true} />
-            </FormGroup> */}
+            <ImageUploadField
+                defaultValue={stock ? stock.img : ''}
+                required={!stock}
+                label={stock ? `Текущее изображение ${stock.img}. Заменить?` : "Изображение"}
+            />
 
             <FormLabel >Отображение</FormLabel>
             <FormGroup className="mb-3">

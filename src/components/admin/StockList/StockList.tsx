@@ -13,6 +13,7 @@ import processResForStock from "@/lib/processResForStock";
 import Image from "next/image";
 import ConfirmDelete from "../ConfirmDelete/ConfirmDelete";
 import { removeStockFromPrisma } from "@/src/services/stock";
+import { s3ImageUrl } from "@/lib/storage";
 
 export default function StockList({ stocks }: { stocks: Stock[] | undefined }) {
     const [showForm, setShowForm] = useState<Stock | boolean>(false);
@@ -50,7 +51,7 @@ export default function StockList({ stocks }: { stocks: Stock[] | undefined }) {
                                         <Image
                                             width={100}
                                             height={100}
-                                            src={`https://fish-rice-bucket.s3.cloud.ru/${stock.img}`}
+                                            src={s3ImageUrl(stock.img)}
                                             alt={stock.img}
                                         />
                                     </div>
