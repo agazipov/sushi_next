@@ -62,7 +62,7 @@ async function listFromDatabase() {
             if (part) keys.add(part);
         }
     }
-    return [...keys].sort();
+    return Array.from(keys).sort();
 }
 
 export async function GET() {
