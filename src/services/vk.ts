@@ -1,9 +1,9 @@
-export async function fetchVK(message: string, userId: string, accessToken: string) {
+export async function fetchVK(message: string, peerId: string, accessToken: string) {
     // VK API принимает параметры как application/x-www-form-urlencoded, не JSON.
-    // Иначе сервер не разбирает тело и возвращает ошибку (в Postman часто уже выбран нужный тип).
+    // peer_id: пользователь = его id; беседа = 2000000000 + chat_id; сообщество = -group_id.
     const body = new URLSearchParams({
         access_token: accessToken,
-        user_id: String(userId),
+        peer_id: String(peerId),
         message,
         random_id: String(Date.now()),
         v: '5.199',

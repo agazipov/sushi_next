@@ -69,9 +69,9 @@ export async function POST(req: NextRequest) {
         //     throw new Error('Ошибка при отправке формы');
         // }
 
-        const vkUserId = process.env.VK_USER_ID || "";
+        const vkPeerId = process.env.VK_PEER_ID || process.env.VK_USER_ID || "";
         const vkToken = process.env.VK_ACCESS_TOKEN || "";
-        const resultVK = await fetchVK(formedOrder, vkUserId, vkToken);
+        const resultVK = await fetchVK(formedOrder, vkPeerId, vkToken);
 
 
         // запись метрики
